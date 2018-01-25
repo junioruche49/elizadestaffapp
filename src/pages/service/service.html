@@ -1,0 +1,181 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Service</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+		<button outline color="danger" ion-button (click)="selectcars()" *ngIf="cars.length > 0">Select Car</button>
+	<form (ngSubmit)="submit(f)" #f="ngForm">
+		<br><br>
+		<ion-list>
+			<ion-item>
+				<h3>What is your Vehicle Registration No?</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-input 
+					type="text" 
+					name="reg_no" 
+					placeholder="Vehicle Registration No"
+					ngModel
+					required
+				[value]="reg_no"></ion-input>
+			</ion-item>
+			<br />
+			<br />
+			<ion-item>
+				<h3>What is your Vehicle Type?</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-input 
+					type="text" 
+					name="vehicle_type" 
+					placeholder="Vehicle Type"
+					ngModel
+					required
+				[value]="type"></ion-input>
+			</ion-item>
+			<br />
+			<br />
+			<ion-item>
+				<h3>What is your Vehicle Model?</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-input 
+					type="text" 
+					name="vehicle_model" 
+					placeholder="Vehicle Model"
+					ngModel
+					required
+					[value]="model"></ion-input>
+			</ion-item>
+			<br />
+			<br />
+			<ion-item>
+				<h3>What is your Vehicle Year?</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-datetime 
+				displayFormat="YYYY" 
+				placeholder="Select Year"
+				name="vehicle_year"
+				 [(ngModel)]="myDate"
+				required></ion-datetime>
+			</ion-item>
+			<br />
+			<br />
+			<ion-item>
+				<h3>Mileage</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-select 
+				placeholder="Select Vehicle Mileage"
+				name="mileage"
+				ngModel
+				required>
+					<ion-option value="3000">0km - 3,000</ion-option>
+					<ion-option value="5000">3,000 - 5,000</ion-option>
+					<ion-option value="5001">5,000 and above</ion-option>
+				</ion-select>
+			</ion-item>
+			<br />
+			<br />
+			<ion-item>
+				<h3>Last Service Date</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-datetime 
+					displayFormat="MMM DD, YYYY"
+					placeholder="Select Date"
+					name="service_date" 
+					ngModel 
+					required></ion-datetime>
+			</ion-item>
+			<br />
+			<br />
+			<ion-item>
+				<h3>Service Type</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-select [(ngModel)]="selectservice" name="service" required>
+					<ion-option value="minor_service">Minor Service</ion-option>
+					<ion-option value="major_service">Major Service</ion-option>
+					<ion-option value="advance_service">Advance Service</ion-option>
+				</ion-select>
+			</ion-item>
+			<br />
+			<br />
+			<ion-list 
+				radio-group 
+				ngModel
+				required
+				name="service_type">
+			  <ion-list-header class='line'>
+			    <h3 class="call" color="dark">Recommended Service Type</h3>
+			  </ion-list-header>
+
+			  <ion-item>
+			    <ion-label>Series A</ion-label>
+			    <ion-radio value="series_a"></ion-radio>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label>Series B</ion-label>
+			    <ion-radio value="series_b" ></ion-radio>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label>Series C</ion-label>
+			    <ion-radio value="series_c"></ion-radio>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label>Series D</ion-label>
+			    <ion-radio value="series_d"></ion-radio>
+			  </ion-item>
+			  <ion-item>
+			  	<p>Base on your selection we recommend Series B</p>
+			  </ion-item>
+			  
+			</ion-list>
+			<ion-item>
+				<h3>What Issue did you Percieved?</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-textarea name="percieved"
+					  placeholder="Percieved Issue"
+					  required
+					  ngModel
+					#myInput
+					(keyup)="resize()"></ion-textarea>
+			</ion-item>
+			<br />
+			<br />
+			<ion-item>
+				<h3>Pickup Date/Time</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-datetime 
+					displayFormat="MMM DD, YYYY HH:mm"  
+					placeholder="Date/Time"
+					name="pickup"
+					required
+					ngModel></ion-datetime>
+			</ion-item>
+			<br />
+		</ion-list>
+		<button color="danger" ion-button block type="submit" [disabled]="!f.valid">Send</button>
+	</form>
+</ion-content>

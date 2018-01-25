@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+
+    <ion-title>Showroom</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<form (ngSubmit)="submit(f)" #f="ngForm">
+	<ion-list>
+		<ion-item text-wrap>
+			<h3>Which of our location suits you?</h3>
+		</ion-item>
+		<ion-item>
+			<ion-label floating></ion-label>
+			<ion-select 
+				placeholder="Select your location" 
+				name="location" 
+				ngModel 
+				required>
+				<ion-option value="lagos">Lagos</ion-option>
+				<ion-option value="Ph">Ph</ion-option>
+			</ion-select>
+		</ion-item>
+
+		<br />
+		<br />
+		<br />
+
+		<ion-item text-wrap>
+			<h3>What time & date would you like to schedule the visit?</h3>
+		</ion-item>
+		<ion-item>
+			<!-- <ion-label floating>What time & date would you like to schedule the visit</ion-label> -->
+			<ion-label floating></ion-label>
+			<ion-datetime 
+				displayFormat="MMM DD, YYYY HH:mm"  
+				placeholder="Select Date/Time"
+				name="date" 
+				ngModel 
+				required></ion-datetime>
+		</ion-item>
+	</ion-list>
+	<button color="danger" ion-button block type="submit" [disabled]="!f.valid">Send</button>
+	</form>
+</ion-content>

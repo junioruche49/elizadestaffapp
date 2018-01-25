@@ -1,0 +1,11 @@
+page-mechanicalrepair {
+	.list-md .item-input:last-child{
+		border-bottom: none !important;
+	}
+	#myInput {
+	    width: calc(100% - 10px);
+	    border: 0;
+	    border-radius: 0;
+	    background: transparent;
+	}
+}

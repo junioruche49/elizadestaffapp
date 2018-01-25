@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Service Request</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-grid>
+		<ion-row>
+		<ion-col>
+			<h5>Vehicle Registration No: {{ servicerequests.reg_no }}</h5>
+			<hr>
+			<h5>Vehicle Type: {{ servicerequests.vehicle_type }}</h5>
+			<hr>
+			<h5>Vehicle Model: {{ servicerequests.vehicle_model }}</h5>
+			<hr>
+			<h5>Last Service Date: {{ servicerequests.service_date }}</h5>
+			<hr>
+			<h5>Percieved Issue:</h5>
+			<ion-note>{{ servicerequests.percieved_issue }}</ion-note>
+		</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col col-12>
+					<br><br>
+					<h5 text-right>Status: <button ion-button color="danger">PENDING</button></h5>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

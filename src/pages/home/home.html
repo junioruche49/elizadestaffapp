@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,11 +8,79 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <ion-card>
+  <ion-card-header class="headercolor">
+    Make an Appiontment
+  </ion-card-header>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-list>
+    <button ion-item [navPush]="showroom">
+      <ion-icon name="podium" item-start></ion-icon>
+      Visit Showroom
+    </button>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <button ion-item [navPush]="schedule">
+      <ion-icon name="time" item-start></ion-icon>
+      Schedule a Demostration
+    </button>
+
+    <button ion-item [navPush]="salesexecutive">
+      <ion-icon name="call" item-start></ion-icon>
+      Speak to a Sales Executive
+    </button>
+
+
+  </ion-list>
+</ion-card>
+
+<ion-card>
+  <ion-card-header class="headercolor">
+    Request a Service/Repair
+  </ion-card-header>
+
+  <ion-list>
+    <button ion-item [navPush]="diagnosis">
+      <ion-icon name="checkmark-circle" item-start></ion-icon>
+      Diagnosis
+    </button>
+
+    <button ion-item [navPush]="bodywork">
+      <ion-icon name="car" item-start></ion-icon>
+      Body Work
+    </button>
+
+    <button ion-item [navPush]="service">
+      <ion-icon name="build" item-start></ion-icon>
+      Service
+    </button>
+
+    <button ion-item [navPush]="mechanicalrepair">
+      <ion-icon name="construct" item-start></ion-icon>
+      Repair
+    </button>
+
+
+  </ion-list>
+</ion-card>
+
+<ion-card>
+  <ion-card-header class="headercolor">
+    General
+  </ion-card-header>
+
+  <ion-list>
+    <button ion-item [navPush]="products" [navParams]="data">
+      <ion-icon name="search" item-start></ion-icon>
+      View our Products
+    </button>
+
+    <button ion-item [navPush]="quotation">
+      <ion-icon name="cart" item-start></ion-icon>
+      Quotations
+    </button>
+
+
+  </ion-list>
+</ion-card>
+
 </ion-content>

@@ -1,0 +1,80 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<div padding>
+	  <ion-segment [(ngModel)]="settings">
+	    <ion-segment-button value="account">
+	      Add Account
+	    </ion-segment-button>
+	    <ion-segment-button value="password">
+	      Change Password
+	    </ion-segment-button>
+	  </ion-segment>
+	</div>
+
+	<div [ngSwitch]="settings">
+	  <ion-list *ngSwitchCase="'password'">
+	  	<form (ngSubmit)="submit(f)" #f="ngForm">
+		    <ion-item>
+		  		<h3>Old Password</h3>
+		  	</ion-item>
+		    <ion-item>
+		      <ion-label></ion-label>
+		      <ion-input type="text" name="password" placeholder="xxxxxx" ngModel required></ion-input>
+		    </ion-item>
+		    <br><br>
+		    <ion-item>
+		  		<h3>New Password</h3>
+		  	</ion-item>
+		    <ion-item>
+		      <ion-label></ion-label>
+		      <ion-input type="text" name="newpassword" placeholder="xxxxxx" ngModel required></ion-input>
+		    </ion-item>
+		    <br><br>
+		    <ion-item>
+		  		<h3>Confirm Password</h3>
+		  	</ion-item>
+		    <ion-item>
+		      <ion-label></ion-label>
+		      <ion-input type="text" name="confirmpassword" placeholder="xxxxxx" ngModel required></ion-input>
+		    </ion-item>
+		    <br>
+		    <button ion-button color="danger" type="submit" block [disabled]="!f.valid">Save</button>
+	    </form>
+	  </ion-list>
+	  
+	  <ion-list *ngSwitchCase="'account'">
+	  	<form (ngSubmit)="submitcode(g)" #g="ngForm">
+		  	<ion-item>
+		  		<h3>Full Name</h3>
+		  	</ion-item>
+		    <ion-item>
+		      <ion-label></ion-label>
+		      <ion-input type="text" name="name" placeholder="Jack" ngModel required></ion-input>
+		    </ion-item>
+		    <br><br>
+		  	<ion-item>
+		  		<h3>Code</h3>
+		  	</ion-item>
+		    <ion-item>
+		      <ion-label></ion-label>
+		      <ion-input type="text" name="code" placeholder="343j3k" ngModel required></ion-input>
+		    </ion-item>
+		    <br>
+		    <button ion-button color="danger" type="submit" block [disabled]="!g.valid">Save</button>
+		    <button ion-button color="danger" type="button" block outline (click)="showaccounts()" *ngIf="getUsers.length > 0">VIEW ACCOUNTS</button>
+	    </form>
+	  </ion-list>
+	</div>
+</ion-content>

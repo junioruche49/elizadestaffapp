@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>{{ car.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				<img [src]="'assets/imgs/'+car.image">
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				Name: {{ car.name }}
+				<hr>
+				Registration No: {{ car.reg_no }}
+				<hr>
+				Model: {{ car.model }}
+				<hr>
+				Year: {{ car.vehicle_year }}
+				<hr>
+				Type: {{ car.type }}
+				<hr>
+
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

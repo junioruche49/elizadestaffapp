@@ -1,0 +1,133 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Body Work</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+		<button outline color="danger" ion-button (click)="selectcars()" *ngIf="cars.length > 0">Select Car</button>
+	<form (ngSubmit)="submit(f)" #f="ngForm">
+		<br><br>
+		<ion-list>
+			<ion-item>
+				<h3>What is your Vehicle Registration No?</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-input 
+					type="text" 
+					name="reg_no" 
+					placeholder="Vehicle Registration No"
+					ngModel
+					required
+					[value]="reg_no"></ion-input>
+			</ion-item>
+			<br />
+			<br />
+			<ion-item>
+				<h3>What is your Vehicle Type?</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-input 
+					type="text" 
+					name="vehicle_type" 
+					placeholder="Vehicle Type"
+					ngModel
+					required
+					[value]="type"></ion-input>
+			</ion-item>
+			<br />
+			<br />
+			<ion-item>
+				<h3>What is your Vehicle Model?</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-input 
+					type="text" 
+					name="vehicle_model" 
+					placeholder="Vehicle Model"
+					ngModel
+					required
+					[value]="model"></ion-input>
+			</ion-item>
+			<br />
+			<br />
+			<ion-item>
+				<h3>What is your Vehicle Year?</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-datetime 
+					displayFormat="YYYY"  
+					placeholder="Vehicle Year"
+					name="vehicle_year"
+					required
+				 [(ngModel)]="myDate"></ion-datetime>
+			</ion-item>
+			<br />
+			<br />
+		</ion-list>
+			<ion-list radio-group 
+					ngModel
+					required
+					[(ngModel)]="bodywork"
+					name="bodywork">
+			  <ion-list-header class='line'>
+			    <h3 class="call" color="dark">Select Body Work Type</h3>
+			  </ion-list-header>
+
+			  <ion-item>
+			    <ion-label>Full Body</ion-label>
+			    <ion-radio checked="true" value="full"></ion-radio>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label>Partial Body</ion-label>
+			    <ion-radio value="partial" ></ion-radio>
+			  </ion-item>
+
+			</ion-list>
+			<div *ngIf="bodywork != 'full'">
+				<ion-item>
+					<h3>What part of the car?</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
+					<ion-textarea 
+					name="partial_option" 
+					placeholder="Part of the car"
+					ngModel 
+					required
+					#myInput
+					(keyup)="resize()"></ion-textarea>
+				</ion-item>
+			</div>
+			<br />
+			<br />
+			<ion-item>
+				<h3>Pickup Date/Time</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-datetime 
+					displayFormat="MMM DD, YYYY HH:mm"  
+					placeholder="Date/Time"
+					name="pickup"
+					required
+					ngModel></ion-datetime>
+			</ion-item>
+			
+			<br />
+		<button 
+		color="danger" 
+		ion-button 
+		block
+		[disabled]="!f.valid">Send</button>
+	</form>
+	
+</ion-content>

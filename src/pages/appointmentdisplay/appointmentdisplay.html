@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Appointment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-grid>
+		<ion-row>
+			<ion-col col-12>
+				<br>
+				<h3>Location: {{ showroom.location }}</h3>
+				<h4>Date: {{ showroom.date_time }}</h4>
+			</ion-col>
+			<ion-col col-12>
+				<br><br>
+				<h4 text-right>Status: <button ion-button color="danger">PENDING</button></h4>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

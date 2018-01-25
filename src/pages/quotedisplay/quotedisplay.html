@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Quotation</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-grid>
+		<ion-row>
+			<ion-col col-12>
+				<img [src]="'assets/imgs/'+prod_idex.product_image_1">
+			</ion-col>
+			<ion-col col-6>
+				<img [src]="'assets/imgs/'+prod_idex.product_image_2">
+			</ion-col>
+			<ion-col col-6>
+				<img [src]="'assets/imgs/'+prod_idex.product_image_3">
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<h3>{{ prod_idex.product_name }}</h3>
+				<p>{{ prod_idex.product_desc }}</p>
+				<p>Quantity Order: {{ quotation.qty }}</p>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

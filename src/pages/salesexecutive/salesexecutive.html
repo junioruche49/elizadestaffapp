@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Sales Executive</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<form (ngSubmit)="submit(f)" #f="ngForm">
+		<ion-list>
+			  <ion-list radio-group 
+			  		name="callrequest"
+			  		required
+			  		[(ngModel)]="call">
+				  <ion-list-header>
+				    <h3 class="call">Would you like to call, or be called?</h3>
+				  </ion-list-header>
+
+				  <ion-item>
+				    <ion-label>Yes</ion-label>
+				    <ion-radio checked="true" value="yes"></ion-radio>
+				  </ion-item>
+
+				  <ion-item>
+				    <ion-label>No</ion-label>
+				    <ion-radio value="no"></ion-radio>
+				  </ion-item>
+
+				</ion-list>
+			<div *ngIf="call == 'yes'" >
+				<ion-item>
+					<ion-label floating>Phone Number?</ion-label>
+					<ion-input 
+					type="text" 
+					name="phonenumber"
+					required
+					ngModel></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label floating>Date/Time</ion-label>
+					 <ion-datetime 
+					 displayFormat="MMM DD, YYYY HH:mm"
+						name="date_time" 
+						ngModel 
+						required></ion-datetime>
+				</ion-item>
+				<ion-item>
+					<ion-label floating>Comment (Are you making an enquiring or complain).</ion-label>
+					<ion-textarea 
+					name="comment"
+					required
+					ngModel></ion-textarea>
+				</ion-item>
+			</div>
+			
+		</ion-list>
+		<button color="danger" ion-button block type="submit" [disabled]="!f.valid">Send</button>
+	</form>
+</ion-content>

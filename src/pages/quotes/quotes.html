@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Quotes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-grid>
+		<ion-row *ngFor="let quote of quotation; let i = index" (click)="quotespage(i)">
+			<ion-col col-3>
+				<img [src]="'assets/imgs/'+getproductimg(quote.product)">
+			</ion-col>
+			<ion-col col-7>
+			{{ getproductname(quote.product) }}<br>
+			Qty: {{ quote.qty }}
+			</ion-col>
+			<ion-col col-2>
+				<br>
+				  <ion-icon name="arrow-round-forward"></ion-icon>
+			</ion-col>
+			<ion-col col-12>
+				<hr>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

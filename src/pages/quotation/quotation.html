@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Quotation</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<!-- <form (ngSubmit)="submit(f)" #f="ngForm">
+		<ion-list>
+			<ion-item text-wrap>
+				<h3>Product</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-select 
+					placeholder="Select your Product" 
+					name="product" 
+					ngModel 
+					required>
+					<ion-option *ngFor="let product of products; let i = index"  [value]="i">{{product.product_name}}</ion-option>
+				</ion-select>
+			</ion-item>
+
+			<br />
+			<br />
+			<br />
+
+			<ion-item text-wrap>
+				<h3>Quantity</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-input type="number" name="quantity" ngModel required placeholder="20"></ion-input>
+			</ion-item>
+		</ion-list>
+		<button color="danger" ion-button block type="submit" [disabled]="!f.valid">Send</button>
+	</form> -->
+	<!-- <button color="danger" ion-button block outline (click)="showmodal()" >Select Product</button>
+	<button color="danger" ion-button block>Submit</button> -->
+	<ion-grid>
+		<ion-row *ngFor="let quote of quotation; let i = index" (click)="quotespage(i)">
+			<ion-col col-3>
+				<img [src]="'assets/imgs/'+getproductimg(quote.product)">
+			</ion-col>
+			<ion-col col-7>
+			{{ getproductname(quote.product) }}<br>
+			Qty: {{ quote.qty }}
+			</ion-col>
+			<ion-col col-2>
+				<br>
+				  <ion-icon name="arrow-round-forward"></ion-icon>
+			</ion-col>
+			<ion-col col-12>
+				<hr>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
