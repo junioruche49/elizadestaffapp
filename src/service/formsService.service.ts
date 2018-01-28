@@ -16,12 +16,12 @@ import { Users } from '../service/user.service'
 export class formsService {
 	User: User;
 	public showroom: Showroom[] = []
-	private schedule: Schedule[] = []
+	public schedule: Schedule[] = []
 	private diagnosis: Diagnosis[] = []
 	private bodywork: bodyWork[] =[]
 	private service: Service[] = []
 	private mechanicalrepair: mechanicalRepair[] = []
-	private salesexecutive: saleSexecutive[] = []
+	public salesexecutive: saleSexecutive[] = []
 	private quotation: Quotation[] = [];
 	private sentQuotation: Quotation[] = [];
 
@@ -49,7 +49,9 @@ export class formsService {
 	}
 
 	addSchedule(value: Schedule){
-		this.schedule.push(value);
+				let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+		return this.http.post('http://elizade.ebukaokwuokenye.com/api/appointment/demo', {location: value.location, datetime: value.date_time}, {headers: headers})
+
 	}
 
 	getSchedule(){
@@ -93,6 +95,9 @@ export class formsService {
 	}
 
 	addSalesExecutive(value: saleSexecutive){
+		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+		return this.http.post('http://elizade.ebukaokwuokenye.com/api/appointment/call', {comment: value.comment, phone: value.phonenumber, datetime: value.date_time}, {headers: headers})
+
 		this.salesexecutive.push(value)
 	}
 

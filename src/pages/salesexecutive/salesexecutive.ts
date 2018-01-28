@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { User } from '../../models/user.model'
 import { formsService } from '../../service/formsService.service';
@@ -26,7 +26,8 @@ export class SalesexecutivePage {
   			  public navParams: NavParams,
   			  public formservice: formsService,
   			  public users: Users,
-  			  public toast: ToastController) {
+  			  public toast: ToastController,
+  			  public loading: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -38,12 +39,6 @@ export class SalesexecutivePage {
   	let date_time;
   	let comment;
 
-  	const toast = this.toast.create({
-  		message: 'Sent Successfully',
-  		duration: 3500,
-  		position: 'bottom'
-  	});
-  	toast.present()
 
   	if (this.call == 'yes') {
   		phone = form.value.phonenumber;
@@ -55,10 +50,36 @@ export class SalesexecutivePage {
   		comment = '';
   	}
 
+  	const loading = this.loading.create({
+  		content: 'Sending'
+  	})
+  	loading.present();
+
+  	const toast2 = this.toast.create({
+  		message: 'Something Went wrong',
+  		duration: 1500,
+  		position: 'bottom'
+  	});
+
   	 this.user = this.users.getUser();
-  	this.formservice.addSalesExecutive(new saleSexecutive(this.user.customer_number, form.value.callrequest, phone, date_time, comment))
+  	this.formservice.addSalesExecutive(new saleSexecutive(this.user.customer_number, form.value.callrequest, phone, date_time, comment)).subscribe((data: any) => {
+  		
+  		const toast = this.toast.create({
+  		message: data.message,
+  		duration: 1500,
+  		position: 'bottom'
+  		});
+
+  		loading.dismiss();
+  		toast.present();
+  		this.formservice.salesexecutive.push(new saleSexecutive(this.user.customer_number, form.value.callrequest, phone, date_time, comment));
+  		this.navCtrl.pop();
+
+  	},err => {
+  		loading.dismiss();
+  		toast2.present();
+  	})
   	console.log(this.formservice.getSalesExecutive());
-  	this.navCtrl.pop();
   }
 
 }

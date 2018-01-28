@@ -56,6 +56,6 @@
 			</div>
 			
 		</ion-list>
-		<button color="danger" ion-button block type="submit" [disabled]="!f.valid">Send</button>
+		<button color="danger" ion-button block type="submit" [disabled]="!f.valid || f.value.callrequest == 'no' ">Send</button>
 	</form>
 </ion-content>

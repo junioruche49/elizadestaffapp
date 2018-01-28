@@ -20,8 +20,7 @@
 					name="location" 
 					ngModel 
 					required>
-					<ion-option>Lagos</ion-option>
-					<ion-option>Ph</ion-option>
+				<ion-option *ngFor="let locate of location; let i = index" [value]="locate">{{locate}}</ion-option>
 				</ion-select>
 			</ion-item>
 

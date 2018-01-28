@@ -66,6 +66,7 @@ export class ShowroomPage {
 
   		loading.dismiss();
   		toast.present();
+  		this.formservice.showroom.push(new Showroom(this.user.customer_number, form.value.location, form.value.date));
   		this.navCtrl.pop();
 
   	},err => {
