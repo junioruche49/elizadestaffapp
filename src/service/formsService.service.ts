@@ -97,8 +97,6 @@ export class formsService {
 	addSalesExecutive(value: saleSexecutive){
 		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
 		return this.http.post('http://elizade.ebukaokwuokenye.com/api/appointment/call', {comment: value.comment, phone: value.phonenumber, datetime: value.date_time}, {headers: headers})
-
-		this.salesexecutive.push(value)
 	}
 
 	getSalesExecutive(){
