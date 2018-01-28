@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>{{ car.name }}</ion-title>
+    <ion-title>{{ car.Model }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,20 +11,16 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col>
-				<img [src]="'assets/imgs/'+car.image">
+				<img [src]="'assets/imgs/toyota1.jpeg'">
 			</ion-col>
 		</ion-row>
 		<ion-row>
 			<ion-col>
-				Name: {{ car.name }}
+				Name: {{ car.Model }}
 				<hr>
-				Registration No: {{ car.reg_no }}
+				Registration No: {{ car.RegistrationNo }}
 				<hr>
-				Model: {{ car.model }}
-				<hr>
-				Year: {{ car.vehicle_year }}
-				<hr>
-				Type: {{ car.type }}
+				Year: {{ car.Year }}
 				<hr>
 
 			</ion-col>

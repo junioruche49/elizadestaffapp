@@ -14,11 +14,10 @@
 	<ion-grid>
 		<ion-row *ngFor="let car of cars; let i = index" (click)="viewproduct(car)">
 			<ion-col col-3>
-				<img [src]="'assets/imgs/'+car.image">
+				<img [src]="'assets/imgs/toyota1.jpeg'">
 			</ion-col>
 			<ion-col col-7>
-			{{ car.name }}<br>
-			{{ car.model }}
+			{{ car.Model }}
 			</ion-col>
 			<ion-col col-2>
 				<br>

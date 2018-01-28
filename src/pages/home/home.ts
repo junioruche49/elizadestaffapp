@@ -29,8 +29,7 @@ export class HomePage {
 	quotation = QuotationPage;
 	data = true;
 
-  constructor(public navCtrl: NavController, public authpage: AuthPage, public user: Users) {
-  	this.authpage.showauth();
+  constructor(public navCtrl: NavController, public authpage: AuthPage) {
   }
 
 

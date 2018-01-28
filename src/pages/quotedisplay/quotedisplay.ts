@@ -28,7 +28,7 @@ export class QuotedisplayPage {
   	public loadingCtrl: LoadingController) {
   	let loader = this.loadingCtrl.create({content: "Loading..."});
     loader.present();
-  	this.quotation = this.formsservice.getQuote(this.navParams.get('id'));
+  	this.quotation = this.formsservice.getSingleSetQuotation(this.navParams.get('id'));
   	this.prod_idex = this.product.getProduct(this.quotation.product);
   	loader.dismiss();
   }

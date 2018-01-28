@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -40,6 +41,7 @@ import { Users } from '../service/user.service';
 import { formsService } from '../service/formsService.service'
 import { Productservice } from '../service/products.service'
 import { Car } from '../service/cars.service'
+import { LocationProvider } from '../providers/location/location';
 
 @NgModule({
   declarations: [
@@ -75,6 +77,7 @@ import { Car } from '../service/cars.service'
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    HttpClientModule,
     IonicStorageModule.forRoot({
       name: '__mydb',
          driverOrder: ['indexeddb', 'sqlite', 'websql']
@@ -118,7 +121,8 @@ import { Car } from '../service/cars.service'
     Users,
     formsService,
     Productservice,
-    Car
+    Car,
+    LocationProvider
   ]
 })
 export class AppModule {}

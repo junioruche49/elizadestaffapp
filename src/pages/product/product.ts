@@ -26,6 +26,7 @@ export class ProductPage implements OnInit  {
 
 	prod_idex: Products;
 	index: number;
+	quantity: number;
 
 	usersadded: Usersadded[] = [];
 	user : User;
@@ -85,7 +86,7 @@ export class ProductPage implements OnInit  {
 	      	this.selecteduser = data;
 	      	this.formservice.addQuotation(new Quotation(this.selecteduser, 
   												this.index, 
-  												1))
+  												this.quantity))
   			console.log(this.formservice.getQuotation());
   			this.navCtrl.pop()
 	      }
@@ -104,7 +105,7 @@ export class ProductPage implements OnInit  {
 	  	 this.selecteduser = this.user.customer_number;
 	  	 this.formservice.addQuotation(new Quotation(this.selecteduser, 
   												this.index, 
-  												1))
+  												this.quantity))
   	console.log(this.formservice.getQuotation());
   		this.navCtrl.pop()
   	

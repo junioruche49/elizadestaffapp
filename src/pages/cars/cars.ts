@@ -21,11 +21,15 @@ export class CarsPage {
 	cars: Cars[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public car: Car) {
-  	this.cars = this.car.getCars();
+  	
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CarsPage');
+  }
+
+  ionViewWillEnter(){
+  	this.cars = this.car.getCars();
   }
 
   viewproduct(index: Car){

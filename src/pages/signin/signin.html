@@ -9,20 +9,35 @@
 		 		<ion-list>
 		 			<ion-item>
 		 				<ion-label floating>Email</ion-label>
-		 				<ion-input type="text" name="email"></ion-input>
+		 				<ion-input 
+			 				type="email" 
+			 				name="email"
+			 				ngModel
+			 				email
+			 				required></ion-input>
 		 			</ion-item>
 		 			<ion-item>
 		 				<ion-label floating>Password</ion-label>
-		 				<ion-input type="password" name="password"></ion-input>
+		 				<ion-input 
+		 					type="password" 
+		 					name="password"
+		 					ngModel
+		 					required></ion-input>
 		 			</ion-item>
 		 		</ion-list>
 		 	<ion-row>
-		 		<button type="submit" ion-button block color="primary">Sign In</button>
+		 		<button 
+		 			type="submit" 
+		 			ion-button 
+		 			block 
+		 			color="primary"
+		 			[disabled]="!f.valid">Sign In</button>
 		 		<button 
 		 			ion-button
 		 			block 
 		 			outline 
 		 			color="primary"
+		 			type="button"
 		 			(click)="signup()">Sign Up</button>
 		 		<ion-col text-center>
 		 			<button 
@@ -30,6 +45,7 @@
 		 			block 
 		 			clear 
 		 			color="dark"
+		 			type="button"
 		 			(click)="forgot()">Forgot Password?</button>
 		 		</ion-col>
 		 	</ion-row>

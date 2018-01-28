@@ -63,7 +63,6 @@ export class ServicePage {
 
   	this.formservice.addService(new Service(this.user.customer_number, 
   												form.value.reg_no, 
-  												form.value.vehicle_type, 
   												form.value.vehicle_model, 
   												year,
   												form.value.mileage,
@@ -87,7 +86,7 @@ export class ServicePage {
 	    	
 	    	this.carsdata = {
 	      type: 'radio',
-	      label: userdata.name,
+	      label: userdata.Model,
 	      value: i,
 	      checked: false
 	    }
@@ -103,11 +102,10 @@ export class ServicePage {
 	      handler: data => {
 	      	
 	      	this.getcar = this.car.getCar(data);
-	      	this.type = this.getcar.type;
-	      	this.model = this.getcar.model;
-	      	this.reg_no = this.getcar.reg_no;
-	      	this.year = new Date(this.getcar.vehicle_year+'/02/02').getFullYear();
-	      	this.myDate = new Date(this.getcar.vehicle_year+'/02/02').toISOString();
+	      	this.model = this.getcar.Model;
+	      	this.reg_no = this.getcar.RegistrationNo;
+	      	this.year = new Date(this.getcar.Year+'/02/02').getFullYear();
+	      	this.myDate = new Date(this.getcar.Year+'/02/02').toISOString();
 	      	console.log(this.myDate);
 	      }
 	    });

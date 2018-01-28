@@ -13,25 +13,13 @@
 <ion-content padding>
 	<ion-grid>
 		<ion-row *ngFor="let product of products; let i = index">
-			<ion-col col-8>
-				<img [src]="'assets/imgs/'+product.product_image_1">
-			</ion-col>
-			<ion-col col-4>
-				<ion-row>
-					<ion-col>
-						<img [src]="'assets/imgs/'+product.product_image_2">
-					</ion-col>
-				</ion-row>
-				<ion-row>
-					<ion-col>
-						<img [src]="'assets/imgs/'+product.product_image_3">
-					</ion-col>
-				</ion-row>
+			<ion-col col-12>
+				<img [src]="'assets/imgs/toyota1.jpeg'">
 			</ion-col>
 			<ion-col col-12>
-				<h3>{{ product.product_name }}</h3>
-				<p>{{ product.product_desc }}</p>
-				<button ion-button color="danger" block (click)="viewproduct(i)">View {{product.product_name}}</button>
+				<h3>{{ product.ProductName }}</h3>
+				<p>{{ product.Description }}</p>
+				<button ion-button color="danger" block (click)="viewproduct(i)">View {{product.ProductName}}</button>
 				<br><br><br><br><br>
 			</ion-col>
 

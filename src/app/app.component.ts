@@ -15,6 +15,10 @@ import { SettingsPage } from '../pages/settings/settings';
 import { SigninPage } from '../pages/signin/signin';
 import { AuthPage } from '../service/authpage'
 import { User } from '../models/user.model';
+import { LocationProvider } from '../providers/location/location'
+import { Users } from '../service/user.service'
+import { Car } from '../service/cars.service'
+import { Productservice } from '../service/products.service'
 
 @Component({
   templateUrl: 'app.html'
@@ -37,30 +41,11 @@ export class MyApp {
               private storage: Storage,
               private toast: ToastController,
               private loadingCtrl: LoadingController,
+              private location: LocationProvider,
+              public users: Users
               ) {
+            console.log(this.location.location);
     
-    // const toasts = this.toast.create({
-    //   message: 'loading the authentication',
-    //   duration: 4500,
-    //   position: 'bottom'
-    // })
-    // toasts.present();
-
-    // const user = this.authpage.showPage().then((data: User) => {
-    //    toasts.dismiss()
-    //   return data;
-     
-    // }).catch((err) =>{
-    //   return err;
-    // });
-    // this.user = user;
-    // this.user.then((data)=>{
-    //   this.page = true;
-    //   console.log(data);
-    // })
-
-    // const value = this.authpage.showPage();
-    // console.log(value);
 
     var loader = this.loadingCtrl.create({content: "Loading..."});
     loader.present();
@@ -69,6 +54,7 @@ export class MyApp {
       .then(user => {
         loader.dismiss();
         if(user){
+          this.users.addUser(user);
           this.rootPage = HomePage;
         }else{
           this.rootPage = SigninPage;

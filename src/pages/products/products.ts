@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Products } from '../../models/products.model'
 import { Productservice } from '../../service/products.service'
@@ -16,7 +16,7 @@ import { ProductPage } from '../product/product'
   selector: 'page-products',
   templateUrl: 'products.html',
 })
-export class ProductsPage {
+export class ProductsPage implements OnInit {
 	products : Products[];
 	prod_idex: Products;
 	data = true;
@@ -28,13 +28,22 @@ export class ProductsPage {
   			  public loadingCtrl: LoadingController) {
   	let loader = this.loadingCtrl.create({content: "Loading..."});
     loader.present();
-  	this.products = this.product.getProducts()
   	loader.dismiss();
 
   	if (!this.navParams.data) {
   		this.data = true;
   	}
   }
+
+  ngOnInit(){
+  	
+  }
+
+  ionViewWillEnter(){
+  	this.products = this.product.getProducts()
+  }
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductsPage');

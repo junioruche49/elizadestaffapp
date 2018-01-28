@@ -25,6 +25,7 @@ import { ShowquotationPage } from '../showquotation/showquotation'
 })
 export class QuotationPage {
 	products: Products[];
+	singleProduct : Products;
 	user : User;
 	usersadded: Usersadded[] = [];
 	usersdata: alertData;
@@ -112,5 +113,31 @@ export class QuotationPage {
   showmodal(){
   	this.modal.create(ShowquotationPage).present();
   }
+  getproductname(index: number){
+  	this.singleProduct = this.product.getProduct(index);
+  	return this.singleProduct.ProductName;
+  }
+
+  removefavorite(index: number){
+  	this.formservice.removeQuotation(index);
+  	this.quotation.splice(index, 1);
+  	console.log(index)
+  }
+
+
+  addQuotation(){
+  	this.formservice.SendQuotation(this.quotation);
+  	this.quotation = [];
+  	const toast = this.toast.create({
+  		message: 'Sent Successfully',
+  		duration: 1500,
+  		position: 'bottom'
+  	});
+  	toast.present()
+  }
+
+
+
+
 
 }

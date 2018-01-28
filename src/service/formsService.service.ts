@@ -1,3 +1,5 @@
+import { Injectable } from '@angular/core'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Showroom } from '../models/showroom.model'
 import { Schedule } from '../models/schedule.model'
 import { Diagnosis } from '../models/diagnosis.model';
@@ -6,10 +8,14 @@ import { Service } from '../models/service.model'
 import { mechanicalRepair } from '../models/mechanicalrepair.model'
 import { saleSexecutive } from '../models/salesexecutive.model'
 import { Quotation } from '../models/quotation.model'
+import { User } from '../models/user.model'
+import { Users } from '../service/user.service'
 
+@Injectable()
 
 export class formsService {
-	private showroom: Showroom[] = []
+	User: User;
+	public showroom: Showroom[] = []
 	private schedule: Schedule[] = []
 	private diagnosis: Diagnosis[] = []
 	private bodywork: bodyWork[] =[]
@@ -17,9 +23,17 @@ export class formsService {
 	private mechanicalrepair: mechanicalRepair[] = []
 	private salesexecutive: saleSexecutive[] = []
 	private quotation: Quotation[] = [];
+	private sentQuotation: Quotation[] = [];
+
+	constructor(private http: HttpClient, public Users: Users){
+		this.User = this.Users.getUser();
+
+	}
 
 	addShowroom(value: Showroom){
-		this.showroom.push(value);
+		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+		return this.http.post('http://elizade.ebukaokwuokenye.com/api/appointment/showroom', {location: value.location, datetime: value.date_time}, {headers: headers})
+		
 	}
 
 	getShowrooms(){
@@ -96,6 +110,20 @@ export class formsService {
 
 	getQuote(index: number){
 		return this.quotation[index];
+	}
+	removeQuotation(index: number){
+		this.quotation.splice(index, 1);
+	}
+
+	SendQuotation(quote: Quotation[]){
+		this.quotation = [];
+		this.sentQuotation.push(...quote);
+	}
+	getSentQuotation(){
+		return this.sentQuotation;
+	}
+	getSingleSetQuotation(index: number){
+		return this.sentQuotation[index];
 	}
 
 }

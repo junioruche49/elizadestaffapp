@@ -68,8 +68,7 @@ export class BodyworkPage {
   	let year = new Date(form.value.vehicle_year).getFullYear();
 
   	this.formservice.addbodyWork(new bodyWork(this.user.customer_number, 
-  												form.value.reg_no, 
-  												form.value.vehicle_type, 
+  												form.value.reg_no,  
   												form.value.vehicle_model, 
   												year,
   												form.value.bodywork,
@@ -90,7 +89,7 @@ export class BodyworkPage {
 	    	
 	    	this.carsdata = {
 	      type: 'radio',
-	      label: userdata.name,
+	      label: userdata.Model,
 	      value: i,
 	      checked: false
 	    }
@@ -106,10 +105,9 @@ export class BodyworkPage {
 	      handler: data => {
 	      	console.log(data);
 	      	this.getcar = this.car.getCar(data);
-	      	this.type = this.getcar.type;
-	      	this.model = this.getcar.model;
-	      	this.reg_no = this.getcar.reg_no;
-	      	this.myDate = new Date(this.getcar.vehicle_year+'/02/02').toISOString();
+	      	this.model = this.getcar.Model;
+	      	this.reg_no = this.getcar.RegistrationNo;
+	      	this.myDate = new Date(this.getcar.Year+'/02/02').toISOString();
 	      }
 	    });
 	    alert.present();

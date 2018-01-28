@@ -22,20 +22,20 @@ export class QuotesPage {
 	quotation: Quotation[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public formsservice: formsService, public products: Productservice) {
-  	this.quotation = this.formsservice.getQuotation();
+  	this.quotation = this.formsservice.getSentQuotation();
   }
 
   getproductname(index: number){
   	let product: Products;
   	 product = this.products.getProduct(index);
-  	 return product.product_name
+  	 return product.ProductName
   }
 
-  getproductimg(index: number){
-  	let product: Products;
-  	 product = this.products.getProduct(index);
-  	 return product.product_image_1
-  }
+  // getproductimg(index: number){
+  // 	let product: Products;
+  // 	 product = this.products.getProduct(index);
+  // 	 return product.product_image_1
+  // }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuotesPage');

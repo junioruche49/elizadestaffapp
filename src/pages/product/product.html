@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>{{ prod_idex.product_name }}</ion-title>
+    <ion-title>{{ prod_idex.ProductName }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,24 +11,18 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col col-12>
-				<img [src]="'assets/imgs/'+prod_idex.product_image_1">
-			</ion-col>
-			<ion-col col-6>
-				<img [src]="'assets/imgs/'+prod_idex.product_image_2">
-			</ion-col>
-			<ion-col col-6>
-				<img [src]="'assets/imgs/'+prod_idex.product_image_3">
+				<img [src]="'assets/imgs/toyota1.jpeg'">
 			</ion-col>
 		</ion-row>
 		<ion-row>
 			<ion-col col-12>
-				<h3>{{ prod_idex.product_name }}</h3>
-				<p>{{ prod_idex.product_desc }}</p>
+				<h3>{{ prod_idex.ProductName }}</h3>
+				<p>{{ prod_idex.Description }}</p>
 			</ion-col>
 		</ion-row>
 
 			<form (ngSubmit)="submit(f)" #f="ngForm">
-		<ion-row *ngIf="prod_idex.product_type == 1">
+		<ion-row *ngIf="prod_idex.ProductType == 'Motor Vehicle'">
 			<ion-col col-5>
 					<ion-item>
 						<ion-label stacked>Quantity</ion-label>
@@ -38,11 +32,12 @@
 						placeholder="4"
 						required
 						ngModel
+						[(ngModel)]="quantity"
 						[value]="model"></ion-input>
 					</ion-item>
 				</ion-col>
 		</ion-row>
-		<ion-row *ngIf="prod_idex.product_type == 2">
+		<ion-row *ngIf="prod_idex.ProductType == 2">
 				
 			
 						<ion-item>
@@ -86,5 +81,5 @@
 </ion-content>
 
 <ion-footer>
-	<button ion-button color="danger" block (click)="addquotation()" [disabled]="!f.valid">Add to Cart</button>
+	<button ion-button color="danger" type="submit" block (click)="addquotation()" [disabled]="!f.valid">Add to Cart</button>
 </ion-footer>
