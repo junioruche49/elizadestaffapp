@@ -32,9 +32,11 @@ import { ServicerequestdisplayPage } from '../pages/servicerequestdisplay/servic
 import { CardisplayPage } from '../pages/cardisplay/cardisplay'
 import { AccountsPage } from '../pages/accounts/accounts'
 import { ShowquotationPage } from '../pages/showquotation/showquotation'
+import { CreatecarPage } from '../pages/createcar/createcar'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { CallNumber } from '@ionic-native/call-number';
 
 import { AuthPage } from '../service/authpage';
 import { Users } from '../service/user.service';
@@ -71,7 +73,8 @@ import { LocationProvider } from '../providers/location/location';
     ServicerequestdisplayPage,
     CardisplayPage,
     AccountsPage,
-    ShowquotationPage
+    ShowquotationPage,
+    CreatecarPage
   ],
   imports: [
     BrowserModule,
@@ -111,7 +114,8 @@ import { LocationProvider } from '../providers/location/location';
     ServicerequestdisplayPage,
     CardisplayPage,
     AccountsPage,
-    ShowquotationPage
+    ShowquotationPage,
+    CreatecarPage
   ],
   providers: [
     StatusBar,
@@ -122,6 +126,7 @@ import { LocationProvider } from '../providers/location/location';
     formsService,
     Productservice,
     Car,
+    CallNumber,
     LocationProvider
   ]
 })

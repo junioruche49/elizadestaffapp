@@ -35,19 +35,48 @@ export class Users {
 	addUser(user: User){
 		this.User = user;
 		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
-		this.http.get('http://elizade.ebukaokwuokenye.com/api/products', {headers: headers}).subscribe((data: any) => {
-			this.storage.set('products', data)
-			console.log(data)
-		},err => {
-			console.log(err);
-		})
+		
 
-		this.http.get('http://elizade.ebukaokwuokenye.com/api/cars', {headers: headers}).subscribe((data: any) => {
+		let cars =  this.http.get('http://elizade.ebukaokwuokenye.com/api/cars', {headers: headers}).subscribe((data: any) => {
+			if (data.data.length > 0) {
+
 			this.storage.set('cars', data.data)
+			}
 			console.log(data.data)
 		},err => {
 			console.log(err);
 		})
+
+		// let services =  this.http.get('http://elizade.ebukaokwuokenye.com/api/services', {headers: headers}).subscribe((data: any) => {
+		// 	if (data.data.length > 0) {
+
+		// 	this.storage.set('services', data.data)
+		// 	}
+
+		// 	console.log(data.data)
+		// },err => {
+		// 	console.log(err);
+		// })
+
+		// let appointments =  this.http.get('http://elizade.ebukaokwuokenye.com/api/appointments', {headers: headers}).subscribe((data: any) => {
+		// 	if (data.data.length > 0) {
+
+		// 	this.storage.set('appointments', data.data)
+		// 	}
+		// 	console.log(data.data)
+		// },err => {
+		// 	console.log(err);
+		// })
+
+		// let products =  this.http.get('http://elizade.ebukaokwuokenye.com/api/products', {headers: headers}).subscribe((data: any) => {
+		// 	if (data.length > 0) {
+		// 		this.storage.set('products', data)
+		// 	}
+			
+		// 	console.log(data)
+		// },err => {
+		// 	console.log(err);
+		// })
 
 	}
 

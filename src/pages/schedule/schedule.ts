@@ -42,7 +42,7 @@ export class SchedulePage {
   submit(form: NgForm){
 
   	const loading = this.loading.create({
-  		content: 'Sending'
+  		content: 'Sending..'
   	})
   	loading.present();
 

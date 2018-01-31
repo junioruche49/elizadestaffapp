@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { CallNumber } from '@ionic-native/call-number';
 import { NgForm } from '@angular/forms';
 import { User } from '../../models/user.model'
 import { formsService } from '../../service/formsService.service';
@@ -27,7 +28,8 @@ export class SalesexecutivePage {
   			  public formservice: formsService,
   			  public users: Users,
   			  public toast: ToastController,
-  			  public loading: LoadingController) {
+  			  public loading: LoadingController,
+  			  private callNumber: CallNumber) {
   }
 
   ionViewDidLoad() {
@@ -80,6 +82,12 @@ export class SalesexecutivePage {
   		toast2.present();
   	})
   	console.log(this.formservice.getSalesExecutive());
+  }
+
+  callnumber(){
+  	this.callNumber.callNumber('08159146889', true)
+        .then(() => console.log('Launched dialer!'))
+        .catch(() => console.log('Error launching dialer'));
   }
 
 }

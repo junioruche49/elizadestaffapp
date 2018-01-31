@@ -40,15 +40,7 @@
 		<ion-row *ngIf="prod_idex.ProductType == 2">
 				
 			
-						<ion-item>
-							<ion-label stacked>Vehicle No:</ion-label>
-							<ion-input 
-							type="text" 
-							name="vehicle_no" 
-							placeholder="Vehicle No"
-							required
-							ngModel></ion-input>
-						</ion-item>
+						
 						
 						<ion-item>
 							<ion-label stacked>Chassis No:</ion-label>
@@ -57,6 +49,7 @@
 							name="chassis_no" 
 							placeholder="Chassis No"
 							required
+							[(ngModel)]="chassis_no"
 							ngModel></ion-input>
 						</ion-item>
 						<ion-item>
@@ -66,14 +59,29 @@
 							name="part_no" 
 							placeholder="Part No"
 							required
+							[(ngModel)]="part_no"
 							ngModel></ion-input>
 						</ion-item>
+
+						<ion-item>
+						<ion-label stacked>Quantity</ion-label>
+						<ion-input 
+						type="number" 
+						name="quantity" 
+						placeholder="4"
+						required
+						ngModel
+						[(ngModel)]="spquantity"></ion-input>
+					</ion-item>
+
 						<ion-item>
 							<ion-label stacked>Part Description:</ion-label>
 							<ion-textarea name="desc"
 								  placeholder="Part Description"
 								  required
-								  ngModel></ion-textarea>
+								  ngModel
+								  required
+								  [(ngModel)]="desc"></ion-textarea>
 						</ion-item>
 		</ion-row>
 	</form>

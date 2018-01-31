@@ -11,7 +11,7 @@ import { Users } from '../service/user.service'
 
 export class Car{
 	User: User;
-	private cars:Cars[] = [];
+	public cars:Cars[] = [];
 
 	constructor(public http: HttpClient, public Users: Users, private storage: Storage){
 		this.User = this.Users.getUser();
@@ -28,7 +28,8 @@ export class Car{
 		return this.cars;
 	}
 	addCar(value: Cars){
-		this.cars.push(value);
+		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+		return this.http.post('http://elizade.ebukaokwuokenye.com/api/createcars', {vehicle_reg_no: value.RegistrationNo, vehicle_model: value.Model, vehicle_year: value.Year}, {headers: headers})
 	}
 
 	getCar(index: number){

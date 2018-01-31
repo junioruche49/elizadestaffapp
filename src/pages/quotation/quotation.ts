@@ -40,6 +40,7 @@ export class QuotationPage {
   			  public toast: ToastController,
   			  private alertCtrl: AlertController,
   			  private modal: ModalController) {
+
   	this.products = this.product.getProducts()
   	this.usersadded = this.users.getUsers();
 	    this.user = this.users.getUser();
@@ -126,7 +127,26 @@ export class QuotationPage {
 
 
   addQuotation(){
-  	this.formservice.SendQuotation(this.quotation);
+  	let number = Math.floor((Math.random() * 10000000) + 1)
+  	for (let quotation of this.quotation) {
+  		if (quotation.product_type ==  "Motor Vehicle") {
+  			this.product.addvehicle(quotation, number)
+  			.subscribe((data: any)=>{
+  				this.formservice.sentQuotation.push(quotation)
+  				console.log(data.message);
+  			},err =>{
+  				console.log(err.message)
+  			})
+  		}else{
+  			this.product.addsparepart(quotation, number)
+  			.subscribe((data: any)=>{
+  				this.formservice.sentQuotation.push(quotation)
+  				console.log(data.message);
+  			},err =>{
+  				console.log(err.message)
+  			})
+  		}
+  	}
   	this.quotation = [];
   	const toast = this.toast.create({
   		message: 'Sent Successfully',

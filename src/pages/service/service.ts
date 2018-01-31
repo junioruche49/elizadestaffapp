@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, AlertController, LoadingController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { User } from '../../models/user.model'
 import { formsService } from '../../service/formsService.service';
@@ -41,7 +41,12 @@ export class ServicePage {
   			  public users: Users,
   			  public toast: ToastController,
   			  public alertCtrl: AlertController,
-  			  public car: Car) {
+  			  public car: Car,
+  			  public loading: LoadingController) {
+
+  }
+
+  ionViewWillEnter(){
   	this.cars = this.car.getCars();
   }
 
@@ -51,18 +56,17 @@ export class ServicePage {
 
   submit(form: NgForm){
   	let desc;
-  	const toast = this.toast.create({
-  		message: 'Sent Successfully',
-  		duration: 1500,
-  		position: 'bottom'
-  	});
-  	toast.present()
+  	const loading = this.loading.create({
+  		content: 'Sending..'
+  	})
+  	loading.present();
   	 this.user = this.users.getUser();
 
   	let year = new Date(form.value.vehicle_year).getFullYear();
 
   	this.formservice.addService(new Service(this.user.customer_number, 
   												form.value.reg_no, 
+  												form.value.vehicle_year,
   												form.value.vehicle_model, 
   												year,
   												form.value.mileage,
@@ -71,9 +75,39 @@ export class ServicePage {
   												form.value.service_type,
   												form.value.percieved,
   												form.value.pickup))
+  	.subscribe((data: any) => {
+  		
+  		const toast = this.toast.create({
+  		message: data.message,
+  		duration: 1500,
+  		position: 'bottom'
+  		});
+
+  		loading.dismiss();
+  		toast.present();
+  		this.formservice.service.push(new Service(this.user.customer_number, 
+  												form.value.reg_no, 
+  												form.value.vehicle_year,
+  												form.value.vehicle_model, 
+  												year,
+  												form.value.mileage,
+  												form.value.service_date,
+  												form.value.service,
+  												form.value.service_type,
+  												form.value.percieved,
+  												form.value.pickup));
+  		this.navCtrl.pop();
+
+  	},err => {
+  		const toast2 = this.toast.create({
+  		message: err.message,
+  		duration: 1500,
+  		position: 'bottom'
+  	});
+  		loading.dismiss();
+  		toast2.present();
+  	})
   	console.log(this.formservice.getService());
-  	console.log(year);
-  	this.navCtrl.pop();
   }
 
   selectcars(){

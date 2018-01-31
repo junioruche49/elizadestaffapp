@@ -27,11 +27,17 @@ export class ProductPage implements OnInit  {
 	prod_idex: Products;
 	index: number;
 	quantity: number;
+	product: Products;
 
 	usersadded: Usersadded[] = [];
 	user : User;
 	usersdata: alertData;
 	selecteduser: any;
+
+	chassis_no: any;
+	part_no: any;
+	spquantity: any;
+	desc: any;
 
   constructor(public navCtrl: NavController, 
   			  public navParams: NavParams,
@@ -39,7 +45,8 @@ export class ProductPage implements OnInit  {
   			  public users: Users,
   			  public toast: ToastController,
   			  private storage: Storage,
-  			  private alertCtrl: AlertController) {
+  			  private alertCtrl: AlertController,
+  			  public products: Productservice) {
 
   	
 	    this.usersadded = this.users.getUsers();
@@ -84,10 +91,35 @@ export class ProductPage implements OnInit  {
 	      text: 'OK',
 	      handler: data => {
 	      	this.selecteduser = data;
-	      	this.formservice.addQuotation(new Quotation(this.selecteduser, 
-  												this.index, 
-  												this.quantity))
+
+	      	if (this.prod_idex.ProductType == 'Motor Vehicle') {
+	      		this.product = this.products.getProduct(this.index);
+	      		this.formservice.addQuotation({
+	      			customercode: this.selecteduser,
+					productname: this.product.ProductName,
+	      			product: this.index,
+	      			qty: this.quantity,
+	      			product_type: this.prod_idex.ProductType,
+	      			vehicle_model: 'toyota',
+	      			vehicle_year: '2017',
+	      			vehicle_reg_no: this.product.ProductID 
+	      		})
   			console.log(this.formservice.getQuotation());
+	      	}else{
+	      		this.product = this.products.getProduct(this.index);
+	      		this.formservice.addQuotation({
+								      			customercode: this.selecteduser,
+								      			productname: this.product.ProductName,
+								      			product: this.index,
+								      			qty: this.spquantity,
+								      			product_type: this.prod_idex.ProductType,
+								      			chasisno: this.chassis_no,
+								      			part_desc: this.desc,
+								      			part_no: this.part_no
+								      		})
+	      	}
+	      	
+	      	
   			this.navCtrl.pop()
 	      }
 	    });
@@ -103,10 +135,32 @@ export class ProductPage implements OnInit  {
   		});
 	  	toast.present()
 	  	 this.selecteduser = this.user.customer_number;
-	  	 this.formservice.addQuotation(new Quotation(this.selecteduser, 
-  												this.index, 
-  												this.quantity))
-  	console.log(this.formservice.getQuotation());
+	  	 if (this.prod_idex.ProductType == 'Motor Vehicle') {
+	      		this.product = this.products.getProduct(this.index);
+	      		this.formservice.addQuotation({
+	      			customercode: this.selecteduser,
+					productname: this.product.ProductName,
+	      			product: this.index,
+	      			qty: this.quantity,
+	      			product_type: this.prod_idex.ProductType,
+	      			vehicle_model: 'toyota',
+	      			vehicle_year: '2017',
+	      			vehicle_reg_no: this.product.ProductID 
+	      		})
+  			console.log(this.formservice.getQuotation());
+	      	}else{
+	      		this.product = this.products.getProduct(this.index);
+	      		this.formservice.addQuotation({
+	      			customercode: this.selecteduser,
+					productname: this.product.ProductName,
+	      			product: this.index,
+	      			qty: this.spquantity,
+	      			product_type: this.prod_idex.ProductType,
+	      			chasisno: this.chassis_no,
+	      			part_desc: this.desc,
+	      			part_no: this.part_no
+	      		})
+	      	}
   		this.navCtrl.pop()
   	
 

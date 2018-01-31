@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { formsService } from '../../service/formsService.service';
-import { Diagnosis } from '../../models/diagnosis.model'
+import { ServiceHistory } from '../../models/servicehistory.model'
 
 /**
  * Generated class for the ServicerequestdisplayPage page.
@@ -16,7 +16,7 @@ import { Diagnosis } from '../../models/diagnosis.model'
   templateUrl: 'servicerequestdisplay.html',
 })
 export class ServicerequestdisplayPage {
-	servicerequests: Diagnosis;
+	servicerequests: ServiceHistory;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   	this.servicerequests = this.navParams.get('servicerequests');

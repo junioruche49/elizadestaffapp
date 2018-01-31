@@ -4,7 +4,7 @@
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Service Request</ion-title>
+    <ion-title>Service Requests</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -12,16 +12,15 @@
 
 <ion-content padding>
 	<ion-grid>
-		<ion-row *ngFor="let servicerequest of servicerequests; let i = index" (click)="servicerequestpage(servicerequest)">
-			<ion-col col-10>
-				<h5>Vehicle No: {{ servicerequest.reg_no }}</h5>
-				<ion-note>{{ servicerequest.percieved_issue }}</ion-note>
+		<ion-row *ngFor="let servicerequest of serviceHistory; let i = index" (click)="servicerequestpage(i)">
+			<ion-col col-9>
+				<h3>{{ servicerequest.ServiceType }}</h3>
 			</ion-col>
-			<ion-col col-2 text-right>
+			<ion-col col-3 text-right>
 				<br>
 				  <ion-icon name="arrow-round-forward"></ion-icon>
 			</ion-col>
-			<ion-col col-12>
+			<ion-col>
 				<hr>
 			</ion-col>
 		</ion-row>

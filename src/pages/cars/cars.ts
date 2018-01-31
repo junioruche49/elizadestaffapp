@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Car } from '../../service/cars.service'
 import { Cars } from '../../models/cars.model'
 import { CardisplayPage } from '../../pages/cardisplay/cardisplay'
+import { CreatecarPage } from '../../pages/createcar/createcar'
 
 /**
  * Generated class for the CarsPage page.
@@ -20,7 +21,10 @@ export class CarsPage {
 
 	cars: Cars[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public car: Car) {
+  constructor(public navCtrl: NavController, 
+  			  public navParams: NavParams, 
+  			  public car: Car,
+  			  public modal: ModalController) {
   	
   }
 
@@ -34,6 +38,10 @@ export class CarsPage {
 
   viewproduct(index: Car){
   	this.navCtrl.push(CardisplayPage, {car: index})
+  }
+
+  addcar(){
+  	this.modal.create(CreatecarPage).present()
   }
 
 }

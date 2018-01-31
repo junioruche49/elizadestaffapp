@@ -55,7 +55,15 @@
 				</ion-item>
 			</div>
 			
+			
 		</ion-list>
 		<button color="danger" ion-button block type="submit" [disabled]="!f.valid || f.value.callrequest == 'no' ">Send</button>
+		<br><br><br>
+		<div *ngIf="call =='no'" text-center>
+				<button ion-button clear color="danger" icon-left type="button" (click)="callnumber()">
+					<ion-icon name="call" icon-left></ion-icon>
+					+234 841 900 9900
+				</button>
+			</div>
 	</form>
 </ion-content>

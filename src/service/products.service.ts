@@ -5,6 +5,9 @@ import { Storage } from '@ionic/storage';
 import { Products } from '../models/products.model'
 import { User } from '../models/user.model'
 import { Users } from '../service/user.service'
+import { Vehiclequotation } from '../models/vehiclequotation.model'
+import { Sparepartquotation } from '../models/sparepartquotation.model'
+import { Quotation } from '../models/quotation.model'
 
 @Injectable()
 
@@ -26,6 +29,35 @@ export class Productservice {
 	}
 	getProduct(index: number){
 		return this.products[index];
+	}
+	addproducts(product: Products[]){
+		this.products.push(...product);
+	}
+
+	addvehicle(value: Quotation, number: number){
+		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+		return this.http.post('http://elizade.ebukaokwuokenye.com/api/quotes/vehicle', 
+			{product_name: value.productname, 
+			quantity: value.qty,
+			billname: value.customercode,
+			vehicle_model: value.vehicle_model,
+			vehicle_year: value.vehicle_year,
+			vehicle_reg_no: value.vehicle_reg_no,
+			unique_number: number}, {headers: headers})
+
+	}
+
+	addsparepart(value: Quotation, number: number){
+		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+		return this.http.post('http://elizade.ebukaokwuokenye.com/api/quotes/parts', 
+			{product_name: value.productname, 
+			quantity: value.qty,
+			billname: value.customercode,
+			chasisno: value.chasisno,
+			part_desc: value.part_desc,
+			part_no: value.part_no,
+			unique_number: number}, {headers: headers})
+
 	}
 
 	updateproduct(){

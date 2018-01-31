@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
 import { Showroom } from '../models/showroom.model'
 import { Schedule } from '../models/schedule.model'
 import { Diagnosis } from '../models/diagnosis.model';
@@ -10,6 +11,9 @@ import { saleSexecutive } from '../models/salesexecutive.model'
 import { Quotation } from '../models/quotation.model'
 import { User } from '../models/user.model'
 import { Users } from '../service/user.service'
+import { Cars } from '../models/cars.model'
+import { Appointments } from '../models/appointments.model'
+import { ServiceHistory } from '../models/servicehistory.model'
 
 @Injectable()
 
@@ -17,15 +21,17 @@ export class formsService {
 	User: User;
 	public showroom: Showroom[] = []
 	public schedule: Schedule[] = []
-	private diagnosis: Diagnosis[] = []
-	private bodywork: bodyWork[] =[]
-	private service: Service[] = []
-	private mechanicalrepair: mechanicalRepair[] = []
+	public diagnosis: Diagnosis[] = []
+	public bodywork: bodyWork[] =[]
+	public service: Service[] = []
+	public mechanicalrepair: mechanicalRepair[] = []
 	public salesexecutive: saleSexecutive[] = []
 	private quotation: Quotation[] = [];
-	private sentQuotation: Quotation[] = [];
+	public sentQuotation: Quotation[] = [];
+	public appointments: Appointments[] = []
+	public servicehistory: ServiceHistory[] = []
 
-	constructor(private http: HttpClient, public Users: Users){
+	constructor(private http: HttpClient, public Users: Users, public storage: Storage){
 		this.User = this.Users.getUser();
 
 	}
@@ -63,7 +69,17 @@ export class formsService {
 	}
 
 	addDiagnosis(value: Diagnosis){
-		this.diagnosis.push(value);
+		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+		return this.http.post('http://elizade.ebukaokwuokenye.com/api/service/diagnosis', 
+			{vehicle_reg_no: value.reg_no, 
+			vehicle_type: value.vehicle_type, 
+			vehicle_model: value.vehicle_model,
+			vehicle_year: value.vehicle_year,
+			mileage: '3000',
+			last_service_date: value.service_date,
+			issue: value.percieved_issue,
+			datetime: value.pickup}, 
+			{headers: headers})
 	}
 
 	getDiagnosis(){
@@ -71,7 +87,16 @@ export class formsService {
 	}
 
 	addbodyWork(value: bodyWork){
-		this.bodywork.push(value);
+		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+		return this.http.post('http://elizade.ebukaokwuokenye.com/api/service/bodywork', 
+			{vehicle_reg_no: value.reg_no, 
+			vehicle_type: value.vehicle_type, 
+			vehicle_model: value.vehicle_model,
+			vehicle_year: value.vehicle_year,
+			body_work_type: value.bodywork_type,
+			car_part: value.desc,
+			datetime: value.pickup}, 
+			{headers: headers})
 	}
 
 	getbodywork(){
@@ -79,7 +104,19 @@ export class formsService {
 	}
 
 	addService(value: Service){
-		this.service.push(value);
+		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+		return this.http.post('http://elizade.ebukaokwuokenye.com/api/service/service', 
+			{vehicle_reg_no: value.reg_no, 
+			vehicle_type: value.vehicle_type, 
+			vehicle_model: value.vehicle_model,
+			vehicle_year: value.vehicle_year,
+			last_service_date: value.service_date,
+			mileage: value.mileage,
+			service_type: value.service,
+			datetime: value.pickup,
+			service_series: value.service_type,
+			issue: value.percieved}, 
+			{headers: headers})
 	}
 
 	getService(){
@@ -87,7 +124,17 @@ export class formsService {
 	}
 
 	addMechanicalrepair(value: mechanicalRepair){
-		this.mechanicalrepair.push(value);
+		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+		return this.http.post('http://elizade.ebukaokwuokenye.com/api/service/repair', 
+			{vehicle_reg_no: value.reg_no, 
+			vehicle_type: value.vehicle_type, 
+			vehicle_model: value.vehicle_model,
+			vehicle_year: value.vehicle_year,
+			last_service_date: value.service_date,
+			repair_type: value.repair_type,
+			repair_description: value.percieved_issue,
+			datetime: value.pickup}, 
+			{headers: headers})
 	}
 
 	getMechanicalrepair(){
@@ -111,6 +158,10 @@ export class formsService {
 		return this.quotation.slice();
 	}
 
+	removeQuotations(){
+		this.quotation = [];
+	}
+
 	getQuote(index: number){
 		return this.quotation[index];
 	}
@@ -128,5 +179,25 @@ export class formsService {
 	getSingleSetQuotation(index: number){
 		return this.sentQuotation[index];
 	}
+
+	getServiceHistory(){
+		return this.servicehistory;
+	}
+
+	addServiceHistory(value: ServiceHistory[]){
+		this.servicehistory.push(...value)
+	}
+
+	addAppointments(value: any){
+		this.appointments.push(...value);
+	}
+
+	getAppointments(){
+		return this.appointments;
+	}
+
+
+
+
 
 }

@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { formsService } from '../../service/formsService.service';
 import { Showroom } from '../../models/showroom.model'
 import { AppointmentdisplayPage } from '../../pages/appointmentdisplay/appointmentdisplay'
+import { Appointments } from '../../models/appointments.model'
+import { User } from '../../models/user.model'
+import { Users } from '../../service/user.service';
 
 /**
  * Generated class for the AppointmentsPage page.
@@ -19,18 +24,63 @@ import { AppointmentdisplayPage } from '../../pages/appointmentdisplay/appointme
 export class AppointmentsPage {
 	showrooms: Showroom[] = [];
 	showroom: Showroom;
+	appointments: Appointments[] = [];
+	singleAppointment: Appointments;
+	User: User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formservice: formsService) {
-  	this.showrooms = this.formservice.getShowrooms();
+  constructor(public navCtrl: NavController, 
+  		      public navParams: NavParams, 
+  		      public formservice: formsService,
+  		      public storage: Storage,
+  			  public loadingCtrl: LoadingController,
+  			  private http: HttpClient,
+  			  public users: Users) {
+  	let loader = this.loadingCtrl.create({content: "Loading..."});
+    
+
+    	this.User = this.users.getUser();
+    	this.appointments = this.formservice.getAppointments();
+    	console.log()
+    	if (this.appointments.length < 1 ) {
+    		loader.present();
+    		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+    		let products =  this.http.get('http://elizade.ebukaokwuokenye.com/api/appointments', {headers: headers}).subscribe((data: any) => {
+			if (data.data.length > 0) {
+				this.storage.set('appointments', data.data)
+				this.formservice.addAppointments(data.data);
+				this.appointments = this.formservice.getAppointments();
+				console.log(this.appointments.length)
+			}
+				
+  				loader.dismiss();
+			
+			
+			console.log(data.data)
+		},err => {
+			console.log(err);
+			loader.dismiss();
+		})
+    	}
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AppointmentsPage');
   }
+  ionViewWillEnter(){
+  	// this.storage.get('appointments')
+	  //     .then(appointments => {
+	  //     	this.appointments.push(...appointments);
+	  //     	this.formservice.appointments.push(...appointments);
+	  //     }).catch(err => {
+
+   //    	console.log(err.message)
+
+   //    })
+  }
 
   showappointmentpage(index: number){
-  	this.showroom = this.formservice.getShowroom(index);
-  	this.navCtrl.push(AppointmentdisplayPage, {showroom: this.showroom})
+  	this.singleAppointment = this.appointments[index];
+  	this.navCtrl.push(AppointmentdisplayPage, {appointment: this.singleAppointment})
   }
 
 }
