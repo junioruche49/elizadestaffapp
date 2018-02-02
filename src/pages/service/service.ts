@@ -8,6 +8,7 @@ import { Service } from '../../models/service.model'
 import { Car } from '../../service/cars.service'
 import { Cars } from '../../models/cars.model'
 import { alertData } from '../../models/alertdata.model'
+import { ServiceHistory } from '../../models/servicehistory.model'
 
 /**
  * Generated class for the ServicePage page.
@@ -34,6 +35,9 @@ export class ServicePage {
 	myDate: any = ""
 	selectservice = 'minor_service'
 	@ViewChild('myInput') myInput: ElementRef;
+  mileagetype: any;
+  selectservicetype: any;
+  selectedtype: any;
 
   constructor(public navCtrl: NavController,
   			  public navParams: NavParams,
@@ -69,10 +73,10 @@ export class ServicePage {
   												form.value.vehicle_year,
   												form.value.vehicle_model, 
   												year,
-  												form.value.mileage,
+  												this.mileagetype,
   												form.value.service_date,
   												form.value.service,
-  												form.value.service_type,
+  												this.selectservicetype,
   												form.value.percieved,
   												form.value.pickup))
   	.subscribe((data: any) => {
@@ -90,12 +94,28 @@ export class ServicePage {
   												form.value.vehicle_year,
   												form.value.vehicle_model, 
   												year,
-  												form.value.mileage,
+  												this.mileagetype,
   												form.value.service_date,
   												form.value.service,
-  												form.value.service_type,
+  												this.selectservicetype,
   												form.value.percieved,
   												form.value.pickup));
+     // this.formservice.servicehistory.push(new ServiceHistory('aekeded', 
+     //                                                         form.value.service,
+     //                                                         this.user.customer_number,
+     //                                                         'demo',
+     //                                                         'sddsdsd',
+     //                                                         'sddsdssd',
+     //                                                         'sdsdsds',
+     //                                                         form.value.service,
+     //                                                         form.value.reg_no,
+     //                                                         this.mileagetype,
+     //                                                         'lkklk',
+     //                                                         this.selectservicetype,
+     //                                                         'kkk',
+     //                                                         'dsddsd',
+     //                                                         form.value.pickup,
+     //                                                         'ffddfffd'));
   		this.navCtrl.pop();
 
   	},err => {
@@ -153,5 +173,22 @@ export class ServicePage {
       element.style.height = scrollHeight + 'px';
       this.myInput['_elementRef'].nativeElement.style.height = (scrollHeight + 16) + 'px';
 	}
+
+  confirm(){
+    if (this.mileagetype == '3000') {
+      // code...
+      this.selectservicetype = 'series_a'
+      this.selectedtype = 'A'
+    }else if (this.mileagetype == '5000') {
+      // code...
+       this.selectservicetype = 'series_b'
+       this.selectedtype = 'B'
+    }else if (this.mileagetype == '8000') {
+      // code...
+       this.selectservicetype = 'series_c'
+       this.selectedtype = 'C'
+    }
+
+  }
 
 }

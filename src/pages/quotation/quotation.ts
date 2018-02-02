@@ -147,7 +147,7 @@ export class QuotationPage {
   			})
   		}
   	}
-  	this.quotation = [];
+  	this.formservice.removeQuotations();
   	const toast = this.toast.create({
   		message: 'Sent Successfully',
   		duration: 1500,

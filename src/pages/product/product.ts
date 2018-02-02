@@ -9,6 +9,7 @@ import { User } from '../../models/user.model'
 import { formsService } from '../../service/formsService.service';
 import { Usersadded } from '../../models/users.model'
 import { alertData } from '../../models/alertdata.model'
+import { QuotationPage } from '../../pages/quotation/quotation'
 
 /**
  * Generated class for the ProductPage page.
@@ -120,7 +121,7 @@ export class ProductPage implements OnInit  {
 	      	}
 	      	
 	      	
-  			this.navCtrl.pop()
+  			this.navCtrl.push(QuotationPage)
 	      }
 	    });
 	    alert.present();
@@ -161,7 +162,7 @@ export class ProductPage implements OnInit  {
 	      			part_no: this.part_no
 	      		})
 	      	}
-  		this.navCtrl.pop()
+  		this.navCtrl.push(QuotationPage)
   	
 
   	}

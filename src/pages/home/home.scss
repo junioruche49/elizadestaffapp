@@ -3,4 +3,21 @@ page-home {
 	background-color: #222;
 	color: #fff;
 	}
+	.bdstyle{
+		background-image: url('/assets/imgs/2017_toyota_camry_sedan_xle_rbdg_oem_1_600.jpg');
+		background-size: cover;
+		background-repeat:no-repeat;
+		background-position: center center;
+		height: 200px;
+		color: #fff;
+		// border-radius: 2px;
+		text-shadow: 2px 2px #000;
+		text-align: left;
+		padding: 32px;
+		padding-top: 50px;
+		h2{
+		font-weight:bold;
+		font-size: 3.5rem;
+		}
+	}
 }

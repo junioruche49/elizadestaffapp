@@ -130,7 +130,7 @@
 		</ion-list>
 
 			<br />
-		<button color="danger" ion-button block>Send</button>
+		<button color="danger" ion-button block [disabled]="!f.valid">Send</button>
 	</form>
 	
 </ion-content>

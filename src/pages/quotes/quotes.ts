@@ -44,5 +44,6 @@ export class QuotesPage {
   quotespage(index: number){
   	this.navCtrl.push(QuotedisplayPage, {id: index});
   }
+  
 
 }
