@@ -154,6 +154,9 @@ export class QuotationPage {
   		position: 'bottom'
   	});
   	toast.present()
+
+    this.quotation = [];
+    this.navCtrl.popToRoot();
   }
 
 

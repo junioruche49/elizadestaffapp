@@ -17,7 +17,12 @@ export class Car{
 		this.User = this.Users.getUser();
 		this.storage.get('cars')
       .then(cars => {
-      	this.cars = cars
+      	if (cars) {
+      		this.cars = cars
+      	}else{
+      		this.updatecars(this.User.token);
+      	}
+      	
       	console.log(this.cars)
       })
 	}

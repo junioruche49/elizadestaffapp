@@ -9,23 +9,91 @@
 
 <ion-content>
 
-  <!-- <ion-row>
-    <ion-col class='bdstyle'>
+  <ion-row>
+    <ion-col class='bdstyle' (click)="showdetail('appointment')">
         <h2>Make an Appiontment</h2>
     </ion-col>
+
+    <ion-card *ngIf="element == 'appointment'" [@enterAnimation]>
+
+      <ion-list>
+        <button ion-item [navPush]="showroom">
+          <ion-icon name="podium" item-start></ion-icon>
+          Visit Showroom
+        </button>
+
+        <button ion-item [navPush]="schedule">
+          <ion-icon name="time" item-start></ion-icon>
+          Schedule a Demostration
+        </button>
+
+        <button ion-item [navPush]="salesexecutive">
+          <ion-icon name="call" item-start></ion-icon>
+          Speak to a Sales Executive
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
   </ion-row>
   <ion-row>
-    <ion-col class='bdstyle'>
+    <ion-col class='bdstyle2' (click)="showdetail('repair')">
         <h2>Request a Service/Repair</h2>
     </ion-col>
+
+    <ion-card *ngIf="element == 'repair'" [@enterAnimation]>
+
+      <ion-list>
+        <button ion-item [navPush]="diagnosis">
+          <ion-icon name="checkmark-circle" item-start></ion-icon>
+          Diagnosis
+        </button>
+
+        <button ion-item [navPush]="bodywork">
+          <ion-icon name="car" item-start></ion-icon>
+          Body Work
+        </button>
+
+        <button ion-item [navPush]="service">
+          <ion-icon name="build" item-start></ion-icon>
+          Service
+        </button>
+
+        <button ion-item [navPush]="mechanicalrepair">
+          <ion-icon name="construct" item-start></ion-icon>
+          Repair
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
   </ion-row>
   <ion-row>
-    <ion-col class='bdstyle'>
+    <ion-col class='bdstyle3' (click)="showdetail('general')">
         <h2>General</h2>
     </ion-col>
-  </ion-row> -->
 
-  <ion-card>
+    <ion-card  *ngIf="element == 'general'" [@enterAnimation]>
+      <ion-list>
+        <button ion-item [navPush]="products" [navParams]="data">
+          <ion-icon name="search" item-start></ion-icon>
+          View our Products
+        </button>
+
+        <button ion-item [navPush]="quotation">
+          <ion-icon name="cart" item-start></ion-icon>
+          Quotations
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
+  </ion-row>
+
+ <!--  <ion-card>
   <ion-card-header class="headercolor">
     Make an Appiontment
   </ion-card-header>
@@ -98,6 +166,6 @@
 
 
   </ion-list>
-</ion-card>
+</ion-card> -->
 
 </ion-content>

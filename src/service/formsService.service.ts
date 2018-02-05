@@ -105,15 +105,16 @@ export class formsService {
 
 	addService(value: Service){
 		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+		console.log(value)
 		return this.http.post('http://elizade.ebukaokwuokenye.com/api/service/service', 
 			{vehicle_reg_no: value.reg_no, 
 			vehicle_type: value.vehicle_type, 
 			vehicle_model: value.vehicle_model,
 			vehicle_year: value.vehicle_year,
 			last_service_date: value.service_date,
+			datetime: value.pickup,
 			mileage: value.mileage,
 			service_type: value.service,
-			datetime: value.pickup,
 			service_series: value.service_type,
 			issue: value.percieved}, 
 			{headers: headers})

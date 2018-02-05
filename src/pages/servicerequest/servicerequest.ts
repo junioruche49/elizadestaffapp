@@ -63,7 +63,23 @@ export class ServicerequestPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ServicerequestPage');
+    if (this.serviceHistory.length > 0) {
+      let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+        let products =  this.http.get('http://elizade.ebukaokwuokenye.com/api/services', {headers: headers}).subscribe((data: any) => {
+      if (data.data.length > 0) {
+        this.formsservice.addServiceHistory(data.data);
+        this.storage.set('services', data.data)
+        this.serviceHistory = this.formsservice.getServiceHistory();
+        console.log(this.serviceHistory)
+      }
+        
+      
+      
+      console.log(data.data)
+    },err => {
+      console.log(err);
+    })
+    }
   }
 
   ionViewWillEnter(){

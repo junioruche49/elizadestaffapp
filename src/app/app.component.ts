@@ -30,7 +30,7 @@ export class MyApp {
   MainPage: any;
   user: Promise<string>;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: any}>;
 
   rootPage: any;
 
@@ -70,13 +70,13 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Appiontments History', component: AppointmentsPage },
-      { title: 'Quotes', component: QuotesPage },
-      { title: 'Service/Repairs History', component: ServicerequestPage },
-      { title: 'Products', component: ProductsPage },
-      { title: 'Cars', component: CarsPage },
-      { title: 'Settings', component: SettingsPage }
+      { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'Appiontments History', component: AppointmentsPage, icon: 'contacts'},
+      { title: 'Quotes', component: QuotesPage, icon: 'list-box' },
+      { title: 'Service/Repairs History', component: ServicerequestPage, icon: 'construct' },
+      { title: 'Products', component: ProductsPage, icon: 'search' },
+      { title: 'Cars', component: CarsPage, icon: 'car' },
+      { title: 'Settings', component: SettingsPage, icon: 'settings' }
     ];
     
 

@@ -46,8 +46,8 @@ export class ProductsPage implements OnInit {
     		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
     		let products =  this.http.get('http://elizade.ebukaokwuokenye.com/api/products', {headers: headers}).subscribe((data: any) => {
 			if (data.length > 0) {
+        this.product.addproducts(data);
 				this.storage.set('products', data)
-				this.product.addproducts(data);
 				this.products = this.product.getProducts();
 				console.log(this.products.length)
 			}
@@ -57,8 +57,13 @@ export class ProductsPage implements OnInit {
 			
 			console.log(data)
 		},err => {
-			console.log(err);
-			loader.dismiss();
+      this.storage.get('products').then((data : any) => {
+        this.products = data
+      loader.dismiss();
+      }).catch(err => {
+        console.log(err)
+      loader.dismiss();
+      })
 		})
     	}
 		
@@ -79,7 +84,7 @@ export class ProductsPage implements OnInit {
 
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProductsPage');
+    
   }
 
   viewproduct(index: number){

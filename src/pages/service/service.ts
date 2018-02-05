@@ -36,7 +36,7 @@ export class ServicePage {
 	selectservice = 'minor_service'
 	@ViewChild('myInput') myInput: ElementRef;
   mileagetype: any;
-  selectservicetype: any;
+  selectservicetype: string;
   selectedtype: any;
 
   constructor(public navCtrl: NavController,
@@ -67,7 +67,16 @@ export class ServicePage {
   	 this.user = this.users.getUser();
 
   	let year = new Date(form.value.vehicle_year).getFullYear();
-
+    let type
+    if (this.selectservicetype == 'series_a') {
+      type = 'A'
+    }else if (this.selectservicetype == 'series_b') {
+      type = 'B'
+    }else if (this.selectservicetype == 'series_c') {
+       type = 'C'
+    }else if (this.selectservicetype == 'series_d') {
+      type = 'D'
+    }
   	this.formservice.addService(new Service(this.user.customer_number, 
   												form.value.reg_no, 
   												form.value.vehicle_year,
@@ -76,7 +85,7 @@ export class ServicePage {
   												this.mileagetype,
   												form.value.service_date,
   												form.value.service,
-  												this.selectservicetype,
+  												type,
   												form.value.percieved,
   												form.value.pickup))
   	.subscribe((data: any) => {
@@ -187,6 +196,8 @@ export class ServicePage {
       // code...
        this.selectservicetype = 'series_c'
        this.selectedtype = 'C'
+    }else{
+      this.selectedtype = 'D'
     }
 
   }

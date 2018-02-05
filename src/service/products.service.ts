@@ -17,10 +17,7 @@ export class Productservice {
 
 	constructor(public http: HttpClient, public Users: Users, private storage: Storage){
 		this.User = this.Users.getUser();
-		this.storage.get('products')
-      .then(products => {
-      	this.products = products
-      })
+		
 	}
 
 	getProducts(){
@@ -31,7 +28,10 @@ export class Productservice {
 		return this.products[index];
 	}
 	addproducts(product: Products[]){
+		if (product.length > 0) {
 		this.products.push(...product);
+			// code...
+		}
 	}
 
 	addvehicle(value: Quotation, number: number){

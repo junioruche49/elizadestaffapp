@@ -46,8 +46,8 @@ export class AppointmentsPage {
     		let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
     		let products =  this.http.get('http://elizade.ebukaokwuokenye.com/api/appointments', {headers: headers}).subscribe((data: any) => {
 			if (data.data.length > 0) {
+        this.formservice.addAppointments(data.data);
 				this.storage.set('appointments', data.data)
-				this.formservice.addAppointments(data.data);
 				this.appointments = this.formservice.getAppointments();
 				console.log(this.appointments.length)
 			}
@@ -64,7 +64,21 @@ export class AppointmentsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AppointmentsPage');
+    if (this.appointments.length > 0) {
+      let headers = new HttpHeaders({'Authorization': 'Bearer '+this.User.token });
+        let products =  this.http.get('http://elizade.ebukaokwuokenye.com/api/appointments', {headers: headers}).subscribe((data: any) => {
+      if (data.data.length > 0) {
+        this.formservice.addAppointments(data.data);
+        this.storage.set('appointments', data.data)
+        this.appointments = this.formservice.getAppointments();
+        console.log(this.appointments.length)
+      }
+        
+      console.log(data.data)
+    },err => {
+      console.log(err);
+    })
+    }
   }
   ionViewWillEnter(){
   	// this.storage.get('appointments')
