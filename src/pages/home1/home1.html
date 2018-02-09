@@ -1,0 +1,115 @@
+<!--
+  Generated template for the Home1Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-row>
+    <ion-col class='bdstyle' (click)="showdetail('appointment')">
+        <h2>Make an Appiontment</h2>
+    </ion-col>
+
+    <ion-card *ngIf="element == 'appointment'" [@enterAnimation]>
+
+      <ion-list>
+        <button ion-item [navPush]="showroom">
+          <ion-icon name="podium" item-start></ion-icon>
+          Visit Showroom
+        </button>
+
+        <button ion-item [navPush]="schedule">
+          <ion-icon name="time" item-start></ion-icon>
+          Schedule a Demostration
+        </button>
+
+        <button ion-item [navPush]="salesexecutive">
+          <ion-icon name="call" item-start></ion-icon>
+          Speak to a Sales Executive
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
+  </ion-row>
+  <ion-row>
+    <ion-col class='bdstyle2' (click)="showdetail('repair')">
+        <h2>Request a Service/Repair</h2>
+    </ion-col>
+
+    <ion-card *ngIf="element == 'repair'" [@enterAnimation]>
+
+      <ion-list>
+        <button ion-item [navPush]="diagnosis">
+          <ion-icon name="checkmark-circle" item-start></ion-icon>
+          Diagnosis
+        </button>
+
+        <button ion-item [navPush]="bodywork">
+          <ion-icon name="car" item-start></ion-icon>
+          Body Work
+        </button>
+
+        <button ion-item [navPush]="service">
+          <ion-icon name="build" item-start></ion-icon>
+          Service
+        </button>
+
+        <button ion-item [navPush]="mechanicalrepair">
+          <ion-icon name="construct" item-start></ion-icon>
+          Repair
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
+  </ion-row>
+  <ion-row>
+    <ion-col class='bdstyle3' (click)="showdetail('general')">
+        <h2>General</h2>
+    </ion-col>
+
+    <ion-card  *ngIf="element == 'general'" [@enterAnimation]>
+      <ion-list>
+        <button ion-item [navPush]="products" [navParams]="data">
+          <ion-icon name="search" item-start></ion-icon>
+          View our Products
+        </button>
+
+        <button ion-item [navPush]="quotation">
+          <ion-icon name="cart" item-start></ion-icon>
+          Quotations
+        </button>
+
+        <button ion-item [navPush]="feedback">
+          <ion-icon name="chatbubbles" item-start></ion-icon>
+          Feedback
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
+  </ion-row>
+  <ion-row>
+    <ion-col class='bdstyle4' (click)="feedbackpage()">
+        <h2>Feedback</h2>
+    </ion-col>
+
+
+  </ion-row>
+</ion-content>

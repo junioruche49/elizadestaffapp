@@ -1,6 +1,10 @@
-page-products {
+page-home1 {
+	.headercolor{
+	background-color: #222;
+	color: #fff;
+	}
 	.bdstyle{
-		background-image: url('../assets/imgs/toyota-axio.jpg');
+		background-image: url('../assets/imgs/o-GROUP-OF-WOMEN-IN-BUSINESS-facebook.jpg');
 		background-size: cover;
 		background-repeat:no-repeat;
 		background-position: center center;
@@ -10,7 +14,7 @@ page-products {
 		text-shadow: 2px 2px #000;
 		text-align: left;
 		padding: 32px;
-		padding-top: 120px;
+		padding-top: 70px;
 		h2{
 		font-weight:bold;
 		font-size: 3.5rem;
@@ -18,7 +22,7 @@ page-products {
 	}
 
 	.bdstyle2{
-		background-image: url('../assets/imgs/Toyota_Fortuner_SUV_car.jpg');
+		background-image: url('../assets/imgs/teche1391629691503.jpg');
 		background-size: cover;
 		background-repeat:no-repeat;
 		background-position: center center;
@@ -28,7 +32,7 @@ page-products {
 		text-shadow: 2px 2px #000;
 		text-align: left;
 		padding: 32px;
-		padding-top: 120px;
+		padding-top: 70px;
 		h2{
 		font-weight:bold;
 		font-size: 3.5rem;
@@ -36,7 +40,7 @@ page-products {
 	}
 
 	.bdstyle3{
-		background-image: url('../assets/imgs/2006-toyota-dyna-8_1600x0w.jpg');
+		background-image: url('../assets/imgs/TCQP3V2LUZEX3ABSZ2BDXQ4ZHU.jpeg');
 		background-size: cover;
 		background-repeat:no-repeat;
 		background-position: center center;
@@ -46,13 +50,29 @@ page-products {
 		text-shadow: 2px 2px #000;
 		text-align: left;
 		padding: 32px;
-		padding-top: 120px;
+		padding-top: 70px;
 		h2{
 		font-weight:bold;
 		font-size: 3.5rem;
 		}
 	}
-
+	.bdstyle4{
+		background-image: url('../assets/imgs/o-WOMEN-IN-BUSINESS-facebook.jpg');
+		background-size: cover;
+		background-repeat:no-repeat;
+		background-position: center center;
+		height: 200px;
+		color: #fff;
+		// border-radius: 2px;
+		text-shadow: 2px 2px #000;
+		text-align: left;
+		padding: 32px;
+		padding-top: 70px;
+		h2{
+		font-weight:bold;
+		font-size: 3.5rem;
+		}
+	}
 	.card-md{
 		box-shadow: none;
 	}

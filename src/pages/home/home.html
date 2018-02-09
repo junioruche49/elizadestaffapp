@@ -10,6 +10,131 @@
 <ion-content>
 
   <ion-row>
+    <ion-col col-12 class="bg1" (click)="showdetail('appointment')">
+      <ion-row>
+        <ion-col col-6>
+        <ion-icon name="contacts"></ion-icon>
+      </ion-col>
+      <ion-col col-6>
+        <h4>Make an Appiontment</h4>
+      </ion-col>
+      </ion-row>
+      
+    </ion-col>
+
+    <ion-card *ngIf="element == 'appointment'" [@enterAnimation]>
+
+      <ion-list>
+        <button ion-item [navPush]="showroom">
+          <ion-icon name="podium" item-start></ion-icon>
+          Visit Showroom
+        </button>
+
+        <button ion-item [navPush]="schedule">
+          <ion-icon name="time" item-start></ion-icon>
+          Schedule a Demostration
+        </button>
+
+        <button ion-item [navPush]="salesexecutive">
+          <ion-icon name="call" item-start></ion-icon>
+          Speak to a Sales Executive
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
+  </ion-row>
+
+  <ion-row >
+    <ion-col col-12 class="bg2" (click)="showdetail('repair')">
+      <ion-row>
+        <ion-col>
+        <ion-icon name="construct"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <h4>Request a Service/Repair</h4>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    
+
+    <ion-card *ngIf="element == 'repair'" [@enterAnimation]>
+
+      <ion-list>
+        <button ion-item [navPush]="diagnosis">
+          <ion-icon name="checkmark-circle" item-start></ion-icon>
+          Diagnosis
+        </button>
+
+        <button ion-item [navPush]="bodywork">
+          <ion-icon name="car" item-start></ion-icon>
+          Body Work
+        </button>
+
+        <button ion-item [navPush]="service">
+          <ion-icon name="build" item-start></ion-icon>
+          Service
+        </button>
+
+        <button ion-item [navPush]="mechanicalrepair">
+          <ion-icon name="construct" item-start></ion-icon>
+          Repair
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
+  </ion-row>
+
+  <ion-row >
+    <ion-col col-12 class="bg3" (click)="showdetail('general')">
+      <ion-row>
+        <ion-col >
+        <ion-icon name="information-circle"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <h4>General</h4>
+      </ion-col>
+      </ion-row>
+    </ion-col>
+    
+    
+
+     <ion-card  *ngIf="element == 'general'" [@enterAnimation]>
+      <ion-list>
+        <button ion-item [navPush]="products" [navParams]="data">
+          <ion-icon name="search" item-start></ion-icon>
+          View our Products
+        </button>
+
+        <button ion-item [navPush]="quotation">
+          <ion-icon name="cart" item-start></ion-icon>
+          Quotations
+        </button>
+
+        <button ion-item [navPush]="feedback">
+          <ion-icon name="chatbubbles" item-start></ion-icon>
+          Feedback
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
+  </ion-row>
+
+  <ion-row class="bg4" (click)="feedbackpage()">
+    <ion-col>
+        <ion-icon name="chatbubbles"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <h4>Feedback</h4>
+    </ion-col>
+  </ion-row>
+
+  <!-- <ion-row>
     <ion-col class='bdstyle' (click)="showdetail('appointment')">
         <h2>Make an Appiontment</h2>
     </ion-col>
@@ -85,6 +210,11 @@
         <button ion-item [navPush]="quotation">
           <ion-icon name="cart" item-start></ion-icon>
           Quotations
+        </button>
+
+        <button ion-item [navPush]="feedback">
+          <ion-icon name="chatbubbles" item-start></ion-icon>
+          Feedback
         </button>
 
 
@@ -166,6 +296,6 @@
 
 
   </ion-list>
-</ion-card> -->
+</ion-card> --> 
 
 </ion-content>

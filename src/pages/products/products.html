@@ -4,14 +4,14 @@
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Products</ion-title>
+    <ion-title>Vehicle Models</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-	<ion-grid>
+<ion-content>
+	<!-- <ion-grid>
 		<ion-row *ngFor="let product of products; let i = index">
 			<ion-col col-12>
 				<img [src]="'assets/imgs/toyota1.jpeg'">
@@ -24,5 +24,60 @@
 			</ion-col>
 
 		</ion-row>
-	</ion-grid>
+	</ion-grid> -->
+
+	<ion-row>
+    <ion-col class='bdstyle' (click)="showdetail('appointment')">
+        <h2>Saloon</h2>
+    </ion-col>
+
+    <ion-card *ngIf="element == 'appointment'" [@enterAnimation]>
+
+      <ion-list>
+        <button ion-item (click)="showvehicle(model.id)" *ngFor="let model of saloon">
+          <ion-icon name="car" item-start></ion-icon>
+          {{model.name}}
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
+  </ion-row>
+  <ion-row>
+    <ion-col class='bdstyle2' (click)="showdetail('repair')">
+        <h2>SUV</h2>
+    </ion-col>
+
+    <ion-card *ngIf="element == 'repair'" [@enterAnimation]>
+
+     <ion-list>
+        <button ion-item (click)="showvehicle(suvcar.id)" *ngFor="let suvcar of suv">
+          <ion-icon name="car" item-start></ion-icon>
+          {{suvcar.name}}
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
+  </ion-row>
+  <ion-row>
+    <ion-col class='bdstyle3' (click)="showdetail('general')">
+        <h2>Utility Vehicle</h2>
+    </ion-col>
+
+    <ion-card  *ngIf="element == 'general'" [@enterAnimation]>
+      <ion-list>
+        <button ion-item (click)="showvehicle(utilitycar.id)" *ngFor="let utilitycar of utility">
+          <ion-icon name="car" item-start></ion-icon>
+          {{utilitycar.name}}
+        </button>
+
+
+      </ion-list>
+    </ion-card>
+
+  </ion-row>
+
 </ion-content>

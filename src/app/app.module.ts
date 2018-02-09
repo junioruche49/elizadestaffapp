@@ -34,6 +34,12 @@ import { CardisplayPage } from '../pages/cardisplay/cardisplay'
 import { AccountsPage } from '../pages/accounts/accounts'
 import { ShowquotationPage } from '../pages/showquotation/showquotation'
 import { CreatecarPage } from '../pages/createcar/createcar'
+import { ShowvehiclePage } from '../pages/showvehicle/showvehicle'
+import { ViewvehiclePage } from '../pages/viewvehicle/viewvehicle'
+import { FeedbackPage } from '../pages/feedback/feedback'
+import { FeedbackviewPage } from '../pages/feedbackview/feedbackview'
+import { ViewfeedbackPage } from '../pages/viewfeedback/viewfeedback'
+import { Home1Page } from '../pages/home1/home1'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -44,6 +50,7 @@ import { Users } from '../service/user.service';
 import { formsService } from '../service/formsService.service'
 import { Productservice } from '../service/products.service'
 import { Car } from '../service/cars.service'
+import { Vehicle } from '../service/vehicle.service'
 import { LocationProvider } from '../providers/location/location';
 
 @NgModule({
@@ -75,7 +82,13 @@ import { LocationProvider } from '../providers/location/location';
     CardisplayPage,
     AccountsPage,
     ShowquotationPage,
-    CreatecarPage
+    CreatecarPage,
+    ShowvehiclePage,
+    ViewvehiclePage,
+    FeedbackPage,
+    FeedbackviewPage,
+    ViewfeedbackPage,
+    Home1Page
   ],
   imports: [
     BrowserModule,
@@ -117,7 +130,13 @@ import { LocationProvider } from '../providers/location/location';
     CardisplayPage,
     AccountsPage,
     ShowquotationPage,
-    CreatecarPage
+    CreatecarPage,
+    ShowvehiclePage,
+    ViewvehiclePage,
+    FeedbackPage,
+    FeedbackviewPage,
+    ViewfeedbackPage,
+    Home1Page
   ],
   providers: [
     StatusBar,
@@ -129,7 +148,8 @@ import { LocationProvider } from '../providers/location/location';
     Productservice,
     Car,
     CallNumber,
-    LocationProvider
+    LocationProvider,
+    Vehicle
   ]
 })
 export class AppModule {}

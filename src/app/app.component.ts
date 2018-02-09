@@ -13,12 +13,15 @@ import { ProductsPage } from '../pages/products/products';
 import { CarsPage } from '../pages/cars/cars';
 import { SettingsPage } from '../pages/settings/settings';
 import { SigninPage } from '../pages/signin/signin';
+import { FeedbackPage } from '../pages/feedback/feedback'
 import { AuthPage } from '../service/authpage'
 import { User } from '../models/user.model';
 import { LocationProvider } from '../providers/location/location'
 import { Users } from '../service/user.service'
 import { Car } from '../service/cars.service'
 import { Productservice } from '../service/products.service'
+import { FeedbackviewPage } from '../pages/feedbackview/feedbackview'
+import { Home1Page } from '../pages/home1/home1'
 
 @Component({
   templateUrl: 'app.html'
@@ -33,6 +36,7 @@ export class MyApp {
   pages: Array<{title: string, component: any, icon: any}>;
 
   rootPage: any;
+  User: any;
 
   constructor(public platform: Platform, 
               public statusBar: StatusBar, 
@@ -71,11 +75,13 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'Home 2', component: Home1Page, icon: 'home' },
       { title: 'Appiontments History', component: AppointmentsPage, icon: 'contacts'},
       { title: 'Quotes', component: QuotesPage, icon: 'list-box' },
       { title: 'Service/Repairs History', component: ServicerequestPage, icon: 'construct' },
-      { title: 'Products', component: ProductsPage, icon: 'search' },
+      { title: 'Vehicle Model', component: ProductsPage, icon: 'search' },
       { title: 'Cars', component: CarsPage, icon: 'car' },
+      { title: 'Feedback', component: FeedbackviewPage, icon: 'chatbubbles' },
       { title: 'Settings', component: SettingsPage, icon: 'settings' }
     ];
     

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
-import { NavController } from 'ionic-angular';
-import { SigninPage } from '../signin/signin';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ShowroomPage } from '../showroom/showroom';
 import { SchedulePage } from '../schedule/schedule';
 import { SalesexecutivePage } from '../salesexecutive/salesexecutive';
@@ -12,12 +11,18 @@ import { MechanicalrepairPage } from '../mechanicalrepair/mechanicalrepair';
 import { ProductsPage } from '../products/products';
 import { QuotationPage } from '../quotation/quotation';
 import { FeedbackPage } from '../feedback/feedback'
-import { AuthPage } from '../../service/authpage'
-import { Users } from '../../service/user.service'
 
+/**
+ * Generated class for the Home1Page page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+  selector: 'page-home1',
+  templateUrl: 'home1.html',
   animations: [
     trigger(
       'enterAnimation', [
@@ -32,7 +37,7 @@ import { Users } from '../../service/user.service'
     )
   ]
 })
-export class HomePage {
+export class Home1Page {
 	showroom = ShowroomPage;
 	schedule = SchedulePage;
 	salesexecutive = SalesexecutivePage;
@@ -46,7 +51,11 @@ export class HomePage {
 	data = true;
 	element: any;
 
-  constructor(public navCtrl: NavController, public authpage: AuthPage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad Home1Page');
   }
 
   showdetail(data){
@@ -63,7 +72,5 @@ export class HomePage {
   	this.element = '';
   	this.navCtrl.push(FeedbackPage);
   }
-  
-  
 
 }
