@@ -31,7 +31,54 @@
 				<hr>
 				<h6>Standard Feature:</h6>
 				{{ vehicle.standard_feature }}
+				<br><br><br><br>
+				
+				<ion-list radio-group 
+			  		name="callrequest"
+			  		required
+			  		[(ngModel)]="call">
+				  <ion-list-header>
+				    <h3 class="call">Options</h3>
+				  </ion-list-header>
+
+				  <ion-item>
+				    <ion-label>Purchase</ion-label>
+				    <ion-radio checked="true" value="yes"></ion-radio>
+				  </ion-item>
+
+				  <ion-item>
+				    <ion-label>Maintenance</ion-label>
+				    <ion-radio value="no"></ion-radio>
+				  </ion-item>
+
+				</ion-list>
+				<div *ngIf="call == 'yes'" >
+					<ion-item>
+							<ion-label stacked>Quantity</ion-label>
+							<ion-input 
+							type="number" 
+							name="quantity" 
+							placeholder=""
+							required
+							ngModel
+							[(ngModel)]="quantity"
+							[value]="model"></ion-input>
+						</ion-item>
+						
+				</div>
+
+				<div *ngIf="call == 'no'" >
+					<ion-item>
+						<ion-label floating>Comment.</ion-label>
+						<ion-textarea 
+						name="comment"
+						required
+						ngModel></ion-textarea>
+					</ion-item>
+				</div>
+			<br><br>
 			</ion-col>
+			<button block ion-button color="danger">Send</button>
 		</ion-row>
 	</ion-grid>
 </ion-content>

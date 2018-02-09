@@ -17,6 +17,7 @@ import { Vehicle } from '../../service/vehicle.service'
 })
 export class ViewvehiclePage {
 	vehicle: Vehiclemodel
+	call = 'yes'
 
   constructor(public navCtrl: NavController, 
   			  public navParams: NavParams,
