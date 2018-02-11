@@ -40,6 +40,7 @@ import { FeedbackPage } from '../pages/feedback/feedback'
 import { FeedbackviewPage } from '../pages/feedbackview/feedbackview'
 import { ViewfeedbackPage } from '../pages/viewfeedback/viewfeedback'
 import { Home1Page } from '../pages/home1/home1'
+import { Home2Page } from '../pages/home2/home2'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -88,7 +89,8 @@ import { LocationProvider } from '../providers/location/location';
     FeedbackPage,
     FeedbackviewPage,
     ViewfeedbackPage,
-    Home1Page
+    Home1Page,
+    Home2Page
   ],
   imports: [
     BrowserModule,
@@ -136,7 +138,8 @@ import { LocationProvider } from '../providers/location/location';
     FeedbackPage,
     FeedbackviewPage,
     ViewfeedbackPage,
-    Home1Page
+    Home1Page,
+    Home2Page
   ],
   providers: [
     StatusBar,

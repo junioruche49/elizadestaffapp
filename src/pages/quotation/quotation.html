@@ -44,8 +44,14 @@
 		<ion-list>
 		<ion-item-sliding *ngFor="let quote of quotation; let i = index">
 			<ion-item>
-				{{ getproductname(quote.product) }}<br>
-				Qty: {{ quote.qty }}
+				{{ quote.productname }}<br>
+				<span *ngIf="quote.comment">
+					Maintenance
+				</span>
+				<span *ngIf="quote.qty">
+					Qty: {{ quote.qty }}
+				</span>
+				
 			</ion-item>
 			<ion-item-options>
 				<button ion-button color="danger" (click)="removefavorite(i)">
@@ -59,5 +65,5 @@
 	</ion-grid>
 </ion-content>
 <ion-footer>
-	<button ion-button color="danger" full (click)="addQuotation()">Send Quotation</button>
+	<button ion-button color="danger" disabled full (click)="addQuotation()">Send Quotation</button>
 </ion-footer>

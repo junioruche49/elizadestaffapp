@@ -1,0 +1,106 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home 3</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+		<ion-row>
+			<ion-col col-12 class='backgroundimg'>
+				<br><br><br><br><br><br><br><br><br><br><br>
+				<ion-card *ngIf="element == 'appointment'" [@enterAnimation] class='card1'>
+
+			      <ion-list>
+			        <button ion-item [navPush]="showroom">
+			          <ion-icon name="podium" item-start></ion-icon>
+			          Visit Showroom
+			        </button>
+
+			        <button ion-item [navPush]="schedule">
+			          <ion-icon name="time" item-start></ion-icon>
+			          Schedule a Demostration
+			        </button>
+
+			        <button ion-item [navPush]="salesexecutive">
+			          <ion-icon name="call" item-start></ion-icon>
+			          Speak to a Sales Executive
+			        </button>
+
+
+			      </ion-list>
+			    </ion-card>
+
+			    <ion-card *ngIf="element == 'repair'" [@enterAnimation] class='card2'>
+
+			      <ion-list>
+			        <button ion-item [navPush]="diagnosis">
+			          <ion-icon name="checkmark-circle" item-start></ion-icon>
+			          Diagnosis
+			        </button>
+
+			        <button ion-item [navPush]="bodywork">
+			          <ion-icon name="car" item-start></ion-icon>
+			          Body Work
+			        </button>
+
+			        <button ion-item [navPush]="service">
+			          <ion-icon name="build" item-start></ion-icon>
+			          Service
+			        </button>
+
+			        <button ion-item [navPush]="mechanicalrepair">
+			          <ion-icon name="construct" item-start></ion-icon>
+			          Repair
+			        </button>
+
+
+			      </ion-list>
+			    </ion-card>
+
+			     <ion-card  *ngIf="element == 'general'" [@enterAnimation] class='card3'>
+				      <ion-list>
+				        <button ion-item [navPush]="products" [navParams]="data">
+				          <ion-icon name="search" item-start></ion-icon>
+				          View our Vehicle Models
+				        </button>
+
+				        <button ion-item [navPush]="quotation">
+				          <ion-icon name="cart" item-start></ion-icon>
+				          Quotations
+				        </button>
+
+
+				      </ion-list>
+				    </ion-card>
+
+			</ion-col>
+		</ion-row>
+		
+		<ion-row>
+			<ion-col col-6 class="bg1" text-center (click)="showdetail('appointment')">
+				<ion-icon name="contacts"></ion-icon>
+				<h5>Make an Appiontment</h5>
+			</ion-col>
+			<ion-col col-6 class="bg2" text-center (click)="showdetail('repair')">
+				<ion-icon name="construct"></ion-icon>
+				<h5>Request a Service/Repair</h5>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col col-6 class="bg3" text-center (click)="showdetail('general')">
+				<ion-icon name="information-circle"></ion-icon>
+				<h5>General</h5>
+			</ion-col>
+			<ion-col col-6 class="bg4" text-center (click)="feedbackpage()">
+				<ion-icon name="chatbubbles"></ion-icon>
+				<h5>Feedback</h5>
+			</ion-col>
+		</ion-row>
+		
+</ion-content>

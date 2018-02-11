@@ -22,6 +22,7 @@ import { Car } from '../service/cars.service'
 import { Productservice } from '../service/products.service'
 import { FeedbackviewPage } from '../pages/feedbackview/feedbackview'
 import { Home1Page } from '../pages/home1/home1'
+import { Home2Page } from '../pages/home2/home2'
 
 @Component({
   templateUrl: 'app.html'
@@ -76,6 +77,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
       { title: 'Home 2', component: Home1Page, icon: 'home' },
+      { title: 'Home 3', component: Home2Page, icon: 'home' },
       { title: 'Appiontments History', component: AppointmentsPage, icon: 'contacts'},
       { title: 'Quotes', component: QuotesPage, icon: 'list-box' },
       { title: 'Service/Repairs History', component: ServicerequestPage, icon: 'construct' },

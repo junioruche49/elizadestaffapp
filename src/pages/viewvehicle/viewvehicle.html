@@ -9,6 +9,7 @@
 
 <ion-content padding>
 	<ion-grid>
+		<form (ngSubmit)="addquotation(f)" #f="ngForm">
 		<ion-row>
 			<ion-col col-12>
 				<img [src]="'assets/imgs/'+vehicle.vehicle_image_1">
@@ -61,7 +62,6 @@
 							placeholder=""
 							required
 							ngModel
-							[(ngModel)]="quantity"
 							[value]="model"></ion-input>
 						</ion-item>
 						
@@ -76,10 +76,15 @@
 						ngModel></ion-textarea>
 					</ion-item>
 				</div>
-			<br><br>
+				<br><br>
 			</ion-col>
-			<button block ion-button color="danger">Send</button>
+			<ion-col col-12 text-center>
+				<button text-center ion-button color="danger" [disabled]="!f.valid">Send</button>
+				<br><br><br>
+			</ion-col>
+			
 		</ion-row>
+	</form>
 	</ion-grid>
 </ion-content>
 <ion-footer>

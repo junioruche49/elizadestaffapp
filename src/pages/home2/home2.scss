@@ -1,0 +1,55 @@
+page-home2 {
+
+	.backgroundimg{
+		height: 380px;
+		background-image: url('../assets/imgs/o-GROUP-OF-WOMEN-IN-BUSINESS-facebook.jpg');
+		background-size: cover;
+		background-repeat:no-repeat;
+		background-position: center center;
+	}
+	.bg1{
+		color: #fff;
+		background-color: #caa57f;
+		height: 100px;
+	}
+	.bg2{
+		color: #fff;
+		background-color: #d6967b;
+		height: 100px;
+	}
+	.bg3{
+		color: #fff;
+		background-color: #d86875;
+		height: 100px;
+	}
+	.bg4{
+		color: #fff;
+		background-color: #a46574;
+		height: 100px;
+	}
+	ion-icon{
+		font-size: 30px;
+	}
+	ion-card{
+		margin: 0 !important;
+		padding: 0 !important;
+		width: 100% !important;
+		color: #000;
+		opacity: 0.8;
+		position: bottom;
+	}
+	.card2{
+		margin-top: 10px !important;
+	}
+	.card3{
+		margin-top: 110px !important;
+	}
+	.card1{
+		margin-top: 60px !important;
+	}
+
+	[col-12] {
+    padding: 0;
+	}
+	
+}
