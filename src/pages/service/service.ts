@@ -193,7 +193,7 @@ export class ServicePage {
        this.selectservicetype = 'series_b'
        this.selectedtype = 'B'
     }else if (this.mileagetype == '15000') {
-      // code...
+      this.selectservicetype = 'series_c'
        
        this.selectedtype = 'C'
     }else{
