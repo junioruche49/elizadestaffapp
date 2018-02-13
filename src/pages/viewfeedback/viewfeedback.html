@@ -11,11 +11,17 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col>
-				<h4>Vehicle Model: Avensis</h4>
-				<hr>
-				<h4>Vehicle Type: Toyota</h4>
-				<hr>
-				<h4>Still waiting for the quotation</h4>
+				<div *ngIf="feedback.vehicle_model">
+					<h4>Vehicle Model: <br>{{ feedback.vehicle_model }}</h4>
+					<hr>
+					<h4>Vehicle Type: <br>{{ feedback.vehicle_type }}</h4>
+					<hr>
+					<h4>Complain: <br>{{ feedback.complain }}</h4>
+				</div>
+				<div *ngIf="feedback.suggestion">
+					<p>Suggestion: <br>
+					{{feedback.suggestion}}</p>
+				</div>
 			</ion-col>
 		</ion-row>
 		<ion-row>

@@ -14,6 +14,7 @@ import { Users } from '../service/user.service'
 import { Cars } from '../models/cars.model'
 import { Appointments } from '../models/appointments.model'
 import { ServiceHistory } from '../models/servicehistory.model'
+import { Feedback } from '../models/feedback.model'
 
 @Injectable()
 
@@ -30,6 +31,7 @@ export class formsService {
 	public sentQuotation: Quotation[] = [];
 	public appointments: Appointments[] = []
 	public servicehistory: ServiceHistory[] = []
+	public feedback: Feedback[] = []
 
 	constructor(private http: HttpClient, public Users: Users, public storage: Storage){
 		this.User = this.Users.getUser();
@@ -195,6 +197,14 @@ export class formsService {
 
 	getAppointments(){
 		return this.appointments;
+	}
+
+	addFeedback(feedback: Feedback){
+		this.feedback.push(feedback);
+	}
+
+	getFeedback(){
+		return this.feedback;
 	}
 
 

@@ -11,9 +11,14 @@
 
 
 <ion-content padding>
-	<ion-row (click)="viewfeedback()">
+	<ion-row (click)="viewfeedback(feed)" *ngFor="let feed of feedback;">
       <ion-col col-9>
-        <h6>Still waiting for the quotation</h6>
+      	<span *ngIf="feed.suggestion">
+			<p>{{feed.suggestion}}</p>
+		</span>
+		<span *ngIf="feed.vehicle_model">
+			<p>{{ feed.vehicle_model }}</p>
+		</span>
       </ion-col>
       <ion-col col-3 text-right>
           <ion-icon name="arrow-round-forward"></ion-icon>

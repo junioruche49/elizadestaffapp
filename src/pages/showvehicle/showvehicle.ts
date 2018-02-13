@@ -43,7 +43,7 @@ export class ShowvehiclePage {
   }
 
   gotoPage(vehicle: Vehiclemodel){
-  	this.modal.create(ViewvehiclePage, {vehicle: vehicle}).present()
+  	this.navCtrl.push(ViewvehiclePage, {vehicle: vehicle})
   }
 
   

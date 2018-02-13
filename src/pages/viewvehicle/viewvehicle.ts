@@ -31,6 +31,7 @@ export class ViewvehiclePage {
 	usersdata: alertData;
 	quantity: any;
 	comment = '';
+	quote: boolean = false;
 
   constructor(public navCtrl: NavController, 
   			  public navParams: NavParams,
@@ -51,6 +52,10 @@ export class ViewvehiclePage {
 
   closemodal(){
   	this.viewchild.dismiss();
+  }
+
+  showform(){
+  	this.quote = true;
   }
 
   addquotation(form: NgForm){
@@ -90,6 +95,7 @@ export class ViewvehiclePage {
 	      		this.formservice.addQuotation({
 	      			customercode: this.selecteduser,
 					productname: this.vehicle.vehicle_model,
+					image: this.vehicle.vehicle_image_1,
 	      			product: this.vehicle.modelId,
 	      			product_type: this.vehicle.vehicle_type,
 	      			comment: form.value.comment,
@@ -101,6 +107,7 @@ export class ViewvehiclePage {
 	      		this.formservice.addQuotation({
 	      			customercode: this.selecteduser,
 					productname: this.vehicle.vehicle_model,
+					image: this.vehicle.vehicle_image_1,
 	      			product: this.vehicle.modelId,
 	      			product_type: this.vehicle.vehicle_type,
 	      			qty: form.value.quantity,
@@ -160,6 +167,7 @@ export class ViewvehiclePage {
 	      		this.formservice.addQuotation({
 	      			customercode: this.selecteduser,
 					productname: this.vehicle.vehicle_model,
+					image: this.vehicle.vehicle_image_1,
 	      			product: this.vehicle.modelId,
 	      			product_type: this.vehicle.vehicle_type,
 	      			comment: form.value.comment,
@@ -171,6 +179,7 @@ export class ViewvehiclePage {
 	      		this.formservice.addQuotation({
 	      			customercode: this.selecteduser,
 					productname: this.vehicle.vehicle_model,
+					image: this.vehicle.vehicle_image_1,
 	      			product: this.vehicle.modelId,
 	      			product_type: this.vehicle.vehicle_type,
 	      			qty: form.value.quantity,

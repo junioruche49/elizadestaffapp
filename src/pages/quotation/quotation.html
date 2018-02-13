@@ -41,7 +41,30 @@
 	<!-- <button color="danger" ion-button block outline (click)="showmodal()" >Select Product</button>
 	<button color="danger" ion-button block>Submit</button> -->
 	<ion-grid>
-		<ion-list>
+
+		<ion-row *ngFor="let quote of quotation; let i = index">
+    		<ion-col col-3>
+				<img [src]="'assets/imgs/'+quote.image">
+			</ion-col>
+			<ion-col col-7>
+				{{ quote.productname }}<br>
+				<span *ngIf="quote.comment">
+					<ion-note>Maintenance</ion-note>
+				</span>
+				<span *ngIf="quote.qty">
+					<ion-note>Qty: {{ quote.qty }}</ion-note>
+				</span>
+			</ion-col>
+			<ion-col col-2>
+				<br>
+				  <ion-icon name="trash" (click)="removefavorite(i)" color="danger"></ion-icon>
+			</ion-col>
+			<ion-col col-12>
+				<hr>
+			</ion-col>
+    	</ion-row>
+
+		<!-- <ion-list>
 		<ion-item-sliding *ngFor="let quote of quotation; let i = index">
 			<ion-item>
 				{{ quote.productname }}<br>
@@ -60,10 +83,10 @@
 				</button>
 			</ion-item-options>
 		</ion-item-sliding>
-		</ion-list>
+		</ion-list> -->
 
 	</ion-grid>
 </ion-content>
 <ion-footer>
-	<button ion-button color="danger" disabled full (click)="addQuotation()">Send Quotation</button>
+	<button ion-button color="danger" full (click)="addQuotation()">Send Quotation</button>
 </ion-footer>

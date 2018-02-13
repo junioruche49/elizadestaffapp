@@ -11,14 +11,19 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col col-12>
-				<img [src]="'assets/imgs/toyota1.jpeg'">
+				<img [src]="'assets/imgs/'+quotation.image">
 			</ion-col>
 		</ion-row>
 		<ion-row>
 			<ion-col>
-				<h3>{{ prod_idex.ProductName }}</h3>
-				<p>{{ prod_idex.Description }}</p>
-				<p>Quantity Order: {{ quotation.qty }}</p>
+				<h3>{{ quotation.productname }}</h3>
+				<p>{{ quotation.product_type }}</p>
+				<span *ngIf="quotation.comment">
+					Complain: <ion-note> {{ quotation.comment }}</ion-note>
+				</span>
+				<span *ngIf="quotation.qty">
+					<ion-note>Quantity Order: {{ quotation.qty }}</ion-note>
+				</span>
 			</ion-col>
 		</ion-row>
 	</ion-grid>

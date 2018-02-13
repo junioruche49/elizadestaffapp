@@ -63,112 +63,112 @@ export class ProductPage implements OnInit  {
   	this.index = this.navParams.get('index');
   }
 
-  addquotation(){
-  	if (this.usersadded.length > 0) {
+  // addquotation(){
+  // 	if (this.usersadded.length > 0) {
   		
-  		let alert = this.alertCtrl.create();
-    alert.setTitle('Select User');
+  // 		let alert = this.alertCtrl.create();
+  //   alert.setTitle('Select User');
 
-    	alert.addInput({
-    		type: 'radio',
-	      label: 'You',
-	      value: this.user.customer_number,
-	      checked: false
-    	});
+  //   	alert.addInput({
+  //   		type: 'radio',
+	 //      label: 'You',
+	 //      value: this.user.customer_number,
+	 //      checked: false
+  //   	});
 
-	    for (let userdata of this.usersadded) {
-	    	this.usersdata = {
-	      type: 'radio',
-	      label: userdata.name +' - '+ userdata.code,
-	      value: userdata.code,
-	      checked: false
-	    }
-	    alert.addInput(this.usersdata);
-	    }
+	 //    for (let userdata of this.usersadded) {
+	 //    	this.usersdata = {
+	 //      type: 'radio',
+	 //      label: userdata.name +' - '+ userdata.code,
+	 //      value: userdata.code,
+	 //      checked: false
+	 //    }
+	 //    alert.addInput(this.usersdata);
+	 //    }
 	    
 
-	    alert.addButton('Cancel');
-	    alert.addButton({
-	      text: 'OK',
-	      handler: data => {
-	      	this.selecteduser = data;
+	 //    alert.addButton('Cancel');
+	 //    alert.addButton({
+	 //      text: 'OK',
+	 //      handler: data => {
+	 //      	this.selecteduser = data;
 
-	      	if (this.prod_idex.ProductType == 'Motor Vehicle') {
-	      		this.product = this.products.getProduct(this.index);
-	      		this.formservice.addQuotation({
-	      			customercode: this.selecteduser,
-					productname: this.product.ProductName,
-	      			product: this.index,
-	      			qty: this.quantity,
-	      			product_type: this.prod_idex.ProductType,
-	      			vehicle_model: 'toyota',
-	      			vehicle_year: '2017',
-	      			vehicle_reg_no: this.product.ProductID 
-	      		})
-  			console.log(this.formservice.getQuotation());
-	      	}else{
-	      		this.product = this.products.getProduct(this.index);
-	      		this.formservice.addQuotation({
-								      			customercode: this.selecteduser,
-								      			productname: this.product.ProductName,
-								      			product: this.index,
-								      			qty: this.spquantity,
-								      			product_type: this.prod_idex.ProductType,
-								      			chasisno: this.chassis_no,
-								      			part_desc: this.desc,
-								      			part_no: this.part_no
-								      		})
-	      	}
+	 //      	if (this.prod_idex.ProductType == 'Motor Vehicle') {
+	 //      		this.product = this.products.getProduct(this.index);
+	 //      		this.formservice.addQuotation({
+	 //      			customercode: this.selecteduser,
+		// 			productname: this.product.ProductName,
+	 //      			product: this.index,
+	 //      			qty: this.quantity,
+	 //      			product_type: this.prod_idex.ProductType,
+	 //      			vehicle_model: 'toyota',
+	 //      			vehicle_year: '2017',
+	 //      			vehicle_reg_no: this.product.ProductID 
+	 //      		})
+  // 			console.log(this.formservice.getQuotation());
+	 //      	}else{
+	 //      		this.product = this.products.getProduct(this.index);
+	 //      		this.formservice.addQuotation({
+		// 						      			customercode: this.selecteduser,
+		// 						      			productname: this.product.ProductName,
+		// 						      			product: this.index,
+		// 						      			qty: this.spquantity,
+		// 						      			product_type: this.prod_idex.ProductType,
+		// 						      			chasisno: this.chassis_no,
+		// 						      			part_desc: this.desc,
+		// 						      			part_no: this.part_no
+		// 						      		})
+	 //      	}
 	      	
 	      	
-  			this.navCtrl.push(QuotationPage)
-	      }
-	    });
-	    alert.present();
+  // 			this.navCtrl.push(QuotationPage)
+	 //      }
+	 //    });
+	 //    alert.present();
 	    
 
-  	}else{
+  // 	}else{
 
-  		const toast = this.toast.create({
-	  		message: 'Sent Successfully',
-	  		duration: 3500,
-	  		position: 'bottom'
-  		});
-	  	toast.present()
-	  	 this.selecteduser = this.user.customer_number;
-	  	 if (this.prod_idex.ProductType == 'Motor Vehicle') {
-	      		this.product = this.products.getProduct(this.index);
-	      		this.formservice.addQuotation({
-	      			customercode: this.selecteduser,
-					productname: this.product.ProductName,
-	      			product: this.index,
-	      			qty: this.quantity,
-	      			product_type: this.prod_idex.ProductType,
-	      			vehicle_model: 'toyota',
-	      			vehicle_year: '2017',
-	      			vehicle_reg_no: this.product.ProductID 
-	      		})
-  			console.log(this.formservice.getQuotation());
-	      	}else{
-	      		this.product = this.products.getProduct(this.index);
-	      		this.formservice.addQuotation({
-	      			customercode: this.selecteduser,
-					productname: this.product.ProductName,
-	      			product: this.index,
-	      			qty: this.spquantity,
-	      			product_type: this.prod_idex.ProductType,
-	      			chasisno: this.chassis_no,
-	      			part_desc: this.desc,
-	      			part_no: this.part_no
-	      		})
-	      	}
-  		this.navCtrl.push(QuotationPage)
+  // 		const toast = this.toast.create({
+	 //  		message: 'Sent Successfully',
+	 //  		duration: 3500,
+	 //  		position: 'bottom'
+  // 		});
+	 //  	toast.present()
+	 //  	 this.selecteduser = this.user.customer_number;
+	 //  	 if (this.prod_idex.ProductType == 'Motor Vehicle') {
+	 //      		this.product = this.products.getProduct(this.index);
+	 //      		this.formservice.addQuotation({
+	 //      			customercode: this.selecteduser,
+		// 			productname: this.product.ProductName,
+	 //      			product: this.index,
+	 //      			qty: this.quantity,
+	 //      			product_type: this.prod_idex.ProductType,
+	 //      			vehicle_model: 'toyota',
+	 //      			vehicle_year: '2017',
+	 //      			vehicle_reg_no: this.product.ProductID 
+	 //      		})
+  // 			console.log(this.formservice.getQuotation());
+	 //      	}else{
+	 //      		this.product = this.products.getProduct(this.index);
+	 //      		this.formservice.addQuotation({
+	 //      			customercode: this.selecteduser,
+		// 			productname: this.product.ProductName,
+	 //      			product: this.index,
+	 //      			qty: this.spquantity,
+	 //      			product_type: this.prod_idex.ProductType,
+	 //      			chasisno: this.chassis_no,
+	 //      			part_desc: this.desc,
+	 //      			part_no: this.part_no
+	 //      		})
+	 //      	}
+  // 		this.navCtrl.push(QuotationPage)
   	
 
-  	}
+  // 	}
 
   	
   	
-  }
+  // }
 
 }

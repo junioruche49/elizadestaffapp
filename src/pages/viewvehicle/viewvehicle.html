@@ -9,7 +9,7 @@
 
 <ion-content padding>
 	<ion-grid>
-		<form (ngSubmit)="addquotation(f)" #f="ngForm">
+		
 		<ion-row>
 			<ion-col col-12>
 				<img [src]="'assets/imgs/'+vehicle.vehicle_image_1">
@@ -23,6 +23,59 @@
 		</ion-row>
 		<ion-row>
 			<ion-col col-12>
+				<button ion-button color="danger" *ngIf="!quote" (click)="showform()">Request Quote</button>
+
+				<div *ngIf="quote">
+					<form (ngSubmit)="addquotation(f)" #f="ngForm">
+					<ion-list radio-group 
+				  		name="callrequest"
+				  		required
+				  		[(ngModel)]="call">
+					  <ion-list-header>
+					    <h3 class="call">Options</h3>
+					  </ion-list-header>
+
+					  <ion-item>
+					    <ion-label>Purchase</ion-label>
+					    <ion-radio checked="true" value="yes"></ion-radio>
+					  </ion-item>
+
+					  <ion-item>
+					    <ion-label>Maintenance</ion-label>
+					    <ion-radio value="no"></ion-radio>
+					  </ion-item>
+
+					</ion-list>
+					<div *ngIf="call == 'yes'" >
+						<ion-item>
+								<ion-label stacked>Quantity</ion-label>
+								<ion-input 
+								type="number" 
+								name="quantity" 
+								placeholder=""
+								required
+								ngModel
+								[value]="model"></ion-input>
+							</ion-item>
+							
+					</div>
+
+					<div *ngIf="call == 'no'" >
+						<ion-item>
+							<ion-label floating>Comment.</ion-label>
+							<ion-textarea 
+							name="comment"
+							required
+							ngModel></ion-textarea>
+						</ion-item>
+					</div>
+					<br><br>
+						<button text-center block ion-button color="danger" [disabled]="!f.valid">Request</button>
+					
+					</form>
+
+				</div>
+
 				<br><br>
 				<h6>Vehicle Model: {{ vehicle.vehicle_model }}</h6>
 				<hr>
@@ -34,59 +87,10 @@
 				{{ vehicle.standard_feature }}
 				<br><br><br><br>
 				
-				<ion-list radio-group 
-			  		name="callrequest"
-			  		required
-			  		[(ngModel)]="call">
-				  <ion-list-header>
-				    <h3 class="call">Options</h3>
-				  </ion-list-header>
-
-				  <ion-item>
-				    <ion-label>Purchase</ion-label>
-				    <ion-radio checked="true" value="yes"></ion-radio>
-				  </ion-item>
-
-				  <ion-item>
-				    <ion-label>Maintenance</ion-label>
-				    <ion-radio value="no"></ion-radio>
-				  </ion-item>
-
-				</ion-list>
-				<div *ngIf="call == 'yes'" >
-					<ion-item>
-							<ion-label stacked>Quantity</ion-label>
-							<ion-input 
-							type="number" 
-							name="quantity" 
-							placeholder=""
-							required
-							ngModel
-							[value]="model"></ion-input>
-						</ion-item>
-						
-				</div>
-
-				<div *ngIf="call == 'no'" >
-					<ion-item>
-						<ion-label floating>Comment.</ion-label>
-						<ion-textarea 
-						name="comment"
-						required
-						ngModel></ion-textarea>
-					</ion-item>
-				</div>
-				<br><br>
-			</ion-col>
-			<ion-col col-12 text-center>
-				<button text-center ion-button color="danger" [disabled]="!f.valid">Send</button>
-				<br><br><br>
+				
 			</ion-col>
 			
+			
 		</ion-row>
-	</form>
 	</ion-grid>
 </ion-content>
-<ion-footer>
-	<button ion-button color="danger" full (click)="closemodal()">CLOSE</button>
-</ion-footer>

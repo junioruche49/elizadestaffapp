@@ -184,19 +184,20 @@ export class ServicePage {
 	}
 
   confirm(){
-    if (this.mileagetype == '3000') {
+    if (this.mileagetype == '5000') {
       // code...
       this.selectservicetype = 'series_a'
       this.selectedtype = 'A'
-    }else if (this.mileagetype == '5000') {
+    }else if (this.mileagetype == '10000') {
       // code...
        this.selectservicetype = 'series_b'
        this.selectedtype = 'B'
-    }else if (this.mileagetype == '8000') {
+    }else if (this.mileagetype == '15000') {
       // code...
-       this.selectservicetype = 'series_c'
+       
        this.selectedtype = 'C'
     }else{
+      this.selectservicetype = 'series_d'
       this.selectedtype = 'D'
     }
 

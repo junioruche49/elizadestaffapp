@@ -18,7 +18,7 @@ import { Productservice } from '../../service/products.service'
   templateUrl: 'quotedisplay.html',
 })
 export class QuotedisplayPage {
-	prod_idex: Products;
+	prod_index: Products;
 	quotation: Quotation;
 
   constructor(public navCtrl: NavController, 
@@ -29,7 +29,7 @@ export class QuotedisplayPage {
   	let loader = this.loadingCtrl.create({content: "Loading..."});
     loader.present();
   	this.quotation = this.formsservice.getSingleSetQuotation(this.navParams.get('id'));
-  	this.prod_idex = this.product.getProduct(this.quotation.product);
+  	this.prod_index = this.product.getProduct(this.quotation.product);
   	loader.dismiss();
   }
 

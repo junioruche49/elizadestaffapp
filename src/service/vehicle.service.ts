@@ -11,18 +11,26 @@ export class Vehicle{
 
 	constructor(){
 		this.saloon = [ 
-			new Saloon('1', 'Avanza'),
-			new Saloon('2', 'Avensis')
+			new Saloon('1', 'Avanza', 'toyota-avanza-best-car.jpg'),
+			new Saloon('2', 'Avensis', 'day-exterior-27_040.jpg'),
+			new Saloon('7', 'Camry', '2018_toyota_camry_angularfront.jpg'),
+			new Saloon('8', 'Corolla', 'download.jpeg'),
+			new Saloon('9', 'Yaris', 'USC50TOC191B021001.jpg')
 		]
 
 		this.suv = [
-			new suv('3', 'Fortuner'),
-			new suv('4', 'Land Cruiser')
+			new suv('3', 'Fortuner', '047.jpg'),
+			new suv('4', 'Land Cruiser', 'USC30TOS121A021001.jpg'),
+			new suv('10', 'Land Cruiser Prado', '20131205073612_Toyota Land Cruiser Prado.jpg'),
+			new suv('11', 'Rav4', 'USC70TOS111D021001.png')
 		]
 
 		this.utility = [
-			new utility('5', 'Coaster'),
-			new utility('6', 'Dyna')
+			new utility('5', 'Coaster', '2018_Toyota_Coaster.png'),
+			new utility('6', 'Dyna', 'intro_2.jpg'),
+			new utility('12', 'Hiace', 'hiace.png'),
+			new utility('13', 'Hilux', 'download.png'),
+			new utility('14', 'Landcruiser 70/Safari Pick up', 'LandCruiser Troop Carrier Workmate french vanilla front 940x529.png')
 		]
 
 		this.car = [
@@ -39,7 +47,23 @@ export class Vehicle{
 			new Vehiclemodel('5', '223236', 'toyota', 'Coaster', 2014, 'utility1.png', 'utility2.png', 'utility3.png', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
 			new Vehiclemodel('5', '223237', 'toyota', 'Coaster', 2014, 'utility3.png', 'utility2.png', 'utility1.png', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
 			new Vehiclemodel('6', '223238', 'toyota', 'Dyna', 2014, 'dyna1.jpg', 'dyna2.jpg', 'dyna3.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
-			new Vehiclemodel('6', '2232391', 'toyota', 'Dyna', 2014, 'dyna5.jpg', 'dyna4.jpg', 'dyna6.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' )
+			new Vehiclemodel('6', '2232391', 'toyota', 'Dyna', 2014, 'dyna5.jpg', 'dyna4.jpg', 'dyna6.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('7', '22323823', 'toyota', 'Camry', 2016, 'camry2.png', 'camry.jpeg', 'camry3.png', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('7', '223239145', 'toyota', 'Camry', 2017, 'camry5.png', 'camry4.jpg', 'camry6.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('8', '11323823', 'toyota', 'Corolla', 2016, 'corolla1.png', 'corolla2.png', 'corolla3.png', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('8', '243239145', 'toyota', 'Corolla', 2017, 'corolla6.png', 'corolla5.png', 'corolla4.jpeg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('9', '11320823', 'toyota', 'Yaris', 2016, 'yaris6.jpg', 'yaris5.jpg', 'yaris4.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('9', '2403239145', 'toyota', 'Yaris', 2017, 'yaris2.png', 'yaris1.jpeg', 'yaris3.png', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('10', '1011320823', 'toyota', 'Land Cruiser Prado', 2016, 'prado1.jpg', 'prado2.jpg', 'prado3.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('10', '203239145', 'toyota', 'Land Cruiser Prado', 2017, 'prado4.jpg', 'prado5.jpg', 'prado6.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('11', '10113020823', 'toyota', 'Rav4', 2016, 'rav1.png', 'rav2.png', 'rav3.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('11', '2403294145', 'toyota', 'Rav4', 2017, 'rav4.jpg', 'rav5.jpg', 'rav6.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('12', '101120823', 'toyota', 'Hiace', 2016, 'hiace1.jpg', 'hiace2.jpg', 'hiace3.JPG', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('12', '2403291145', 'toyota', 'Hiace', 2017, 'hiace4.jpg', 'hiace5.jpg', 'hiace6.jpeg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('13', '1012082300', 'toyota', 'Hilux', 2016, 'hilux1.png', 'hilux2.jpg', 'hilux3.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('13', '240329145', 'toyota', 'Hilux', 2017, 'hilux6.png', 'hilux5.jpg', 'hilux4.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('14', '10122300', 'toyota', 'Landcruiser 70/Safari Pick up', 2016, 'safari1.png', 'safari2.png', 'safari3.png', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
+			new Vehiclemodel('14', '2409145', 'toyota', 'Landcruiser 70/Safari Pick up', 2017, 'safari4.png', 'safari5.png', 'safari6.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' )
 		]
 	}
 }

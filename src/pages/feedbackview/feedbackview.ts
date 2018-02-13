@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ViewfeedbackPage } from '../viewfeedback/viewfeedback'
+import { formsService } from '../../service/formsService.service';
+import { Feedback } from '../../models/feedback.model'
 
 /**
  * Generated class for the FeedbackviewPage page.
@@ -15,16 +17,20 @@ import { ViewfeedbackPage } from '../viewfeedback/viewfeedback'
   templateUrl: 'feedbackview.html',
 })
 export class FeedbackviewPage {
+	feedback: Feedback[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+  			  public navParams: NavParams,
+  			  public formservice: formsService) {
+  	this.feedback = this.formservice.getFeedback();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FeedbackviewPage');
   }
 
-  viewfeedback(){
-  	this.navCtrl.push(ViewfeedbackPage)
+  viewfeedback(feed: Feedback){
+  	this.navCtrl.push(ViewfeedbackPage, {feedback: feed})
   }
 
 }

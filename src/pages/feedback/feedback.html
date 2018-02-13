@@ -4,7 +4,7 @@
   	<button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Feedback</ion-title>
+    <ion-title>What's your feedback?</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,9 +17,6 @@
 			  		name="callrequest"
 			  		required
 			  		[(ngModel)]="call">
-				  <ion-list-header>
-				    <h3 class="call">What's your feedback?</h3>
-				  </ion-list-header>
 
 				  <ion-item>
 				    <ion-label>Report a Problem</ion-label>
@@ -34,51 +31,69 @@
 				</ion-list>
 			<div *ngIf="call == 'yes'" >
 				<ion-item>
-					<ion-label floating>Vehicle Model</ion-label>
+					<h3>Vehicle Model</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
 					<ion-input 
 					type="text" 
 					name="vehicle_model"
 					required
 					ngModel></ion-input>
 				</ion-item>
+				<br><br>
 				<ion-item>
-					<ion-label floating>Vehicle Type</ion-label>
+					<h3>Vehicle Type</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
 					<ion-input 
 					type="text" 
 					name="vehicle_type"
 					required
 					ngModel></ion-input>
 				</ion-item>
+				<br><br>
 				<ion-item>
-					<ion-label floating>What is your complain</ion-label>
+					<h3>What is your complain</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
 					<ion-textarea 
-					name="comment"
+					name="complain"
 					required
 					ngModel></ion-textarea>
 				</ion-item>
+				<br><br>
 				<ion-item>
-					<ion-label floating>Contact Details</ion-label>
+					<h3>What can we contact you on?</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
 					<ion-input 
 					type="text" 
-					name="vehicle_type"
+					name="contact"
+					placeholder="Give us your email or phone"
 					required
 					ngModel></ion-input>
 				</ion-item>
+				<br>
 			</div>
 
 			<div *ngIf="call == 'no'">
 				<ion-item>
 					<ion-label floating>What is your suggestion</ion-label>
 					<ion-textarea 
-					name="comment"
+					name="suggestion"
 					required
 					ngModel></ion-textarea>
 				</ion-item>
+				<br>
 			</div>
 			
 			
 		</ion-list>
-		<button color="danger" ion-button block type="submit" [disabled]="!f.valid || f.value.callrequest == 'no' ">Send</button>
+		<button color="danger" ion-button block type="submit" [disabled]="!f.valid">Send Feedback</button>
 		
 	</form>
 </ion-content>

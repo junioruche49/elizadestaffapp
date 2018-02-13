@@ -14,7 +14,8 @@
 	<ion-grid>
 		<ion-row *ngFor="let appointment of appointments; let i = index" (click)="showappointmentpage(i)">
 			<ion-col col-9>
-				<h3>{{ appointment.AppointmentType }}</h3>
+				<h5>{{ appointment.AppointmentType }}</h5>
+				<ion-note>{{appointment.AppointmentGuid}}</ion-note>
 			</ion-col>
 			<ion-col col-3 text-right>
 				<br>

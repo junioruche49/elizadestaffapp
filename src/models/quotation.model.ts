@@ -1,6 +1,7 @@
 export class Quotation{
 	constructor(public customercode: any, 
 				public productname: any,
+				public image: string,
 				public product: any, 
 				public product_type: string, 
 				public comment?: string,

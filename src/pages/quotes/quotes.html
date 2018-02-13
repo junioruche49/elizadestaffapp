@@ -13,12 +13,18 @@
 <ion-content padding>
 	<ion-grid>
 		<ion-row *ngFor="let quote of quotation; let i = index" (click)="quotespage(i)">
+			
 			<ion-col col-3>
-				<img [src]="'assets/imgs/toyota1.jpeg'">
+				<img [src]="'assets/imgs/'+quote.image">
 			</ion-col>
 			<ion-col col-7>
-			{{ getproductname(quote.product) }}<br>
-			Qty: {{ quote.qty }}
+				{{ quote.productname }}<br>
+				<span *ngIf="quote.comment">
+					<ion-note>Maintenance</ion-note>
+				</span>
+				<span *ngIf="quote.qty">
+					<ion-note>Qty: {{ quote.qty }}</ion-note>
+				</span>
 			</ion-col>
 			<ion-col col-2>
 				<br>

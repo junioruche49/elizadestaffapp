@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>Sales Executive</ion-title>
+    <ion-title>Speak to a Sales Executive</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -31,23 +31,34 @@
 				</ion-list>
 			<div *ngIf="call == 'yes'" >
 				<ion-item>
-					<ion-label floating>Phone Number?</ion-label>
+					<h3>What number can we call you on?</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
 					<ion-input 
 					type="text" 
 					name="phonenumber"
 					required
 					ngModel></ion-input>
 				</ion-item>
+				<br>
 				<ion-item>
-					<ion-label floating>Date/Time</ion-label>
+					<h3>What date and time is convenient for you?</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
 					 <ion-datetime 
 					 displayFormat="MMM DD, YYYY HH:mm"
 						name="date_time" 
 						ngModel 
 						required></ion-datetime>
 				</ion-item>
+				<br>
 				<ion-item>
-					<ion-label floating>Comment (Are you making an enquiring or complain).</ion-label>
+					<h3>Comment (Are you making an enquiring or complain).</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
 					<ion-textarea 
 					name="comment"
 					required

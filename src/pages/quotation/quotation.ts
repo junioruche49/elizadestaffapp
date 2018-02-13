@@ -10,6 +10,7 @@ import { formsService } from '../../service/formsService.service';
 import { Usersadded } from '../../models/users.model'
 import { alertData } from '../../models/alertdata.model'
 import { ShowquotationPage } from '../showquotation/showquotation'
+import { QuotesPage } from '../quotes/quotes'
 
 /**
  * Generated class for the QuotationPage page.
@@ -127,26 +128,27 @@ export class QuotationPage {
 
 
   addQuotation(){
-  	let number = Math.floor((Math.random() * 10000000) + 1)
-  	for (let quotation of this.quotation) {
-  		if (quotation.product_type ==  "Motor Vehicle") {
-  			this.product.addvehicle(quotation, number)
-  			.subscribe((data: any)=>{
-  				this.formservice.sentQuotation.push(quotation)
-  				console.log(data.message);
-  			},err =>{
-  				console.log(err.message)
-  			})
-  		}else{
-  			this.product.addsparepart(quotation, number)
-  			.subscribe((data: any)=>{
-  				this.formservice.sentQuotation.push(quotation)
-  				console.log(data.message);
-  			},err =>{
-  				console.log(err.message)
-  			})
-  		}
-  	}
+  	// let number = Math.floor((Math.random() * 10000000) + 1)
+  	// for (let quotation of this.quotation) {
+  	// 	if (quotation.product_type ==  "Motor Vehicle") {
+  	// 		this.product.addvehicle(quotation, number)
+  	// 		.subscribe((data: any)=>{
+  	// 			this.formservice.sentQuotation.push(quotation)
+  	// 			console.log(data.message);
+  	// 		},err =>{
+  	// 			console.log(err.message)
+  	// 		})
+  	// 	}else{
+  	// 		this.product.addsparepart(quotation, number)
+  	// 		.subscribe((data: any)=>{
+  	// 			this.formservice.sentQuotation.push(quotation)
+  	// 			console.log(data.message);
+  	// 		},err =>{
+  	// 			console.log(err.message)
+  	// 		})
+  	// 	}
+  	// }
+    this.formservice.SendQuotation(this.quotation);
   	this.formservice.removeQuotations();
   	const toast = this.toast.create({
   		message: 'Sent Successfully',
@@ -156,7 +158,7 @@ export class QuotationPage {
   	toast.present()
 
     this.quotation = [];
-    this.navCtrl.popToRoot();
+    this.navCtrl.setRoot(QuotesPage);
   }
 
 
