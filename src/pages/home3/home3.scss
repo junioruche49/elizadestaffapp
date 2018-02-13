@@ -1,0 +1,50 @@
+page-home3 {
+	.backgroundimg{
+		background-image: url('../assets/imgs/2018_Toyota_Camry__11_.jpg');
+		background-size: cover;
+		background-repeat:no-repeat;
+		background-position: center center;
+	}
+	.column1{
+		margin-left: 10px;
+		position: relative;
+		float: left;
+		height: 130px;
+		padding-top: 30px;
+		color: #fff;
+		background-color: #125294;
+		opacity: 0.8;
+		border-radius: 10px;
+		h6{
+			font-size: 14px;
+		}
+	}
+	.column2{
+	float: left;
+		margin-left: 10px;
+		height: 130px;
+		padding-top: 30px;
+		color: #fff;
+		background-color: #9e2c4b;
+		opacity: 0.8;
+		border-radius: 10px;
+		h6{
+			font-size: 14px;
+		}
+	}
+
+	button{
+		color: #fff !important;
+	}
+
+	.footer{
+		color: #fff;
+		padding: 10px;
+	}
+	.icon1{
+		font-size: 40px;
+	}
+	.icon2{
+		font-size: 20px;
+	}
+}
