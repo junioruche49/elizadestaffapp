@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ToastController, LoadingController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { SigninPage } from '../signin/signin'
 
 @Component({
   selector: 'page-signup',
@@ -19,7 +20,7 @@ export class SignupPage {
     console.log('ionViewDidLoad SignupPage');
   }
   singin(){
-  	this.navCtrl.popToRoot();
+  	this.navCtrl.push(SigninPage);
   }
   submit(form: NgForm){
     if (form.value.password != form.value.confirmpassword) {

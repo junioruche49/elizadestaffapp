@@ -42,6 +42,10 @@ import { ViewfeedbackPage } from '../pages/viewfeedback/viewfeedback'
 import { Home1Page } from '../pages/home1/home1'
 import { Home2Page } from '../pages/home2/home2'
 import { Home3Page } from '../pages/home3/home3'
+import { VehiclemodelsPage } from '../pages/vehiclemodels/vehiclemodels'
+import { ShowvehiclehomePage } from '../pages/showvehiclehome/showvehiclehome'
+import { ViewvehiclehomePage } from '../pages/viewvehiclehome/viewvehiclehome'
+import { FeedbackhomePage } from '../pages/feedbackhome/feedbackhome'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -92,7 +96,11 @@ import { LocationProvider } from '../providers/location/location';
     ViewfeedbackPage,
     Home1Page,
     Home2Page,
-    Home3Page
+    Home3Page,
+    VehiclemodelsPage,
+    ShowvehiclehomePage,
+    ViewvehiclehomePage,
+    FeedbackhomePage
   ],
   imports: [
     BrowserModule,
@@ -142,7 +150,11 @@ import { LocationProvider } from '../providers/location/location';
     ViewfeedbackPage,
     Home1Page,
     Home2Page,
-    Home3Page
+    Home3Page,
+    VehiclemodelsPage,
+    ShowvehiclehomePage,
+    ViewvehiclehomePage,
+    FeedbackhomePage
   ],
   providers: [
     StatusBar,

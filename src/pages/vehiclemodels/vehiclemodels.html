@@ -1,0 +1,113 @@
+<!--
+  Generated template for the VehiclemodelsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Vehicle Models</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-row>
+    <ion-col class='bdstyle' (click)="showdetail('appointment')">
+        <h2>Saloon</h2>
+    </ion-col>
+
+    <ion-card *ngIf="element == 'appointment'" [@enterAnimation]>
+    	<ion-row (click)="showvehicle(model.id)" *ngFor="let model of saloon">
+    		<ion-col col-3>
+				<img [src]="'assets/imgs/'+model.img">
+			</ion-col>
+			<ion-col col-7>
+				<br>
+			{{model.name}}
+			</ion-col>
+			<ion-col col-2>
+				<br>
+				  <ion-icon name="arrow-round-forward"></ion-icon>
+			</ion-col>
+			<ion-col col-12>
+				<hr>
+			</ion-col>
+    	</ion-row>
+    		
+
+      <!-- <ion-list>
+        <button ion-item >
+          <ion-icon name="car" item-start></ion-icon>
+          
+        </button>
+      </ion-list> -->
+    </ion-card>
+
+  </ion-row>
+  <ion-row>
+    <ion-col class='bdstyle2' (click)="showdetail('repair')">
+        <h2>SUV</h2>
+    </ion-col>
+
+    <ion-card *ngIf="element == 'repair'" [@enterAnimation]>
+
+    	<ion-row (click)="showvehicle(suvcar.id)" *ngFor="let suvcar of suv">
+    		<ion-col col-3>
+				<img [src]="'assets/imgs/'+suvcar.img">
+			</ion-col>
+			<ion-col col-7>
+				<br>
+			{{suvcar.name}}
+			</ion-col>
+			<ion-col col-2>
+				<br>
+				  <ion-icon name="arrow-round-forward"></ion-icon>
+			</ion-col>
+			<ion-col col-12>
+				<hr>
+			</ion-col>
+    	</ion-row>
+
+     <!-- <ion-list>
+        <button ion-item (click)="showvehicle(suvcar.id)" *ngFor="let suvcar of suv">
+          <ion-icon name="car" item-start></ion-icon>
+          {{suvcar.name}}
+        </button>
+
+
+      </ion-list> -->
+    </ion-card>
+
+  </ion-row>
+  <ion-row>
+    <ion-col class='bdstyle3' (click)="showdetail('general')">
+        <h2>Utility Vehicle</h2>
+    </ion-col>
+
+    <ion-card  *ngIf="element == 'general'" [@enterAnimation]>
+
+    	<ion-row (click)="showvehicle(utilitycar.id)" *ngFor="let utilitycar of utility">
+    		<ion-col col-3>
+				<img [src]="'assets/imgs/'+utilitycar.img">
+			</ion-col>
+			<ion-col col-7>
+				<br>
+			{{utilitycar.name}}
+			</ion-col>
+			<ion-col col-2>
+				<br>
+				  <ion-icon name="arrow-round-forward"></ion-icon>
+			</ion-col>
+			<ion-col col-12>
+				<hr>
+			</ion-col>
+    	</ion-row>
+
+      
+    </ion-card>
+
+  </ion-row>
+</ion-content>

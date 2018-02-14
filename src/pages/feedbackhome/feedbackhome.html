@@ -1,0 +1,99 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>What's your feedback?</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<form (ngSubmit)="submit(f)" #f="ngForm">
+		<ion-list>
+			  <ion-list radio-group 
+			  		name="callrequest"
+			  		required
+			  		[(ngModel)]="call">
+
+				  <ion-item>
+				    <ion-label>Report a Problem</ion-label>
+				    <ion-radio checked="true" value="yes"></ion-radio>
+				  </ion-item>
+
+				  <ion-item>
+				    <ion-label>Make a suggestion</ion-label>
+				    <ion-radio value="no"></ion-radio>
+				  </ion-item>
+
+				</ion-list>
+			<div *ngIf="call == 'yes'" >
+				<ion-item>
+					<h3>Vehicle Model</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
+					<ion-input 
+					type="text" 
+					name="vehicle_model"
+					required
+					ngModel></ion-input>
+				</ion-item>
+				<br><br>
+				<ion-item>
+					<h3>Vehicle Type</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
+					<ion-input 
+					type="text" 
+					name="vehicle_type"
+					required
+					ngModel></ion-input>
+				</ion-item>
+				<br><br>
+				<ion-item>
+					<h3>What is your complain</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
+					<ion-textarea 
+					name="complain"
+					required
+					ngModel></ion-textarea>
+				</ion-item>
+				<br><br>
+				<ion-item>
+					<h3>What can we contact you on?</h3>
+				</ion-item>
+				<ion-item>
+					<ion-label floating></ion-label>
+					<ion-input 
+					type="text" 
+					name="contact"
+					placeholder="Give us your email or phone"
+					required
+					ngModel></ion-input>
+				</ion-item>
+				<br>
+			</div>
+
+			<div *ngIf="call == 'no'">
+				<ion-item>
+					<ion-label floating>What is your suggestion</ion-label>
+					<ion-textarea 
+					name="suggestion"
+					required
+					ngModel></ion-textarea>
+				</ion-item>
+				<br>
+			</div>
+			
+			
+		</ion-list>
+		<button color="danger" ion-button block type="submit" [disabled]="!f.valid">Send Feedback</button>
+		
+	</form>
+</ion-content>
