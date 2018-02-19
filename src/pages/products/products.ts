@@ -14,6 +14,8 @@ import { utility } from '../../models/utility.model'
 import { Vehiclemodel } from '../../models/vehiclemodel.model';
 import { Vehicle } from '../../service/vehicle.service'
 import { ShowvehiclePage } from '../showvehicle/showvehicle'
+import { Sparepartquotation } from '../../models/sparepartquotation.model'
+import { SparepartPage } from '../sparepart/sparepart'
 
 /**
  * Generated class for the ProductsPage page.
@@ -50,6 +52,7 @@ export class ProductsPage implements OnInit {
   element: any;
   suv: suv[];
   utility: utility[];
+  spareparts: Sparepartquotation[];
 
 
   constructor(public navCtrl: NavController, 
@@ -63,6 +66,9 @@ export class ProductsPage implements OnInit {
     this.saloon = this.vehicle.saloon;
     this.suv = this.vehicle.suv
     this.utility = this.vehicle.utility
+    this.spareparts = this.vehicle.sparepart
+    console.log(this.spareparts)
+    console.log(this.vehicle.utility)
   // 	let loader = this.loadingCtrl.create({content: "Loading..."});
     
 
@@ -132,7 +138,13 @@ export class ProductsPage implements OnInit {
       this.element = 'repair'
     }else if (data == 'general') {
       this.element = 'general'
+    }else if (data == 'spareparts') {
+      this.element = 'spareparts'
     }
+  }
+
+  showsparepart(part: Sparepartquotation){
+    this.navCtrl.push(SparepartPage, {part: part});
   }
 
 }

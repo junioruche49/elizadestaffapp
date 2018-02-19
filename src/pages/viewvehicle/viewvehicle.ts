@@ -156,7 +156,7 @@ export class ViewvehiclePage {
 
   		const toast = this.toast.create({
 	  		message: 'Sent Successfully',
-	  		duration: 3500,
+	  		duration: 1500,
 	  		position: 'bottom'
   		});
 	  	toast.present()

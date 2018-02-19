@@ -123,11 +123,33 @@
 
   </ion-row>
 
-  <!-- <ion-row>
-    <ion-col class='bdstyle4' (click)="showdetail('general')">
+  <ion-row>
+    <ion-col class='bdstyle4' (click)="showdetail('spareparts')">
         <h2>Spare Part</h2>
     </ion-col>
 
-  </ion-row> -->
+    <ion-card  *ngIf="element == 'spareparts'" [@enterAnimation]>
+
+    	<ion-row (click)="showsparepart(sparepart)" *ngFor="let sparepart of spareparts">
+    		<ion-col col-3>
+				<img [src]="'assets/imgs/'+sparepart.image">
+			</ion-col>
+			<ion-col col-7>
+				<br>
+			{{sparepart.product_name}}
+			</ion-col>
+			<ion-col col-2>
+				<br>
+				  <ion-icon name="arrow-round-forward"></ion-icon>
+			</ion-col>
+			<ion-col col-12>
+				<hr>
+			</ion-col>
+    	</ion-row>
+
+      
+    </ion-card>
+
+  </ion-row>
 
 </ion-content>

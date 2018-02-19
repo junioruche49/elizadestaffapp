@@ -12,6 +12,8 @@ import { utility } from '../../models/utility.model'
 import { Vehiclemodel } from '../../models/vehiclemodel.model';
 import { Vehicle } from '../../service/vehicle.service'
 import { ShowvehiclehomePage } from '../showvehiclehome/showvehiclehome'
+import { Sparepartquotation } from '../../models/sparepartquotation.model'
+import { SpareparthomePage } from '../spareparthome/spareparthome'
 
 /**
  * Generated class for the VehiclemodelsPage page.
@@ -49,6 +51,7 @@ export class VehiclemodelsPage {
   element: any;
   suv: suv[];
   utility: utility[];
+  spareparts: Sparepartquotation[];
 
   constructor(public navCtrl: NavController, 
   			  public navParams: NavParams,
@@ -58,6 +61,7 @@ export class VehiclemodelsPage {
     this.saloon = this.vehicle.saloon;
     this.suv = this.vehicle.suv
     this.utility = this.vehicle.utility
+    this.spareparts = this.vehicle.sparepart
   }
 
   ionViewDidLoad() {
@@ -76,7 +80,13 @@ export class VehiclemodelsPage {
       this.element = 'repair'
     }else if (data == 'general') {
       this.element = 'general'
+    }else if (data == 'spareparts') {
+      this.element = 'spareparts'
     }
+  }
+
+  showsparepart(part: Sparepartquotation){
+    this.navCtrl.push(SpareparthomePage, {part: part});
   }
 
 

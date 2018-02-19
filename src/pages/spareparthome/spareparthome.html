@@ -1,0 +1,87 @@
+<ion-header>
+
+  <ion-navbar color="danger">
+    <ion-title>Spare Part</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-grid>
+		<ion-row>
+			<ion-col col-12>
+				
+				<img [src]="'assets/imgs/'+sparepart.image">
+			</ion-col>
+			<ion-col col-12>
+				<button ion-button color="danger" *ngIf="!quote" (click)="showform()">Request Quote</button>
+
+				<div *ngIf="quote">
+					<form (ngSubmit)="addquotation(f)" #f="ngForm">
+					
+
+					<div *ngIf="quote" >
+						<ion-item>
+							<ion-label stacked>Chassis No:</ion-label>
+							<ion-input 
+							type="text" 
+							name="chassis_no" 
+							placeholder="Chassis No"
+							required
+							[(ngModel)]="chassis_no"
+							ngModel></ion-input>
+						</ion-item>
+						<br><br>
+						<ion-item>
+							<ion-label stacked>Part No:</ion-label>
+							<ion-input 
+							type="text" 
+							name="part_no" 
+							placeholder="Part No"
+							required
+							ngModel></ion-input>
+						</ion-item>
+						<br><br>
+
+						<ion-item>
+						<ion-label stacked>Quantity</ion-label>
+						<ion-input 
+						type="number" 
+						name="quantity" 
+						placeholder="4"
+						required
+						ngModel></ion-input>
+					</ion-item>
+						<br><br>
+
+						<ion-item>
+							<ion-label stacked>Part Description:</ion-label>
+							<ion-textarea name="desc"
+								  placeholder="Part Description"
+								  required
+								  ngModel
+								  required></ion-textarea>
+						</ion-item>
+					</div>
+					<br><br>
+						<button text-center block ion-button color="danger" [disabled]="!f.valid">Request</button>
+					
+					</form>
+
+				</div>
+
+				<br><br>
+				<h6>Spare Pare: {{ sparepart.vehicle_model }}</h6>
+				<hr>
+				<h6>Chasis No: {{ sparepart.chasisno }}</h6>
+				<hr>
+				<h6>Part Description:</h6>
+				{{ sparepart.part_desc }}
+				<br><br><br><br>
+				
+				
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

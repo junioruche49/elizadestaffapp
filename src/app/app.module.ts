@@ -46,6 +46,8 @@ import { VehiclemodelsPage } from '../pages/vehiclemodels/vehiclemodels'
 import { ShowvehiclehomePage } from '../pages/showvehiclehome/showvehiclehome'
 import { ViewvehiclehomePage } from '../pages/viewvehiclehome/viewvehiclehome'
 import { FeedbackhomePage } from '../pages/feedbackhome/feedbackhome'
+import { SparepartPage } from '../pages/sparepart/sparepart'
+import { SpareparthomePage } from '../pages/spareparthome/spareparthome'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -100,7 +102,9 @@ import { LocationProvider } from '../providers/location/location';
     VehiclemodelsPage,
     ShowvehiclehomePage,
     ViewvehiclehomePage,
-    FeedbackhomePage
+    FeedbackhomePage,
+    SparepartPage,
+    SpareparthomePage
   ],
   imports: [
     BrowserModule,
@@ -154,7 +158,9 @@ import { LocationProvider } from '../providers/location/location';
     VehiclemodelsPage,
     ShowvehiclehomePage,
     ViewvehiclehomePage,
-    FeedbackhomePage
+    FeedbackhomePage,
+    SparepartPage,
+    SpareparthomePage
   ],
   providers: [
     StatusBar,
