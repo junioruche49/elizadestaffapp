@@ -83,7 +83,13 @@
 					ngModel 
 					required></ion-datetime>
 			</ion-item>
-			<br />
+			<br>
+			<div padding>
+				<button  color="danger" type="button" (click)="showmodal()" ion-button outline>Select Common Fault</button>
+				<div *ngIf="repair_type" class="desc">
+						<p>{{repair_type}}</p>
+					</div>
+			</div>
 			<br />
 			<ion-item>
 				<h3>Have you persived any issues?</h3>

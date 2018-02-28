@@ -4,6 +4,7 @@ import { SignupPage } from '../signup/signup';
 import { NgForm } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
+import { Home2Page } from '../home2/home2'
 import { User } from '../../models/user.model';
 import { Users } from '../../service/user.service'
 import { AuthPage } from '../../service/authpage'
@@ -44,7 +45,7 @@ export class SigninPage {
 		        console.log(this.user)
 		        this.users.addUser(this.user);
 		        load.dismiss();
-		        this.navCtrl.setRoot(HomePage);
+		        this.navCtrl.setRoot(Home2Page);
 
 		    	},err =>{
 		    		load.dismiss();

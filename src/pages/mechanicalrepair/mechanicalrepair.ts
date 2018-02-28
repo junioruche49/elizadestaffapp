@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, AlertController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, AlertController, LoadingController, ModalController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { User } from '../../models/user.model'
 import { formsService } from '../../service/formsService.service';
@@ -8,6 +8,7 @@ import { mechanicalRepair } from '../../models/mechanicalrepair.model'
 import { Car } from '../../service/cars.service'
 import { Cars } from '../../models/cars.model'
 import { alertData } from '../../models/alertdata.model'
+import { DescriptiontypePage } from '../descriptiontype/descriptiontype'
 
 /**
  * Generated class for the MechanicalrepairPage page.
@@ -31,8 +32,9 @@ export class MechanicalrepairPage {
 	model: string;
 	selectedcar: number;
 	myDate: any = ""
-	selectrepair = "mechanical_repair"
+	selectrepair = "mechanical"
 	@ViewChild('myInput') myInput: ElementRef;
+  repair_type: any;
 
   constructor(public navCtrl: NavController, 
   			  public navParams: NavParams,
@@ -41,7 +43,8 @@ export class MechanicalrepairPage {
   			  public toast: ToastController,
   			  public alertCtrl: AlertController,
   			  public car: Car,
-  			  public loading: LoadingController) {
+  			  public loading: LoadingController,
+          public modal: ModalController) {
 
   }
 
@@ -69,7 +72,7 @@ export class MechanicalrepairPage {
   												year,
   												form.value.repair_type,
   												form.value.service_date,
-  												form.value.percieved,
+  												this.repair_type,
   												form.value.pickup))
   	.subscribe((data: any) => {
   		
@@ -88,7 +91,7 @@ export class MechanicalrepairPage {
   												year,
   												form.value.repair_type,
   												form.value.service_date,
-  												form.value.percieved,
+  												this.repair_type,
   												form.value.pickup));
   		this.navCtrl.pop();
 
@@ -138,11 +141,31 @@ export class MechanicalrepairPage {
 	    alert.present();
 
   }
+
   resize() {
     var element = this.myInput['_elementRef'].nativeElement.getElementsByClassName("text-input")[0];
       var scrollHeight = element.scrollHeight;
       element.style.height = scrollHeight + 'px';
       this.myInput['_elementRef'].nativeElement.style.height = (scrollHeight + 16) + 'px';
 	}
+
+  showmodal(){
+    const modal = this.modal.create(DescriptiontypePage, {type: this.selectrepair});
+    modal.present();
+    modal.onDidDismiss(
+      data => {
+        if (data) {
+          this.repair_type = data.fault
+          console.log(this.repair_type)
+        }
+      }
+      )
+  }
+
+  changevalue(){
+    this.repair_type = '';
+  }
+
+
 
 }

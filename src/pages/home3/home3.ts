@@ -32,7 +32,7 @@ export class Home3Page {
   }
 
   gotoPage(page: any){
-  	this.navCtrl.setRoot(page);
+  	this.navCtrl.push(page);
   }
 
 }

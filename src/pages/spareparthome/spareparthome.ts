@@ -47,7 +47,7 @@ export class SpareparthomePage {
 
   showform(){
   	this.quote = true;
-  }
+  } 
 
   addquotation(form: NgForm){
   	let prompt = this.alertCtrl.create({

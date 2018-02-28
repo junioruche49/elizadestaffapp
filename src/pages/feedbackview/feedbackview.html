@@ -27,4 +27,8 @@
         <hr>
       </ion-col>
     </ion-row>
+    <ion-row text-center *ngIf="feedback.length < 1">
+      <br><br>
+      <h2 text-center>No items</h2>
+    </ion-row>
 </ion-content>

@@ -1,5 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, AlertController, LoadingController } from 'ionic-angular';
+import { IonicPage, 
+         NavController, 
+         NavParams, 
+         ToastController, 
+         AlertController, 
+         LoadingController,
+         ModalController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { User } from '../../models/user.model'
 import { formsService } from '../../service/formsService.service';
@@ -8,6 +14,7 @@ import { Diagnosis } from '../../models/diagnosis.model'
 import { Car } from '../../service/cars.service'
 import { Cars } from '../../models/cars.model'
 import { alertData } from '../../models/alertdata.model'
+import { DescriptiontypePage } from '../descriptiontype/descriptiontype'
 
 
 /**
@@ -33,6 +40,7 @@ export class DiagnosisPage {
 	model: string;
 	selectedcar: number;
 	myDate: any = ""
+  repair_type: any;
 	@ViewChild('myInput') myInput: ElementRef;
 
   constructor(public navCtrl: NavController, 
@@ -42,7 +50,8 @@ export class DiagnosisPage {
   			  public toast: ToastController,
   			  public alertCtrl: AlertController,
   			  public car: Car,
-  			  public loading: LoadingController) {
+  			  public loading: LoadingController,
+          public modal: ModalController) {
   	
   }
 
@@ -144,5 +153,18 @@ export class DiagnosisPage {
       element.style.height = scrollHeight + 'px';
       this.myInput['_elementRef'].nativeElement.style.height = (scrollHeight + 16) + 'px';
 	}
+
+  showmodal(){
+    const modal = this.modal.create(DescriptiontypePage, {type: 'both'});
+    modal.present();
+    modal.onDidDismiss(
+      data => {
+        if (data) {
+          this.repair_type = data.fault
+          console.log(this.repair_type)
+        }
+      }
+      )
+  }
 
 }

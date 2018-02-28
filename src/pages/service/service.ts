@@ -1,5 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, AlertController, LoadingController } from 'ionic-angular';
+import { IonicPage, 
+         NavController, 
+         NavParams, 
+         ToastController, 
+         AlertController, 
+         LoadingController,
+         ModalController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { User } from '../../models/user.model'
 import { formsService } from '../../service/formsService.service';
@@ -9,6 +15,7 @@ import { Car } from '../../service/cars.service'
 import { Cars } from '../../models/cars.model'
 import { alertData } from '../../models/alertdata.model'
 import { ServiceHistory } from '../../models/servicehistory.model'
+import { DescriptiontypePage } from '../descriptiontype/descriptiontype'
 
 /**
  * Generated class for the ServicePage page.
@@ -38,6 +45,7 @@ export class ServicePage {
   mileagetype: any;
   selectservicetype: string;
   selectedtype: any;
+  repair_type: any;
 
   constructor(public navCtrl: NavController,
   			  public navParams: NavParams,
@@ -46,7 +54,8 @@ export class ServicePage {
   			  public toast: ToastController,
   			  public alertCtrl: AlertController,
   			  public car: Car,
-  			  public loading: LoadingController) {
+  			  public loading: LoadingController,
+          public modal: ModalController) {
 
   }
 
@@ -201,6 +210,19 @@ export class ServicePage {
       this.selectedtype = 'D'
     }
 
+  }
+
+  showmodal(){
+    const modal = this.modal.create(DescriptiontypePage, {type: 'both'});
+    modal.present();
+    modal.onDidDismiss(
+      data => {
+        if (data) {
+          this.repair_type = data.fault
+          console.log(this.repair_type)
+        }
+      }
+      )
   }
 
 }

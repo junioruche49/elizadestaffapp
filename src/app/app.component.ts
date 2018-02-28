@@ -61,9 +61,9 @@ export class MyApp {
         loader.dismiss();
         if(user){
           this.users.addUser(user);
-          this.rootPage = HomePage;
+          this.rootPage = Home2Page;
         }else{
-          this.rootPage = SigninPage;
+          this.rootPage = Home3Page;
         }
       }).catch(err => {
         loader.dismiss();
@@ -76,10 +76,7 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage, icon: 'home' },
-      { title: 'Home 2', component: Home1Page, icon: 'home' },
-      { title: 'Home 3', component: Home2Page, icon: 'home' },
-      { title: 'Home 4', component: Home3Page, icon: 'home' },
+      { title: 'Home', component: Home2Page, icon: 'home' },
       { title: 'Appiontments History', component: AppointmentsPage, icon: 'contacts'},
       { title: 'Quotes', component: QuotesPage, icon: 'list-box' },
       { title: 'Service/Repairs History', component: ServicerequestPage, icon: 'construct' },
@@ -116,6 +113,6 @@ export class MyApp {
       console.log(val);
   });
 
-    this.nav.setRoot(SigninPage);
+    this.nav.setRoot(Home3Page);
   }
 }
