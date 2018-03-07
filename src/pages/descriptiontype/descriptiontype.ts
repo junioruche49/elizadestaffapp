@@ -37,7 +37,16 @@ export class DescriptiontypePage {
 		'Vehicle navigation system not working.'
 	]
 
-	both = [
+	electronics = [
+		'Vehicle vibration while driving at 100,000km/hr.',
+		'Vehicle vibration when brake is applied on top speed.',
+		'Vehicle jerking on motion',
+		'Vehicle overheating when driving in traffic.',
+		'AC not cooling only in the afternoon.',
+		'Vehicle navigation system not working.'
+	]
+
+	all = [
 		'Noise from front and rear suspension while driving on rough road',
 		'Noise from front suspension while diving on paving stones',
 		'Noise from front or rear wheel while driving on express road',
@@ -76,8 +85,11 @@ export class DescriptiontypePage {
   	}else if (this.navParams.get('type') == 'electrical') {
   		this.data = this.electrical;
   		this.fault = "ELECTRICAL/A.C."
-  	}else if (this.navParams.get('type') == 'both') {
-  		this.data = this.both;
+  	}else if (this.navParams.get('type') == 'electronics') {
+  		this.data = this.electronics;
+  		this.fault = "Electronics"
+  	}else if (this.navParams.get('type') == 'all') {
+  		this.data = this.all;
   		this.fault = "MECHANICAL AND ELECTRICAL/A.C."
   	}
   }

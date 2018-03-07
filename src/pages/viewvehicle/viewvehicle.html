@@ -62,6 +62,14 @@
 
 					<div *ngIf="call == 'no'" >
 						<ion-item>
+							<ion-label stacked>Chassis/Vin No:</ion-label>
+							<ion-input 
+							type="text" 
+							name="chassis_vin" 
+							required
+							ngModel></ion-input>
+						</ion-item>
+						<ion-item>
 							<ion-label floating>Comment.</ion-label>
 							<ion-textarea 
 							name="comment"

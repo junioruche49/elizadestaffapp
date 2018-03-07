@@ -99,6 +99,7 @@ export class ViewvehiclePage {
 	      			product: this.vehicle.modelId,
 	      			product_type: this.vehicle.vehicle_type,
 	      			comment: form.value.comment,
+	      			chassis_vin: form.value.chassis_vin,
 	      			vehicle_model: this.vehicle.vehicle_model,
 	      			vehicle_year: this.vehicle.vehicle_year,
 	      			vehicle_reg_no: this.vehicle.vehicle_reg_no 

@@ -11,6 +11,7 @@ import { MechanicalrepairPage } from '../mechanicalrepair/mechanicalrepair';
 import { ProductsPage } from '../products/products';
 import { QuotationPage } from '../quotation/quotation';
 import { FeedbackPage } from '../feedback/feedback'
+import { SparepartviewPage } from '../sparepartview/sparepartview'
 
 /**
  * Generated class for the Home2Page page.
@@ -51,6 +52,7 @@ export class Home2Page {
 	feedback = FeedbackPage;
 	data = true;
 	element: any;
+  sparepart = SparepartviewPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

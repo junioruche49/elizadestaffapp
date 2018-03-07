@@ -213,7 +213,7 @@ export class ServicePage {
   }
 
   showmodal(){
-    const modal = this.modal.create(DescriptiontypePage, {type: 'both'});
+    const modal = this.modal.create(DescriptiontypePage, {type: 'all'});
     modal.present();
     modal.onDidDismiss(
       data => {

@@ -5,6 +5,7 @@ export class Quotation{
 				public product: any, 
 				public product_type: string, 
 				public comment?: string,
+				public chassis_vin?: string,
 				public qty?: any,
 				public vehicle_model?: string,
 				public vehicle_year?: string, 
