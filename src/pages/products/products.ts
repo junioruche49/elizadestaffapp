@@ -53,6 +53,10 @@ export class ProductsPage implements OnInit {
   suv: suv[];
   utility: utility[];
   spareparts: Sparepartquotation[];
+  pickups: utility[];
+  buses: utility[];
+  trucks: utility[];
+  certified: utility[];
 
 
   constructor(public navCtrl: NavController, 
@@ -67,6 +71,10 @@ export class ProductsPage implements OnInit {
     this.suv = this.vehicle.suv
     this.utility = this.vehicle.utility
     this.spareparts = this.vehicle.sparepart
+    this.pickups = this.vehicle.pickups
+    this.buses = this.vehicle.buses
+    this.trucks = this.vehicle.trucks
+    this.certified = this.vehicle.certified
     console.log(this.spareparts)
     console.log(this.vehicle.utility)
   // 	let loader = this.loadingCtrl.create({content: "Loading..."});
