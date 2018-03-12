@@ -9,27 +9,95 @@ page-home3 {
 		margin-left: 10px;
 		position: relative;
 		float: left;
-		height: 130px;
-		padding-top: 30px;
+		height: 90px;
+		padding-top: 15px;
 		color: #fff;
 		background-color: #125294;
 		opacity: 0.8;
 		border-radius: 10px;
 		h6{
 			font-size: 14px;
+		padding: 0;
+		margin: 0;
 		}
 	}
 	.column2{
 	float: left;
 		margin-left: 10px;
-		height: 130px;
-		padding-top: 30px;
+		height: 90px;
+		padding-top: 15px;
 		color: #fff;
 		background-color: #9e2c4b;
 		opacity: 0.8;
 		border-radius: 10px;
 		h6{
 			font-size: 14px;
+		padding: 0;
+		margin: 0;
+		}
+	}
+
+	.column3{
+		margin-left: 10px;
+		position: relative;
+		float: left;
+		height: 90px;
+		padding-top: 15px;
+		color: #fff;
+		background-color: #5ab253;
+		opacity: 0.8;
+		border-radius: 10px;
+		h6{
+			font-size: 14px;
+		padding: 0;
+		margin: 0;
+		}
+	}
+	.column4{
+	float: left;
+		margin-left: 10px;
+		height: 90px;
+		padding-top: 15px;
+		color: #fff;
+		background-color: #e75e32;
+		opacity: 0.8;
+		border-radius: 10px;
+		h6{
+			font-size: 14px;
+		padding: 0;
+		margin: 0;
+		}
+	}
+
+	.column5{
+		margin-left: 10px;
+		position: relative;
+		float: left;
+		height: 90px;
+		padding-top: 15px;
+		color: #fff;
+		background-color: #8b5b81;
+		opacity: 0.8;
+		border-radius: 10px;
+		h6{
+			font-size: 14px;
+		padding: 0;
+		margin: 0;
+		}
+	}
+	.column6{
+	float: left;
+		margin-left: 10px;
+		height: 90px;
+		padding-top: 15px;
+		color: #fff;
+		background-color: #5b85b8;
+		opacity: 0.8;
+		border-radius: 10px;
+		h6{
+			font-size: 14px;
+		padding: 0;
+		margin: 0;
 		}
 	}
 
@@ -42,9 +110,14 @@ page-home3 {
 		padding: 10px;
 	}
 	.icon1{
-		font-size: 40px;
+		font-size: 30px;
+		padding-bottom: 5px;
+		margin: 0;
 	}
 	.icon2{
 		font-size: 20px;
+	}
+	.imgheader{
+	width: 100px;
 	}
 }

@@ -4,6 +4,9 @@ import { SignupPage } from '../signup/signup'
 import { SigninPage } from '../signin/signin'
 import { VehiclemodelsPage } from '../vehiclemodels/vehiclemodels'
 import { FeedbackhomePage } from '../feedbackhome/feedbackhome'
+import { SparepartviewPage } from '../sparepartview/sparepartview'
+import { ServicehomePage } from '../servicehome/servicehome'
+import { VehiclerecoveryPage } from '../vehiclerecovery/vehiclerecovery'
 
 /**
  * Generated class for the Home4Page page.
@@ -22,6 +25,9 @@ export class Home3Page {
 	signup = SignupPage
 	vehiclemodel = VehiclemodelsPage
 	feedback = FeedbackhomePage;
+  sparepart = SparepartviewPage;
+  services = ServicehomePage
+  vehiclerecovery = VehiclerecoveryPage
 
   constructor(public navCtrl: NavController, 
   			  public navParams: NavParams) {

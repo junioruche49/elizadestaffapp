@@ -52,6 +52,7 @@ export class DiagnosisPage {
   			  public car: Car,
   			  public loading: LoadingController,
           public modal: ModalController) {
+     this.user = this.users.getUser();
   	
   }
 
@@ -60,7 +61,13 @@ export class DiagnosisPage {
   }
 
   ionViewWillEnter(){
-  	this.cars = this.car.getCars();
+    if (this.user) {
+      // code...
+      this.cars = this.car.getCars();
+    }else{
+      this.cars = []
+    }
+  	
   }
 
   submit(form: NgForm){
@@ -70,7 +77,6 @@ export class DiagnosisPage {
   	loading.present();
 
   	
-  	 this.user = this.users.getUser();
 
   	let year = new Date(form.value.vehicle_year).getFullYear();
 

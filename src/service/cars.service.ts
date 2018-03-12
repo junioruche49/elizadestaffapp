@@ -15,16 +15,19 @@ export class Car{
 
 	constructor(public http: HttpClient, public Users: Users, private storage: Storage){
 		this.User = this.Users.getUser();
-		this.storage.get('cars')
-      .then(cars => {
-      	if (cars) {
-      		this.cars = cars
-      	}else{
-      		this.updatecars(this.User.token);
-      	}
-      	
-      	console.log(this.cars)
-      })
+		if (this.User) {
+			this.storage.get('cars')
+		      .then(cars => {
+		      	if (cars) {
+		      		this.cars = cars
+		      	}else{
+		      		this.updatecars(this.User.token);
+		      	}
+		      	
+		      	console.log(this.cars)
+		      })
+		}
+		
 	}
 
 

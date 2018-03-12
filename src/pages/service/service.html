@@ -25,7 +25,21 @@
 					required
 				[value]="reg_no"></ion-input>
 			</ion-item>
-			<br />
+			<br><br>
+			<ion-item>
+				<h3>What is your Chassis No?</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-input 
+				type="text" 
+				name="chassis" 
+				placeholder="Chassis No"
+				required
+				ngModel
+				[value]="reg_no"></ion-input>
+			</ion-item>
+			<!-- <br />
 			<br />
 			<ion-item>
 				<h3>What is your Vehicle Type?</h3>
@@ -39,7 +53,7 @@
 					ngModel
 					required
 				[value]="type"></ion-input>
-			</ion-item>
+			</ion-item> -->
 			<br />
 			<br />
 			<ion-item>
@@ -55,7 +69,7 @@
 					required
 					[value]="model"></ion-input>
 			</ion-item>
-			<br />
+			<!-- <br />
 			<br />
 			<ion-item>
 				<h3>What is your Vehicle Year?</h3>
@@ -68,7 +82,7 @@
 				name="vehicle_year"
 				 [(ngModel)]="myDate"
 				required></ion-datetime>
-			</ion-item>
+			</ion-item> -->
 			<br />
 			<br />
 			<ion-item>
@@ -105,7 +119,7 @@
 			</ion-item>
 			<br />
 			<br />
-			<ion-item>
+			<!-- <ion-item>
 				<h3>Service Type</h3>
 			</ion-item>
 			<ion-item>
@@ -151,14 +165,14 @@
 			  	<p>Base on your selection we recommend Series {{selectedtype}}</p>
 			  </ion-item>
 			  
-			</ion-list>
-			<div padding>
+			</ion-list> -->
+			<!-- <div padding>
 				<button  color="danger" type="button" (click)="showmodal()" ion-button outline>Select Common Fault</button>
 				<div *ngIf="repair_type" class="desc">
 						<p>{{repair_type}}</p>
 					</div>
 			</div>
-			<br>
+			<br> -->
 			<ion-item>
 				<h3>Have you persived any issues?</h3>
 			</ion-item>
@@ -173,7 +187,7 @@
 			</ion-item>
 			<br />
 			<ion-item>
-				<h3>When would you like to pick up?</h3>
+				<h3>When would you like to drop?</h3>
 			</ion-item>
 			<ion-item>
 				<ion-label floating></ion-label>

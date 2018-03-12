@@ -51,6 +51,10 @@ export class VehiclemodelsPage {
   element: any;
   suv: suv[];
   utility: utility[];
+  pickups: utility[];
+  buses: utility[];
+  trucks: utility[];
+  certified: utility[];
   spareparts: Sparepartquotation[];
 
   constructor(public navCtrl: NavController, 
@@ -62,6 +66,10 @@ export class VehiclemodelsPage {
     this.suv = this.vehicle.suv
     this.utility = this.vehicle.utility
     this.spareparts = this.vehicle.sparepart
+    this.pickups = this.vehicle.pickups
+    this.buses = this.vehicle.buses
+    this.trucks = this.vehicle.trucks
+    this.certified = this.vehicle.certified
   }
 
   ionViewDidLoad() {
@@ -78,10 +86,14 @@ export class VehiclemodelsPage {
       this.element = 'appointment'
     }else if (data == 'repair') {
       this.element = 'repair'
-    }else if (data == 'general') {
-      this.element = 'general'
-    }else if (data == 'spareparts') {
-      this.element = 'spareparts'
+    }else if (data == 'buses') {
+      this.element = 'buses'
+    }else if (data == 'pickups') {
+      this.element = 'pickups'
+    }else if (data == 'trucks') {
+      this.element = 'trucks'
+    }else if (data == 'certified') {
+      this.element = 'certified'
     }
   }
 

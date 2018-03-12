@@ -9,11 +9,14 @@ export class Vehicle{
 	public car: Vehiclemodel[];
 	public suv: suv[];
 	public utility: utility[];
+	public pickups: utility[];
+	public buses: utility[];
+	public trucks: utility[];
+	public certified: utility[];
 	public sparepart: Sparepartquotation[];
 
 	constructor(){
 		this.saloon = [ 
-			new Saloon('1', 'Avanza', 'toyota-avanza-best-car.jpg'),
 			new Saloon('2', 'Avensis', 'day-exterior-27_040.jpg'),
 			new Saloon('7', 'Camry', '2018_toyota_camry_angularfront.jpg'),
 			new Saloon('8', 'Corolla', 'download.jpeg'),
@@ -27,11 +30,28 @@ export class Vehicle{
 			new suv('11', 'Rav4', 'USC70TOS111D021001.png')
 		]
 
-		this.utility = [
-			new utility('5', 'Coaster', '2018_Toyota_Coaster.png'),
-			new utility('6', 'Dyna', 'intro_2.jpg'),
-			new utility('12', 'Hiace', 'hiace.png'),
+		this.pickups = [
 			new utility('13', 'Hilux', 'download.png'),
+			new utility('14', 'Landcruiser 70/Safari Pick up', 'LandCruiser Troop Carrier Workmate french vanilla front 940x529.png')
+		]
+
+		this.buses = [
+			new Saloon('1', 'Avanza', 'toyota-avanza-best-car.jpg'),
+			new utility('12', 'Hiace', 'hiace.png'),
+			new utility('5', 'Coaster', '2018_Toyota_Coaster.png'),
+
+		]
+
+		this.trucks = [
+			new utility('6', 'Dyna', 'intro_2.jpg'),
+		]
+
+		this.certified = [
+			new suv('10', 'Prado', '20131205073612_Toyota Land Cruiser Prado.jpg'),
+
+		]
+
+		this.utility = [
 			new utility('14', 'Landcruiser 70/Safari Pick up', 'LandCruiser Troop Carrier Workmate french vanilla front 940x529.png')
 		]
 
@@ -42,7 +62,7 @@ export class Vehicle{
 			new Vehiclemodel('2', '2232301', 'toyota', 'Avensis 1.3 MT', 2012, 'avensis1.jpg', 'avensis2.jpg', 'avensis3.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.'),
 			new Vehiclemodel('1', '223239', 'toyota', 'Avanza', 2013, 'avanza3.png', 'avanza1.jpg', 'avanza2.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.'),
 			new Vehiclemodel('2', '223232', 'toyota', 'Avensis 1.3 MT', 2012, 'avensis3.jpg', 'avensis2.jpg', 'avensis1.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.'),
-			new Vehiclemodel('3', '223231', 'toyota', 'Fortuner', 2013, 'fortuner2.png', 'fortuner1.jpg', 'fortuner3.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.'),
+			new Vehiclemodel('3', '223231', 'toyota', 'Fortuner', 2013, 'fortuner1.jpg', 'fortuner1.jpg', 'fortuner1.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.'),
 			new Vehiclemodel('4', '223233', 'toyota', 'Land Cruiser', 2013, 'landcruiser2.png', 'landcruiser1.jpeg', 'landcruiser3.png', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),
 			new Vehiclemodel('3', '223234', 'toyota', 'Fortuner', 207, 'fortuner6.png', 'fortuner4.jpg', 'fortuner5.jpg', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.'),
 			new Vehiclemodel('4', '223235', 'toyota', 'Land Cruiser', 2015, 'landcruiser5.png', 'landcruiser4.jpg', 'landcruiser6.png', '1.5 Litre Engine, 4-Speed Automatic Transmission, Radio & CD Player, Alloy Rims, Airbags, Fog Lamps, Keyless Entry, Power Windows, Power Door Locks, Power steering, 7-seater, Fabric Seats, Air conditioner, Petrol Engine Safety: Airbags, Power Door Locks Comfort: Radio & CD Player, Keyless Entry, Power Steering, 7-seater, Fabric Seats.' ),

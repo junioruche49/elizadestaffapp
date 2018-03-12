@@ -50,6 +50,9 @@ import { SparepartPage } from '../pages/sparepart/sparepart'
 import { SpareparthomePage } from '../pages/spareparthome/spareparthome'
 import { DescriptiontypePage } from '../pages/descriptiontype/descriptiontype'
 import { SparepartviewPage } from '../pages/sparepartview/sparepartview'
+import { ServicehomePage } from '../pages/servicehome/servicehome'
+import { MaintenancePage } from '../pages/maintenance/maintenance'
+import { VehiclerecoveryPage } from '../pages/vehiclerecovery/vehiclerecovery'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -108,7 +111,10 @@ import { LocationProvider } from '../providers/location/location';
     SparepartPage,
     SpareparthomePage,
     DescriptiontypePage,
-    SparepartviewPage
+    SparepartviewPage,
+    ServicehomePage,
+    MaintenancePage,
+    VehiclerecoveryPage
   ],
   imports: [
     BrowserModule,
@@ -166,7 +172,10 @@ import { LocationProvider } from '../providers/location/location';
     SparepartPage,
     SpareparthomePage,
     DescriptiontypePage,
-    SparepartviewPage
+    SparepartviewPage,
+    ServicehomePage,
+    MaintenancePage,
+    VehiclerecoveryPage
   ],
   providers: [
     StatusBar,

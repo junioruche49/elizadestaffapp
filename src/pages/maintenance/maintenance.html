@@ -1,7 +1,13 @@
+<!--
+  Generated template for the MaintenancePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>Body Work</ion-title>
+    <ion-title>Maintenance</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,12 +24,12 @@
 			<ion-item>
 				<ion-label floating></ion-label>
 				<ion-input 
-					type="text" 
-					name="reg_no" 
-					placeholder="Vehicle Registration No"
-					ngModel
-					required
-					[value]="reg_no"></ion-input>
+				type="text" 
+				name="reg_no" 
+				placeholder="Vehicle Registration No"
+				required
+				ngModel
+				[value]="reg_no"></ion-input>
 			</ion-item>
 			<br><br>
 			<ion-item>
@@ -47,12 +53,12 @@
 			<ion-item>
 				<ion-label floating></ion-label>
 				<ion-input 
-					type="text" 
-					name="vehicle_type" 
-					placeholder="Vehicle Type"
-					ngModel
-					required
-					[value]="type"></ion-input>
+				type="text" 
+				name="vehicle_type" 
+				placeholder="Vehicle Type"
+				required
+				ngModel
+				[value]="type"></ion-input>
 			</ion-item> -->
 			<br />
 			<br />
@@ -62,12 +68,12 @@
 			<ion-item>
 				<ion-label floating></ion-label>
 				<ion-input 
-					type="text" 
-					name="vehicle_model" 
-					placeholder="Vehicle Model"
-					ngModel
-					required
-					[value]="model"></ion-input>
+				type="text" 
+				name="vehicle_model" 
+				placeholder="Vehicle Model"
+				required
+				ngModel
+				[value]="model"></ion-input>
 			</ion-item>
 			<!-- <br />
 			<br />
@@ -77,50 +83,42 @@
 			<ion-item>
 				<ion-label floating></ion-label>
 				<ion-datetime 
-					displayFormat="YYYY"  
-					placeholder="Vehicle Year"
-					name="vehicle_year"
-					required
-				 [(ngModel)]="myDate"></ion-datetime>
+				displayFormat="YYYY" 
+				placeholder="Select Year"
+				name="vehicle_year"
+				 [(ngModel)]="myDate"
+				required></ion-datetime>
 			</ion-item> -->
 			<br />
 			<br />
-		</ion-list>
-			<ion-list radio-group 
-					ngModel
-					required
-					[(ngModel)]="bodywork"
-					name="bodywork">
-			  <ion-list-header class='line'>
-			    <h3 class="call" color="dark">Select Body Work Type</h3>
-			  </ion-list-header>
-
-			  <ion-item>
-			    <ion-label>Full Body</ion-label>
-			    <ion-radio checked="true" value="full"></ion-radio>
-			  </ion-item>
-
-			  <ion-item>
-			    <ion-label>Partial Body</ion-label>
-			    <ion-radio value="partial" ></ion-radio>
-			  </ion-item>
-
-			</ion-list>
-			<div *ngIf="bodywork != 'full'">
-				<ion-item>
-					<h3>What part of the car would you like to change?</h3>
-				</ion-item>
-				<ion-item>
-					<ion-label floating></ion-label>
-					<ion-textarea 
-					name="partial_option" 
-					placeholder="Headlights"
+			<ion-item>
+				<h3>When was the last time you serviced your car</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-datetime 
+					displayFormat="MMM DD, YYYY"
+					placeholder="Select Date"
+					name="service_date" 
 					ngModel 
-					required
-					#myInput
-					(keyup)="resize()"></ion-textarea>
-				</ion-item>
-			</div>
+					required></ion-datetime>
+			</ion-item>
+			
+			
+			<br />
+			<ion-item>
+				<h3>Have you persived any issues?</h3>
+			</ion-item>
+			<ion-item>
+				<ion-label floating></ion-label>
+				<ion-textarea 
+				name="percieved" 
+				placeholder="Percieved Issue"
+				ngModel 
+				required
+				#myInput
+				(keyup)="resize()"></ion-textarea>
+			</ion-item>
 			<br />
 			<br />
 			<ion-item>
@@ -135,13 +133,10 @@
 					required
 					ngModel></ion-datetime>
 			</ion-item>
-			
+		</ion-list>
+
 			<br />
-		<button 
-		color="danger" 
-		ion-button 
-		block
-		[disabled]="!f.valid">Send</button>
+		<button color="danger" ion-button block [disabled]="!f.valid || !repair_type">Send</button>
 	</form>
 	
 </ion-content>

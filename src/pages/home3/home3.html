@@ -1,19 +1,45 @@
 <ion-content class="backgroundimg">
 	<ion-row>
-		<ion-col col-12>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<ion-col col-12 text-center>
+			<img src="assets/imgs/elizadetoyota.png" class='imgheader'>
+			<br><br><br><br>
 		</ion-col>
 		
 		<ion-col col-1></ion-col>
 		<ion-col col-11 text-center>
-			<ion-col col-5 class="column1" [navPush]="vehiclemodel">
-				<ion-icon name="car" class='icon1'></ion-icon>
-				<h6>Vehicle<br> Models</h6>
-			</ion-col>
-			<ion-col col-5 class="column2" [navPush]="feedback">
-				<ion-icon name="chatbubbles" class='icon1'></ion-icon>
-				<h6>Feedback</h6>
-			</ion-col>
+			<ion-row style="margin-bottom: 10px">
+				<ion-col col-5 class="column1" [navPush]="vehiclemodel">
+					<ion-icon name="stats" class='icon1'></ion-icon>
+					<h6>Sales</h6>
+				</ion-col>
+				<ion-col col-5 class="column2" [navPush]="services">
+					<ion-icon name="construct" class='icon1'></ion-icon>
+					<h6>Services</h6>
+				</ion-col>
+			</ion-row>
+			
+			<ion-row style="margin-bottom: 10px">
+				<ion-col col-5 class="column3" [navPush]="sparepart">
+					<ion-icon name="cog" class='icon1'></ion-icon>
+					<h6>Spare Parts</h6>
+				</ion-col>
+				<ion-col col-5 class="column4">
+					<ion-icon ios="ios-share" md="md-share" class='icon1'></ion-icon>
+					<h6>Other Offerings</h6>
+				</ion-col>
+			</ion-row>
+			
+			<ion-row style="margin-bottom: 10px">
+				<ion-col col-5 class="column5" [navPush]="vehiclerecovery">
+					<ion-icon name="car" class='icon1'></ion-icon>
+					<h6>Vehicle Recovery</h6>
+				</ion-col>
+				<ion-col col-5 class="column6" [navPush]="feedback">
+					<ion-icon name="chatbubbles" class='icon1'></ion-icon>
+					<h6>Feedback</h6>
+				</ion-col>
+			</ion-row>
+			
 		</ion-col>
 	</ion-row>
 

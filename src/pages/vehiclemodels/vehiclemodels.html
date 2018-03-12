@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="danger">
-    <ion-title>Vehicle Models</ion-title>
+    <ion-title>Sales</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -49,7 +49,7 @@
   </ion-row>
   <ion-row>
     <ion-col class='bdstyle2' (click)="showdetail('repair')">
-        <h2>SUV</h2>
+        <h2>Suvs</h2>
     </ion-col>
 
     <ion-card *ngIf="element == 'repair'" [@enterAnimation]>
@@ -83,19 +83,19 @@
 
   </ion-row>
   <ion-row>
-    <ion-col class='bdstyle3' (click)="showdetail('general')">
-        <h2>Utility Vehicle</h2>
+    <ion-col class='bdstyle3' (click)="showdetail('buses')">
+        <h2>Buses</h2>
     </ion-col>
 
-    <ion-card  *ngIf="element == 'general'" [@enterAnimation]>
+    <ion-card  *ngIf="element == 'buses'" [@enterAnimation]>
 
-    	<ion-row (click)="showvehicle(utilitycar.id)" *ngFor="let utilitycar of utility">
+    	<ion-row (click)="showvehicle(bus.id)" *ngFor="let bus of buses">
     		<ion-col col-3>
-				<img [src]="'assets/imgs/'+utilitycar.img">
+				<img [src]="'assets/imgs/'+bus.img">
 			</ion-col>
 			<ion-col col-7>
 				<br>
-			{{utilitycar.name}}
+			{{bus.name}}
 			</ion-col>
 			<ion-col col-2>
 				<br>
@@ -112,6 +112,93 @@
   </ion-row>
 
   <ion-row>
+    <ion-col class='bdstyle4' (click)="showdetail('pickups')">
+        <h2>Pickups</h2>
+    </ion-col>
+
+    <ion-card  *ngIf="element == 'pickups'" [@enterAnimation]>
+
+      <ion-row (click)="showvehicle(pickup.id)" *ngFor="let pickup of pickups">
+        <ion-col col-3>
+        <img [src]="'assets/imgs/'+pickup.img">
+      </ion-col>
+      <ion-col col-7>
+        <br>
+      {{pickup.name}}
+      </ion-col>
+      <ion-col col-2>
+        <br>
+          <ion-icon name="arrow-round-forward"></ion-icon>
+      </ion-col>
+      <ion-col col-12>
+        <hr>
+      </ion-col>
+      </ion-row>
+
+      
+    </ion-card>
+
+  </ion-row>
+
+  <ion-row>
+    <ion-col class='bdstyle5' (click)="showdetail('trucks')">
+        <h2>Trucks</h2>
+    </ion-col>
+
+    <ion-card  *ngIf="element == 'trucks'" [@enterAnimation]>
+
+      <ion-row (click)="showvehicle(truck.id)" *ngFor="let truck of trucks">
+        <ion-col col-3>
+        <img [src]="'assets/imgs/'+truck.img">
+      </ion-col>
+      <ion-col col-7>
+        <br>
+      {{truck.name}}
+      </ion-col>
+      <ion-col col-2>
+        <br>
+          <ion-icon name="arrow-round-forward"></ion-icon>
+      </ion-col>
+      <ion-col col-12>
+        <hr>
+      </ion-col>
+      </ion-row>
+
+      
+    </ion-card>
+
+  </ion-row>
+
+  <ion-row>
+    <ion-col class='bdstyle6' (click)="showdetail('certified')">
+        <h2>Certified Used</h2>
+    </ion-col>
+
+    <ion-card  *ngIf="element == 'certified'" [@enterAnimation]>
+
+      <ion-row (click)="showvehicle(cert.id)" *ngFor="let cert of certified">
+        <ion-col col-3>
+        <img [src]="'assets/imgs/'+cert.img">
+      </ion-col>
+      <ion-col col-7>
+        <br>
+      {{cert.name}}
+      </ion-col>
+      <ion-col col-2>
+        <br>
+          <ion-icon name="arrow-round-forward"></ion-icon>
+      </ion-col>
+      <ion-col col-12>
+        <hr>
+      </ion-col>
+      </ion-row>
+
+      
+    </ion-card>
+
+  </ion-row>
+
+  <!-- <ion-row>
     <ion-col class='bdstyle4' (click)="showdetail('spareparts')">
         <h2>Spare Part</h2>
     </ion-col>
@@ -138,5 +225,5 @@
       
     </ion-card>
 
-  </ion-row>
+  </ion-row> -->
 </ion-content>

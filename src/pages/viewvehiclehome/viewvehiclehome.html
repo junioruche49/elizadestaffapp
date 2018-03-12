@@ -27,26 +27,26 @@
 
 				<div *ngIf="quote">
 					<form (ngSubmit)="addquotation(f)" #f="ngForm">
-					<ion-list radio-group 
+					<!-- <ion-list radio-group 
 				  		name="callrequest"
 				  		required
 				  		[(ngModel)]="call">
 					  <ion-list-header>
 					    <h3 class="call">Options</h3>
-					  </ion-list-header>
+					  </ion-list-header> -->
 
-					  <ion-item>
+					  <!-- <ion-item>
 					    <ion-label>Purchase</ion-label>
 					    <ion-radio checked="true" value="yes"></ion-radio>
-					  </ion-item>
-
+					  </ion-item> -->
+<!-- 
 					  <ion-item>
 					    <ion-label>Maintenance</ion-label>
 					    <ion-radio value="no"></ion-radio>
-					  </ion-item>
+					  </ion-item> -->
 
-					</ion-list>
-					<div *ngIf="call == 'yes'" >
+					<!-- </ion-list> -->
+					<!-- <div *ngIf="call == 'yes'" > -->
 						<ion-item>
 								<ion-label stacked>Quantity</ion-label>
 								<ion-input 
@@ -58,9 +58,9 @@
 								[value]="model"></ion-input>
 							</ion-item>
 							
-					</div>
+					<!-- </div> -->
 
-					<div *ngIf="call == 'no'" >
+					<!-- <div *ngIf="call == 'no'" >
 						<ion-item>
 							<ion-label stacked>Chassis/Vin No:</ion-label>
 							<ion-input 
@@ -76,7 +76,7 @@
 							required
 							ngModel></ion-textarea>
 						</ion-item>
-					</div>
+					</div> -->
 					<br><br>
 						<button text-center block ion-button color="danger" [disabled]="!f.valid">Request</button>
 					
@@ -87,11 +87,7 @@
 				<br><br>
 				<h6>Vehicle Model: {{ vehicle.vehicle_model }}</h6>
 				<hr>
-				<h6>Vehicle Type: {{ vehicle.vehicle_type }}</h6>
-				<hr>
-				<h6>Vehicle Year: {{ vehicle.vehicle_year }}</h6>
-				<hr>
-				<h6>Standard Feature:</h6>
+				<h6>Vehicle Specification:</h6>
 				{{ vehicle.standard_feature }}
 				<br><br><br><br>
 				
