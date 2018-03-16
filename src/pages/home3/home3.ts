@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 import { SignupPage } from '../signup/signup'
 import { SigninPage } from '../signin/signin'
 import { VehiclemodelsPage } from '../vehiclemodels/vehiclemodels'
@@ -7,6 +7,7 @@ import { FeedbackhomePage } from '../feedbackhome/feedbackhome'
 import { SparepartviewPage } from '../sparepartview/sparepartview'
 import { ServicehomePage } from '../servicehome/servicehome'
 import { VehiclerecoveryPage } from '../vehiclerecovery/vehiclerecovery'
+import { OtherofferingPage } from '../otheroffering/otheroffering'
 
 /**
  * Generated class for the Home4Page page.
@@ -28,9 +29,11 @@ export class Home3Page {
   sparepart = SparepartviewPage;
   services = ServicehomePage
   vehiclerecovery = VehiclerecoveryPage
+  otheroffering = OtherofferingPage
 
   constructor(public navCtrl: NavController, 
-  			  public navParams: NavParams) {
+  			  public navParams: NavParams,
+          public popoverCtrl: PopoverController) {
   }
 
   ionViewDidLoad() {
@@ -39,6 +42,20 @@ export class Home3Page {
 
   gotoPage(page: any){
   	this.navCtrl.push(page);
+  }
+
+  presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create(ServicehomePage);
+    popover.present({
+      ev: myEvent
+    });
+  }
+
+  presentPopover2(myEvent){
+    let popover = this.popoverCtrl.create(OtherofferingPage);
+    popover.present({
+      ev: myEvent
+    });
   }
 
 }

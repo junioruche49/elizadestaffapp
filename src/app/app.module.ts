@@ -53,6 +53,10 @@ import { SparepartviewPage } from '../pages/sparepartview/sparepartview'
 import { ServicehomePage } from '../pages/servicehome/servicehome'
 import { MaintenancePage } from '../pages/maintenance/maintenance'
 import { VehiclerecoveryPage } from '../pages/vehiclerecovery/vehiclerecovery'
+import { OtherofferingPage } from '../pages/otheroffering/otheroffering'
+import { EarlybirdservicePage } from '../pages/earlybirdservice/earlybirdservice'
+import { TyreservicePage } from '../pages/tyreservice/tyreservice'
+import { MobileworkshopPage } from '../pages/mobileworkshop/mobileworkshop'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -114,7 +118,11 @@ import { LocationProvider } from '../providers/location/location';
     SparepartviewPage,
     ServicehomePage,
     MaintenancePage,
-    VehiclerecoveryPage
+    VehiclerecoveryPage,
+    OtherofferingPage,
+    EarlybirdservicePage,
+    TyreservicePage,
+    MobileworkshopPage
   ],
   imports: [
     BrowserModule,
@@ -175,7 +183,11 @@ import { LocationProvider } from '../providers/location/location';
     SparepartviewPage,
     ServicehomePage,
     MaintenancePage,
-    VehiclerecoveryPage
+    VehiclerecoveryPage,
+    OtherofferingPage,
+    EarlybirdservicePage,
+    TyreservicePage,
+    MobileworkshopPage
   ],
   providers: [
     StatusBar,

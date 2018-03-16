@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { DiagnosisPage } from '../diagnosis/diagnosis';
 import { BodyworkPage } from '../bodywork/bodywork';
 import { ServicePage } from '../service/service';
@@ -25,11 +25,17 @@ export class ServicehomePage {
 	mechanicalrepair = MechanicalrepairPage;
 	MaintenancePage = MaintenancePage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ServicehomePage');
+  }
+
+  close() {
+    this.viewCtrl.dismiss();
   }
 
 }

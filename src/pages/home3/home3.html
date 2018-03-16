@@ -12,7 +12,7 @@
 					<ion-icon name="stats" class='icon1'></ion-icon>
 					<h6>Sales</h6>
 				</ion-col>
-				<ion-col col-5 class="column2" [navPush]="services">
+				<ion-col col-5 class="column2" (click)="presentPopover($event)">
 					<ion-icon name="construct" class='icon1'></ion-icon>
 					<h6>Services</h6>
 				</ion-col>
@@ -23,7 +23,7 @@
 					<ion-icon name="cog" class='icon1'></ion-icon>
 					<h6>Spare Parts</h6>
 				</ion-col>
-				<ion-col col-5 class="column4">
+				<ion-col col-5 class="column4" (click)="presentPopover2($event)">
 					<ion-icon ios="ios-share" md="md-share" class='icon1'></ion-icon>
 					<h6>Other Offerings</h6>
 				</ion-col>
